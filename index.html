@@ -598,6 +598,27 @@
       margin: 1.2rem auto;
     }
 
+
+    /* Lounging Aahil on hero */
+    .hero-lounging {
+      position: absolute;
+      bottom: 0;
+      right: 2vw;
+      width: clamp(260px, 35vw, 440px);
+      z-index: 3;
+      pointer-events: none;
+      opacity: 0;
+      animation: fadeUp 1s 1.2s forwards;
+      filter: drop-shadow(-8px 0px 18px rgba(26,15,62,0.85));
+    }
+    .hero-lounging img {
+      width: 100%;
+      display: block;
+      border-radius: 0;
+      mix-blend-mode: screen;
+      opacity: 0.97;
+    }
+
     /* ── ANIMATIONS ── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(24px); }
@@ -651,6 +672,9 @@
       <p class="hero-office">Candidate for President</p>
       <p class="hero-tagline">"Always ready to say <em>Salve</em>, bringing new ideas, new energy, and a stronger MassJCL."</p>
       <a href="#platform" class="hero-btn">Explore the Platform</a>
+    </div>
+    <div class="hero-lounging">
+      <img src="Aahil-latingear-cropped.png" alt="Aahil in Roman attire" />
     </div>
     <div class="hero-scroll">Scroll</div>
   </section>
@@ -747,7 +771,7 @@
       <div class="divider"><span class="divider-icon">✦</span></div>
       <div style="text-align:center; margin-bottom:2.5rem;">
         <div class="latin-cameo" style="width:110px;height:110px;display:inline-block;">
-          <img src="Aahil-latingear.jpeg" alt="Aahil in Roman attire" style="width:110px;height:130px;object-fit:cover;object-position:center top;" />
+          <img src="Aahil-latingear-cropped.png" alt="Aahil in Roman attire" style="width:110px;height:130px;object-fit:cover;object-position:center top;" />
         </div>
       </div>
 
@@ -803,7 +827,7 @@
     <div class="pullquote">
       <div style="display:flex;justify-content:center;margin-bottom:1.5rem;">
         <div class="latin-cameo" style="width:90px;height:90px;">
-          <img src="Aahil-latingear.jpeg" alt="Aahil Hasan" style="width:90px;height:110px;object-fit:cover;object-position:center top;" />
+          <img src="Aahil-latingear-cropped.png" alt="Aahil Hasan" style="width:90px;height:110px;object-fit:cover;object-position:center top;" />
         </div>
       </div>
       <span class="pullquote-mark">"</span>
