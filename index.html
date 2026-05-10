@@ -617,6 +617,17 @@
       .platform-grid { grid-template-columns: 1fr; }
       .why-columns { grid-template-columns: 1fr; gap: 2rem; }
     }
+
+    .latin-cameo {
+      display: inline-block;
+      position: relative;
+      border: 3px solid var(--gold);
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 0 0 4px var(--purple-dark), 0 0 0 7px var(--gold);
+      flex-shrink: 0;
+    }
+    .latin-cameo img { display: block; }
   </style>
 </head>
 <body>
@@ -659,8 +670,7 @@
       <div class="about-grid">
         <div class="about-portrait">
           <div class="portrait-frame">
-            <span class="portrait-initials">AH</span>
-            <span class="portrait-placeholder-text">Photo coming soon</span>
+            <img src="Aahil-prom.jpeg" alt="Aahil Hasan" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;" />
           </div>
           <div class="portrait-corner tl"></div>
           <div class="portrait-corner tr"></div>
@@ -735,6 +745,11 @@
       <p class="section-label">Cur Ego</p>
       <h2 class="section-title">Why Aahil?</h2>
       <div class="divider"><span class="divider-icon">✦</span></div>
+      <div style="text-align:center; margin-bottom:2.5rem;">
+        <div class="latin-cameo" style="width:110px;height:110px;display:inline-block;">
+          <img src="Aahil-latingear.jpeg" alt="Aahil in Roman attire" style="width:110px;height:130px;object-fit:cover;object-position:center top;" />
+        </div>
+      </div>
 
       <div class="why-columns">
         <div class="why-item">
@@ -786,6 +801,11 @@
   <!-- PULLQUOTE -->
   <section id="quote">
     <div class="pullquote">
+      <div style="display:flex;justify-content:center;margin-bottom:1.5rem;">
+        <div class="latin-cameo" style="width:90px;height:90px;">
+          <img src="Aahil-latingear.jpeg" alt="Aahil Hasan" style="width:90px;height:110px;object-fit:cover;object-position:center top;" />
+        </div>
+      </div>
       <span class="pullquote-mark">"</span>
       <p>I want to be your president because I want to be a leader in what I have learned to love as a second family. I want to be YOUR president.</p>
       <cite>Aahil Hasan, Candidate for MassJCL President · Gratias vobis ago</cite>
