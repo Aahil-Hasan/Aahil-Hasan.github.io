@@ -550,6 +550,198 @@
       .platform-grid { grid-template-columns: 1fr; }
       .why-columns { grid-template-columns: 1fr; gap: 2rem; }
     }
+
+    /* ================= RIDDLES SECTION ================= */
+
+    #riddles {
+      background: var(--cream-dark);
+    }
+
+    .riddle-container {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .riddle-card {
+      background: var(--white);
+      border: 1px solid rgba(201,162,39,0.35);
+      padding: 2.5rem;
+      margin-top: 2rem;
+      box-shadow: 0 12px 30px rgba(26,15,62,0.08);
+    }
+
+    .riddle-num {
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      margin-bottom: 1.5rem;
+    }
+
+    .riddle-q {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      color: var(--purple);
+      margin-bottom: 2rem;
+      line-height: 1.5;
+    }
+
+    .riddle-input-row {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .riddle-input {
+      flex: 1;
+      padding: 0.9rem 1rem;
+      font-family: 'Lato', sans-serif;
+      border: 1px solid rgba(201,162,39,0.4);
+      background: var(--cream);
+      outline: none;
+    }
+
+    .riddle-input:focus {
+      border-color: var(--gold);
+    }
+
+    .riddle-submit {
+      background: var(--purple);
+      color: var(--gold);
+      border: none;
+      padding: 0 1.5rem;
+      font-family: 'Cinzel', serif;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .riddle-submit:hover {
+      background: var(--purple-mid);
+    }
+
+    .riddle-hint-btn {
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      background: transparent;
+      border: 1px solid var(--gold);
+      color: var(--purple);
+      padding: 0.6rem 1rem;
+      cursor: pointer;
+      margin-top: 0.5rem;
+    }
+
+    .riddle-hint {
+      margin-top: 1rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      color: var(--text-mid);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .riddle-hint.show {
+      opacity: 1;
+    }
+
+    .riddle-feedback {
+      margin-top: 1rem;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.95rem;
+    }
+
+    .riddle-feedback.correct {
+      color: #2e7d32;
+    }
+
+    .riddle-feedback.wrong {
+      color: #a32d2d;
+    }
+
+    .riddle-next {
+      margin-top: 1.5rem;
+      display: none;
+      background: var(--gold);
+      border: none;
+      padding: 0.8rem 1.5rem;
+      font-family: 'Cinzel', serif;
+      cursor: pointer;
+    }
+
+    .riddle-next:hover {
+      background: var(--gold-light);
+    }
+
+    /* progress pips */
+    .riddle-progress {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .riddle-pip {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(201,162,39,0.3);
+    }
+
+    .riddle-pip.active {
+      background: var(--gold);
+    }
+
+    .riddle-pip.done {
+      background: var(--purple);
+    }
+
+    /* finale screen */
+    .riddle-finale {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 2rem;
+      padding: 2.5rem;
+      background: var(--white);
+      border: 1px solid rgba(201,162,39,0.35);
+    }
+
+    .finale-score {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      color: var(--purple);
+    }
+
+    .finale-score span {
+      font-size: 1rem;
+      color: var(--gold-dim);
+    }
+
+    .finale-title {
+      font-family: 'Cinzel', serif;
+      margin-top: 0.5rem;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+    }
+
+    .finale-msg {
+      margin-top: 1rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      text-align: center;
+    }
+
+    .finale-restart {
+      margin-top: 1.5rem;
+      background: var(--purple);
+      color: var(--gold);
+      border: none;
+      padding: 0.8rem 1.5rem;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -739,6 +931,95 @@
     </div>
   </section>
 
+  <section id="riddles">
+  <div class="container">
+    <p class="section-label">Aenigmata Romana</p>
+    <h2 class="section-title">The MassJCL Riddle Challenge</h2>
+    <div class="divider"><span class="divider-icon">✦</span></div>
+
+    <div class="riddle-container">
+
+      <!-- Progress bars -->
+      <div class="riddle-progress" id="riddle-pips"></div>
+
+      <!-- Main riddle card -->
+      <div class="riddle-card" id="riddle-main">
+
+        <div class="riddle-num" id="riddle-num">
+          Riddle I of V
+        </div>
+
+        <div class="riddle-q" id="riddle-q">
+          Loading riddle...
+        </div>
+
+        <div class="riddle-input-row">
+          <input
+            type="text"
+            id="riddle-input"
+            class="riddle-input"
+            placeholder="Your answer..."
+          />
+
+          <button
+            class="riddle-submit"
+            id="riddle-submit"
+            onclick="checkRiddle()"
+          >
+            Submit
+          </button>
+        </div>
+
+        <button
+          class="riddle-hint-btn"
+          id="riddle-hint-btn"
+          onclick="showHint()"
+        >
+          Need a Hint?
+        </button>
+
+        <div class="riddle-hint" id="riddle-hint"></div>
+
+        <div class="riddle-feedback" id="riddle-feedback"></div>
+
+        <button
+          class="riddle-next"
+          id="riddle-next"
+          onclick="nextRiddle()"
+        >
+          Next Riddle →
+        </button>
+
+      </div>
+
+      <!-- Finale -->
+      <div class="riddle-finale" id="riddle-finale">
+
+        <div class="finale-score" id="finale-score">
+          5<span>/5</span>
+        </div>
+
+        <div class="finale-title" id="finale-title">
+          Imperator
+        </div>
+
+        <div class="finale-msg" id="finale-msg">
+          Extraordinary! You think like a Roman.
+        </div>
+
+        <button
+          class="finale-restart"
+          onclick="restartRiddles()"
+        >
+          Try Again
+        </button>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
   <section id="contact">
     <div class="container">
       <div class="contact-inner">
@@ -767,8 +1048,295 @@
     <div class="footer-divider"></div>
     <div class="footer-sub">Massachusetts Junior Classical League</div>
   </footer>
-
+  
   <script>
+    /* ================= RIDDLES ================= */
+
+    const RIDDLES = [
+
+      {
+        q: "I am the month named for the god of war, the month that once began the Roman year. Soldiers march in my cold winds. What month am I?",
+        answers: ["march", "martius"],
+        hint: "Think of the Roman god Mars.",
+        explanation: "March (Martius) was named for Mars, god of war."
+      },
+
+      {
+        q: "I have cities but no houses, mountains but no trees, water but no fish, and roads but no cars. What am I?",
+        answers: ["map", "a map"],
+        hint: "Roman generals relied on me.",
+        explanation: "A map."
+      },
+
+      {
+        q: "I am spoken every time you say the days of the week. I have seven brothers, each a heavenly body. The Romans named us all. What am I?",
+        answers: ["planet", "sun", "moon", "star"],
+        hint: "Think celestial.",
+        explanation: "The days of the week are named after celestial bodies."
+      },
+
+      {
+        q: "I am the structure that brought water to Roman cities across mountains and valleys. What am I?",
+        answers: ["aqueduct", "aquaeductus", "an aqueduct"],
+        hint: "Aqua means water.",
+        explanation: "An aqueduct."
+      },
+
+      {
+        q: "I am what every JCL member fears in competition and craves in victory. I am asked in Latin, answered in knowledge, and won in speed. What am I?",
+        answers: ["certamen"],
+        hint: "Aahil captains this.",
+        explanation: "Certamen."
+      }
+
+    ];
+
+    let current = 0;
+    let score = 0;
+    let answered = false;
+
+    function buildPips() {
+
+      const pips = document.getElementById('riddle-pips');
+
+      if (!pips) return;
+
+      pips.innerHTML = '';
+
+      RIDDLES.forEach((_, i) => {
+
+        const pip = document.createElement('div');
+
+        pip.className =
+          'riddle-pip' +
+          (i === current
+            ? ' active'
+            : (i < current ? ' done' : ''));
+
+        pips.appendChild(pip);
+
+      });
+
+    }
+
+    function loadRiddle() {
+
+      answered = false;
+
+      const r = RIDDLES[current];
+
+      document.getElementById('riddle-num').textContent =
+        `Riddle ${toRoman(current + 1)} of V`;
+
+      document.getElementById('riddle-q').textContent =
+        r.q;
+
+      document.getElementById('riddle-input').value = '';
+
+      document.getElementById('riddle-input').disabled = false;
+
+      document.getElementById('riddle-submit').disabled = false;
+
+      document.getElementById('riddle-feedback').textContent = '';
+
+      document.getElementById('riddle-feedback').className =
+        'riddle-feedback';
+
+      document.getElementById('riddle-hint').textContent = '';
+
+      document.getElementById('riddle-hint').className =
+        'riddle-hint';
+
+      document.getElementById('riddle-next').style.display =
+        'none';
+
+      document.getElementById('riddle-hint-btn').style.display =
+        'inline';
+
+      buildPips();
+
+    }
+
+    function toRoman(n) {
+
+      return ['I', 'II', 'III', 'IV', 'V'][n - 1];
+
+    }
+
+    function showHint() {
+
+      const hint =
+        document.getElementById('riddle-hint');
+
+      hint.textContent =
+        RIDDLES[current].hint;
+
+      hint.classList.add('show');
+
+      document.getElementById('riddle-hint-btn')
+        .style.display = 'none';
+
+    }
+
+    function checkRiddle() {
+
+      if (answered) return;
+
+      const input =
+        document.getElementById('riddle-input')
+          .value
+          .trim()
+          .toLowerCase();
+
+      if (!input) return;
+
+      answered = true;
+
+      const r = RIDDLES[current];
+
+      const correct = r.answers.some(a =>
+        input === a.toLowerCase() ||
+        input.includes(a.toLowerCase())
+      );
+
+      const fb =
+        document.getElementById('riddle-feedback');
+
+      if (correct) {
+
+        score++;
+
+        fb.textContent =
+          'Optime! Correct! ' + r.explanation;
+
+        fb.className =
+          'riddle-feedback correct';
+
+      } else {
+
+        fb.textContent =
+          'Non ita. The answer was: ' +
+          r.answers[0] +
+          '. ' +
+          r.explanation;
+
+        fb.className =
+          'riddle-feedback wrong';
+
+      }
+
+      document.getElementById('riddle-input').disabled = true;
+
+      document.getElementById('riddle-submit').disabled = true;
+
+      document.getElementById('riddle-hint-btn').style.display =
+        'none';
+
+      if (current < RIDDLES.length - 1) {
+
+        document.getElementById('riddle-next').style.display =
+          'inline-block';
+
+      } else {
+
+        setTimeout(showFinale, 1400);
+
+      }
+
+    }
+
+    function nextRiddle() {
+
+      current++;
+
+      loadRiddle();
+
+    }
+
+    function showFinale() {
+
+      document.getElementById('riddle-main').style.display =
+        'none';
+
+      const finale =
+        document.getElementById('riddle-finale');
+
+      finale.style.display = 'flex';
+
+      document.getElementById('finale-score').innerHTML =
+        score + '<span>/5</span>';
+
+      const titles = [
+        'Discipulus',
+        'Scholaris',
+        'Civis Romanus',
+        'Senator',
+        'Imperator'
+      ];
+
+      const msgs = [
+        'Keep studying. Rome was not built in a day.',
+        'A promising start!',
+        'Well done, citizen!',
+        'Impressive!',
+        'Extraordinary! You think like a Roman.'
+      ];
+
+      document.getElementById('finale-title').textContent =
+        score === 0 ? 'Tiro' : titles[score - 1];
+
+      document.getElementById('finale-msg').textContent =
+        score === 0
+          ? 'Every great Roman started somewhere. Try again!'
+          : msgs[score - 1];
+
+      document.querySelectorAll('.riddle-pip')
+        .forEach(p => {
+          p.classList.remove('active');
+          p.classList.add('done');
+        });
+
+    }
+
+    function restartRiddles() {
+
+      current = 0;
+      score = 0;
+
+      document.getElementById('riddle-main').style.display =
+        'block';
+
+      document.getElementById('riddle-finale').style.display =
+        'none';
+
+      loadRiddle();
+
+    }
+
+    /* initialize riddles */
+
+    document.addEventListener('DOMContentLoaded', () => {
+
+      if (document.getElementById('riddle-input')) {
+
+        loadRiddle();
+
+        document.getElementById('riddle-input')
+          .addEventListener('keydown', e => {
+
+            if (e.key === 'Enter') {
+
+              e.preventDefault();
+
+              checkRiddle();
+
+            }
+
+          });
+
+      }
+
+    });
     async function handleSubmit() {
       const name = document.getElementById('name').value.trim();
       const email = document.getElementById('email').value.trim();
