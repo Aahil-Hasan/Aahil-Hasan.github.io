@@ -35,7 +35,6 @@
       overflow-x: hidden;
     }
 
-    /* ── DECORATIVE DIVIDER ── */
     .divider {
       display: flex;
       align-items: center;
@@ -51,17 +50,11 @@
       background: var(--gold);
       opacity: 0.6;
     }
-    .divider-icon {
-      font-size: 1rem;
-      color: var(--gold);
-      letter-spacing: 0.2em;
-    }
+    .divider-icon { font-size: 1rem; color: var(--gold); letter-spacing: 0.2em; }
 
-    /* ── NAV ── */
     nav {
       position: fixed;
-      top: 0;
-      left: 0; right: 0;
+      top: 0; left: 0; right: 0;
       z-index: 100;
       background: rgba(29, 11, 70, 0.97);
       backdrop-filter: blur(8px);
@@ -80,11 +73,7 @@
       text-transform: uppercase;
       font-weight: 600;
     }
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
     .nav-links a {
       font-family: 'Cinzel', serif;
       font-size: 0.72rem;
@@ -96,7 +85,6 @@
     }
     .nav-links a:hover { color: var(--gold-light); }
 
-    /* ── HERO ── */
     #hero {
       min-height: 100vh;
       background: var(--purple-dark);
@@ -109,45 +97,26 @@
       position: relative;
       overflow: hidden;
     }
-
-    /* Roman column pattern background */
     #hero::before {
       content: '';
       position: absolute;
       inset: 0;
       background-image:
-        repeating-linear-gradient(
-          90deg,
-          transparent,
-          transparent 78px,
-          rgba(201,162,39,0.04) 78px,
-          rgba(201,162,39,0.04) 80px
-        ),
-        repeating-linear-gradient(
-          0deg,
-          transparent,
-          transparent 78px,
-          rgba(201,162,39,0.03) 78px,
-          rgba(201,162,39,0.03) 80px
-        );
+        repeating-linear-gradient(90deg, transparent, transparent 78px, rgba(201,162,39,0.04) 78px, rgba(201,162,39,0.04) 80px),
+        repeating-linear-gradient(0deg, transparent, transparent 78px, rgba(201,162,39,0.03) 78px, rgba(201,162,39,0.03) 80px);
       pointer-events: none;
     }
-
-    /* Radial glow */
     #hero::after {
       content: '';
       position: absolute;
-      top: 30%;
-      left: 50%;
+      top: 30%; left: 50%;
       transform: translate(-50%, -50%);
-      width: 700px;
-      height: 500px;
+      width: 700px; height: 500px;
       background: radial-gradient(ellipse, rgba(61,38,144,0.6) 0%, transparent 70%);
       pointer-events: none;
     }
 
     .hero-content { position: relative; z-index: 2; max-width: 820px; }
-
     .hero-eyebrow {
       font-family: 'Cinzel', serif;
       font-size: 0.72rem;
@@ -158,7 +127,6 @@
       opacity: 0;
       animation: fadeUp 0.8s 0.2s forwards;
     }
-
     .hero-name {
       font-family: 'Playfair Display', serif;
       font-size: clamp(3.5rem, 9vw, 7.5rem);
@@ -169,9 +137,7 @@
       opacity: 0;
       animation: fadeUp 0.9s 0.4s forwards;
     }
-
     .hero-name span { color: var(--gold); }
-
     .hero-office {
       font-family: 'Cinzel', serif;
       font-size: clamp(1rem, 2.5vw, 1.5rem);
@@ -182,7 +148,6 @@
       opacity: 0;
       animation: fadeUp 0.9s 0.6s forwards;
     }
-
     .hero-tagline {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(1.25rem, 2.5vw, 1.7rem);
@@ -194,7 +159,6 @@
       opacity: 0;
       animation: fadeUp 0.9s 0.8s forwards;
     }
-
     .hero-btn {
       display: inline-block;
       font-family: 'Cinzel', serif;
@@ -210,11 +174,9 @@
       animation: fadeUp 0.9s 1s forwards;
     }
     .hero-btn:hover { background: var(--gold-light); transform: translateY(-2px); }
-
     .hero-scroll {
       position: absolute;
-      bottom: 2.5rem;
-      left: 50%;
+      bottom: 2.5rem; left: 50%;
       transform: translateX(-50%);
       display: flex;
       flex-direction: column;
@@ -228,12 +190,8 @@
       animation: bounce 2s 2s infinite;
       z-index: 2;
     }
-    .hero-scroll::after {
-      content: '▼';
-      font-size: 0.55rem;
-    }
+    .hero-scroll::after { content: '▼'; font-size: 0.55rem; }
 
-    /* ── LAUREL BANNER ── */
     .laurel-banner {
       background: var(--gold);
       padding: 0.9rem 2rem;
@@ -246,10 +204,8 @@
       font-weight: 700;
     }
 
-    /* ── SECTION BASE ── */
     section { padding: 6rem 2rem; }
     .container { max-width: 1080px; margin: 0 auto; }
-
     .section-label {
       font-family: 'Cinzel', serif;
       font-size: 0.7rem;
@@ -259,7 +215,6 @@
       text-align: center;
       margin-bottom: 0.8rem;
     }
-
     .section-title {
       font-family: 'Playfair Display', serif;
       font-size: clamp(2rem, 4vw, 3rem);
@@ -270,20 +225,9 @@
       line-height: 1.2;
     }
 
-    /* ── ABOUT ── */
     #about { background: var(--cream); }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.5fr;
-      gap: 4rem;
-      align-items: center;
-    }
-
-    .about-portrait {
-      position: relative;
-    }
-
+    .about-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; align-items: center; }
+    .about-portrait { position: relative; }
     .portrait-frame {
       width: 100%;
       aspect-ratio: 3/4;
@@ -295,38 +239,11 @@
       position: relative;
       overflow: hidden;
     }
-
-    .portrait-initials {
-      font-family: 'Playfair Display', serif;
-      font-size: 6rem;
-      font-weight: 900;
-      color: rgba(201,162,39,0.25);
-      user-select: none;
-    }
-
-    .portrait-placeholder-text {
-      position: absolute;
-      bottom: 1.2rem;
-      left: 0; right: 0;
-      text-align: center;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.4);
-      font-style: italic;
-      letter-spacing: 0.05em;
-    }
-
-    .portrait-corner {
-      position: absolute;
-      width: 20px; height: 20px;
-      border-color: var(--gold);
-      border-style: solid;
-    }
+    .portrait-corner { position: absolute; width: 20px; height: 20px; border-color: var(--gold); border-style: solid; }
     .portrait-corner.tl { top: -6px; left: -6px; border-width: 2px 0 0 2px; }
     .portrait-corner.tr { top: -6px; right: -6px; border-width: 2px 2px 0 0; }
     .portrait-corner.bl { bottom: -6px; left: -6px; border-width: 0 0 2px 2px; }
     .portrait-corner.br { bottom: -6px; right: -6px; border-width: 0 2px 2px 0; }
-
     .about-text p {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.25rem;
@@ -335,18 +252,9 @@
       margin-bottom: 1.5rem;
       font-weight: 300;
     }
+    .about-text p:first-child { font-size: 1.5rem; font-weight: 400; }
+    .about-text p strong { font-weight: 600; color: var(--purple); }
 
-    .about-text p:first-child {
-      font-size: 1.5rem;
-      font-weight: 400;
-    }
-
-    .about-text p strong {
-      font-weight: 600;
-      color: var(--purple);
-    }
-
-    /* ── PLATFORM ── */
     #platform { background: var(--purple-dark); }
     #platform .section-label { color: rgba(201,162,39,0.6); }
     #platform .section-title { color: var(--white); }
@@ -359,7 +267,6 @@
       gap: 2px;
       background: rgba(201,162,39,0.15);
     }
-
     .platform-card {
       background: rgba(29,11,70,0.8);
       padding: 2.5rem 2rem;
@@ -367,7 +274,6 @@
       transition: background 0.25s;
     }
     .platform-card:hover { background: rgba(61,38,144,0.4); }
-
     .platform-letter {
       font-family: 'Cinzel', serif;
       font-size: 4rem;
@@ -377,7 +283,6 @@
       margin-bottom: 0.25rem;
       display: block;
     }
-
     .platform-word {
       font-family: 'Cinzel', serif;
       font-size: 0.62rem;
@@ -387,7 +292,6 @@
       margin-bottom: 1rem;
       display: block;
     }
-
     .platform-card h3 {
       font-family: 'Playfair Display', serif;
       font-size: 1.1rem;
@@ -396,14 +300,12 @@
       margin-bottom: 0.85rem;
       line-height: 1.3;
     }
-
     .platform-card p {
       font-family: 'Lato', sans-serif;
       font-size: 0.9rem;
       line-height: 1.75;
       color: rgba(255,255,255,0.7);
     }
-
     .platform-card::after {
       content: '';
       position: absolute;
@@ -416,21 +318,9 @@
     }
     .platform-card:hover::after { transform: scaleX(1); }
 
-    /* ── WHY AAHIL ── */
     #why { background: var(--cream-dark); }
-
-    .why-columns {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 3rem 4rem;
-    }
-
-    .why-item {
-      display: flex;
-      gap: 1.25rem;
-      align-items: flex-start;
-    }
-
+    .why-columns { display: grid; grid-template-columns: repeat(2, 1fr); gap: 3rem 4rem; }
+    .why-item { display: flex; gap: 1.25rem; align-items: flex-start; }
     .why-num {
       font-family: 'Cinzel', serif;
       font-size: 2.5rem;
@@ -441,7 +331,6 @@
       width: 3rem;
       text-align: right;
     }
-
     .why-item h4 {
       font-family: 'Playfair Display', serif;
       font-size: 1.1rem;
@@ -449,7 +338,6 @@
       color: var(--purple);
       margin-bottom: 0.5rem;
     }
-
     .why-item p {
       font-family: 'Lato', sans-serif;
       font-size: 0.9rem;
@@ -457,18 +345,8 @@
       color: #4a3880;
     }
 
-    /* ── QUOTE ── */
-    #quote {
-      background: var(--purple);
-      padding: 5rem 2rem;
-      text-align: center;
-    }
-
-    .pullquote {
-      max-width: 720px;
-      margin: 0 auto;
-    }
-
+    #quote { background: var(--purple); padding: 5rem 2rem; text-align: center; }
+    .pullquote { max-width: 720px; margin: 0 auto; }
     .pullquote-mark {
       font-family: 'Playfair Display', serif;
       font-size: 5rem;
@@ -478,7 +356,6 @@
       display: block;
       margin-bottom: 1.5rem;
     }
-
     .pullquote p {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(1.5rem, 3vw, 2.2rem);
@@ -487,7 +364,6 @@
       line-height: 1.6;
       margin-bottom: 1.5rem;
     }
-
     .pullquote cite {
       font-family: 'Cinzel', serif;
       font-size: 0.7rem;
@@ -496,15 +372,8 @@
       opacity: 0.8;
     }
 
-    /* ── CONTACT ── */
     #contact { background: var(--cream); }
-
-    .contact-inner {
-      max-width: 620px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
+    .contact-inner { max-width: 620px; margin: 0 auto; text-align: center; }
     .contact-inner p {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.25rem;
@@ -512,14 +381,12 @@
       line-height: 1.8;
       margin-bottom: 2.5rem;
     }
-
     .contact-box {
       background: var(--white);
       border: 1px solid rgba(201,162,39,0.3);
       padding: 2.5rem;
       margin-bottom: 2rem;
     }
-
     .contact-box label {
       display: block;
       font-family: 'Cinzel', serif;
@@ -530,9 +397,7 @@
       margin-bottom: 0.5rem;
       text-align: left;
     }
-
-    .contact-box input,
-    .contact-box textarea {
+    .contact-box input, .contact-box textarea {
       width: 100%;
       border: 1px solid rgba(201,162,39,0.3);
       background: var(--cream);
@@ -544,14 +409,8 @@
       outline: none;
       transition: border-color 0.2s;
     }
-
-    .contact-box input:focus,
-    .contact-box textarea:focus {
-      border-color: var(--gold);
-    }
-
+    .contact-box input:focus, .contact-box textarea:focus { border-color: var(--gold); }
     .contact-box textarea { height: 130px; resize: vertical; }
-
     .submit-btn {
       display: inline-block;
       font-family: 'Cinzel', serif;
@@ -568,14 +427,12 @@
     }
     .submit-btn:hover { background: var(--purple-mid); }
 
-    /* ── FOOTER ── */
     footer {
       background: var(--purple-dark);
       border-top: 1px solid rgba(201,162,39,0.2);
       padding: 2.5rem 2rem;
       text-align: center;
     }
-
     .footer-name {
       font-family: 'Cinzel', serif;
       font-size: 1rem;
@@ -583,27 +440,17 @@
       color: var(--gold);
       margin-bottom: 0.5rem;
     }
-
     .footer-sub {
       font-family: 'Lato', sans-serif;
       font-size: 0.8rem;
       color: rgba(255,255,255,0.35);
       letter-spacing: 0.05em;
     }
+    .footer-divider { width: 60px; height: 1px; background: rgba(201,162,39,0.3); margin: 1.2rem auto; }
 
-    .footer-divider {
-      width: 60px;
-      height: 1px;
-      background: rgba(201,162,39,0.3);
-      margin: 1.2rem auto;
-    }
-
-
-    /* Lounging Aahil on hero */
     .hero-lounging {
       position: absolute;
-      bottom: 0;
-      right: 2vw;
+      bottom: 0; right: 2vw;
       width: clamp(260px, 35vw, 440px);
       z-index: 3;
       pointer-events: none;
@@ -614,29 +461,8 @@
     .hero-lounging img {
       width: 100%;
       display: block;
-      border-radius: 0;
       mix-blend-mode: screen;
       opacity: 0.97;
-    }
-
-    /* ── ANIMATIONS ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes bounce {
-      0%, 100% { transform: translateX(-50%) translateY(0); }
-      50%       { transform: translateX(-50%) translateY(6px); }
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 768px) {
-      nav { padding: 0 1.25rem; }
-      .nav-links { display: none; }
-      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .portrait-frame { aspect-ratio: 1; max-width: 280px; margin: 0 auto; }
-      .platform-grid { grid-template-columns: 1fr; }
-      .why-columns { grid-template-columns: 1fr; gap: 2rem; }
     }
 
     .latin-cameo {
@@ -649,11 +475,81 @@
       flex-shrink: 0;
     }
     .latin-cameo img { display: block; }
+
+
+    /* ── PHOTO GALLERY ── */
+    .gallery-strip {
+      background: var(--purple-dark);
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3px;
+      height: 220px;
+    }
+    .gallery-item {
+      overflow: hidden;
+      position: relative;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease, filter 0.4s ease;
+      filter: brightness(0.85) saturate(0.9);
+    }
+    .gallery-item:hover img {
+      transform: scale(1.05);
+      filter: brightness(1) saturate(1.1);
+    }
+    .gallery-item .gallery-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(26,15,62,0.85), transparent);
+      padding: 10px 12px 8px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.55rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .gallery-item:hover .gallery-caption { opacity: 1; }
+    .why-item-photo {
+      margin-top: 0.75rem;
+      border-radius: 4px;
+      overflow: hidden;
+      border: 2px solid rgba(201,162,39,0.25);
+    }
+    .why-item-photo img {
+      width: 100%;
+      display: block;
+      max-height: 160px;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(6px); }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 1.25rem; }
+      .nav-links { display: none; }
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .portrait-frame { aspect-ratio: 1; max-width: 280px; margin: 0 auto; }
+      .platform-grid { grid-template-columns: 1fr; }
+      .why-columns { grid-template-columns: 1fr; gap: 2rem; }
+    }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
   <nav>
     <div class="nav-brand">Aahil Hasan · MassJCL</div>
     <ul class="nav-links">
@@ -664,7 +560,6 @@
     </ul>
   </nav>
 
-  <!-- HERO -->
   <section id="hero">
     <div class="hero-content">
       <p class="hero-eyebrow">Massachusetts Junior Classical League · 2025-2026</p>
@@ -679,18 +574,15 @@
     <div class="hero-scroll">Scroll</div>
   </section>
 
-  <!-- LAUREL BANNER -->
   <div class="laurel-banner">
     ⸻ &nbsp; Fortis · Fidelis &nbsp; ⸻
   </div>
 
-  <!-- ABOUT -->
   <section id="about">
     <div class="container">
       <p class="section-label">De Me</p>
       <h2 class="section-title">A Passion for the Classics,<br />A Commitment to Community</h2>
       <div class="divider"><span class="divider-icon">✦</span></div>
-
       <div class="about-grid">
         <div class="about-portrait">
           <div class="portrait-frame">
@@ -701,18 +593,16 @@
           <div class="portrait-corner bl"></div>
           <div class="portrait-corner br"></div>
         </div>
-
         <div class="about-text">
           <p>Salvete! I'm <strong>Aahil Hasan</strong>, and JCL has been my home since 2023, when I joined as an 8th grader. This year I will attend my <strong>4th State Convention and 4th National Convention</strong>, and I want to spend the next year giving back to the organization that has given me so much.</p>
           <p>I founded and captained the Latin League chapter at my school (Regional champions, 2 years running!). I've competed on the National Certamen circuit for three years, two as captain, and served as <strong>Co-President of the Shrewsbury NJCL Latin Honor Society</strong> two years running.</p>
           <p>As <strong>MassJCL Treasurer (2024-2025)</strong> and unofficial fundraising coordinator the year before, I managed over $25,000 in funds, introduced Zeffy to the organization, revived our <strong>501(c)(3) nonprofit status</strong>, and launched fundraisers raising more than $5,000 in a single year for scholarships and convention cost reductions.</p>
-          <p>Outside of JCL, I'm an officer in Speech &amp; Debate, a member of the Student Wellness Advisory Committee, a representative in the Language Advisory Committee Board, a 2nd degree black belt in Taekwondo, and a lead fundraiser in both Robotics and Crew. I have made some of my best friends in this organization, and it would mean the world to me to serve it as your President.</p>
+          <p>Outside of JCL, I'm an officer in Speech &amp; Debate, Student Health and Wellness Advisory Committee board, Language Advisory Committee Board, a 2nd degree black belt in Taekwondo, and a lead fundraiser in both Robotics and Crew. I have made some of my best friends in this organization, and it would mean the world to me to serve it as your President.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PLATFORM -->
   <section id="platform">
     <div class="container">
       <p class="section-label">Propositum Meum</p>
@@ -746,6 +636,9 @@
           <span class="platform-word">Vision for Fundraising &amp; Service</span>
           <h3>Vaulting MassJCL's Impact Forward</h3>
           <p>As treasurer and fundraising coordinator, I launched Chipotle Dine-Ins, a Silent Auction, Giving Tuesday, and grocery gift card drives, raising over $5,000 in a year for scholarships and convention support. I will keep that momentum going, explore read-a-thons and walk-a-thons, and introduce accessible service projects like letter-writing campaigns for people in hospitals.</p>
+          <div style="margin-top:1rem; border-top:1px solid rgba(201,162,39,0.2); padding-top:0.75rem; overflow:hidden; border-radius:2px;">
+            <img src="tshirts.jpg" alt="MassJCL Agora merch table" style="width:100%;height:120px;object-fit:cover;object-position:center 30%;display:block;opacity:0.85;" />
+          </div>
         </div>
         <div class="platform-card">
           <span class="platform-letter">E</span>
@@ -757,13 +650,12 @@
           <span class="platform-letter">+</span>
           <span class="platform-word">Additional Priorities</span>
           <h3>More on the Agenda</h3>
-          <p>Launch a Career Fair connecting classics to real-world paths. Publish "How to Run Your Chapter" guides for new and growing JCLs. Expand chapter enrollment by enlisting new schools. And always center the experience of every member, whether a seasoned Certamen veteran or first-time attendee.</p>
+          <p>Revive Praetoria. Launch a Career Fair connecting classics to real-world paths. Publish "How to Run Your Chapter" guides for new and growing JCLs. Expand chapter enrollment by enlisting new schools. And always center the experience of every member, whether a seasoned Certamen veteran or first-time attendee.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- WHY AAHIL -->
   <section id="why">
     <div class="container">
       <p class="section-label">Cur Ego</p>
@@ -774,13 +666,15 @@
           <img src="Aahil-latingear-cropped.png" alt="Aahil in Roman attire" style="width:110px;height:130px;object-fit:cover;object-position:center top;" />
         </div>
       </div>
-
       <div class="why-columns">
         <div class="why-item">
           <span class="why-num">I</span>
           <div>
             <h4>Proven Fundraiser</h4>
             <p>Managed over $25,000 in MassJCL funds as Treasurer, introduced Zeffy, revived our 501(c)(3) status, and personally launched fundraisers generating $5,000+ in a single year, all directed toward scholarships and reducing convention costs.</p>
+            <div class="why-item-photo">
+              <img src="chipotle.jpg" alt="Chipotle fundraiser results" />
+            </div>
           </div>
         </div>
         <div class="why-item">
@@ -794,7 +688,7 @@
           <span class="why-num">III</span>
           <div>
             <h4>Chapter Builder</h4>
-            <p>Founded the Latin League chapter at Shrewsbury and now we are two-time Northeast Regional Champions,. I know what it takes to build something from nothing.</p>
+            <p>Founded the Latin League chapter at Shrewsbury and now we are two-time Northeast Regional Champions. I know what it takes to build something from nothing.</p>
           </div>
         </div>
         <div class="why-item">
@@ -802,27 +696,32 @@
           <div>
             <h4>Latin Honor Society Leader</h4>
             <p>Served as Co-President of the Shrewsbury NJCL Latin Honor Society two years in a row, attending Classics Day at Boston University and Holy Cross to promote the classics across Massachusetts.</p>
+            <div class="why-item-photo">
+              <img src="classics-day.jpg" alt="Aahil at Classics Day 2025" style="object-position: center 20%;" />
+            </div>
           </div>
         </div>
         <div class="why-item">
           <span class="why-num">V</span>
           <div>
             <h4>Creative &amp; Energetic</h4>
-            <p>Wrote every MassJCL officer skit this year, from Nationals to Kickoff to Classics Day,. I bring creativity and charisma to everything I do, and I'll bring that same energy to the presidency.</p>
+            <p>Wrote every MassJCL officer skit this year, from Nationals to Kickoff to Classics Day. I bring creativity and charisma to everything I do, and I'll bring that same energy to the presidency.</p>
+            <div class="why-item-photo">
+              <img src="scrapbook.jpg" alt="Aahil with NJCL scrapbook at Nationals" style="object-position: center 15%;" />
+            </div>
           </div>
         </div>
         <div class="why-item">
           <span class="why-num">VI</span>
           <div>
             <h4>A Leader Across the Board</h4>
-            <p>Speech &amp; Debate officer, Student Council member, Student Wellness Advisory Committee member, FRC Impact &amp; Judges Award winner, 2nd degree black belt in Taekwondo, and lead fundraiser in Robotics and Crew. I show up everywhere, and I will show up for you.</p>
+            <p>Speech &amp; Debate officer, Student Council member, Student Wellness Board member, FRC Impact &amp; Judges Award winner, 2nd degree black belt in Taekwondo, and lead fundraiser in Robotics and Crew. I show up everywhere, and I will show up for you.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PULLQUOTE -->
   <section id="quote">
     <div class="pullquote">
       <div style="display:flex;justify-content:center;margin-bottom:1.5rem;">
@@ -836,7 +735,6 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
   <section id="contact">
     <div class="container">
       <div class="contact-inner">
@@ -844,20 +742,15 @@
         <h2 class="section-title">Get in Touch</h2>
         <div class="divider"><span class="divider-icon">✦</span></div>
         <p>Have a question, a suggestion, or want to show your support? I'd love to hear from you. Every message matters.</p>
-
         <div class="contact-box">
           <label for="name">Your Name</label>
           <input type="text" id="name" placeholder="Nomen tuum..." />
-
           <label for="email">Email Address</label>
           <input type="email" id="email" placeholder="epistula@example.com" />
-
           <label for="school">School / Chapter</label>
           <input type="text" id="school" placeholder="Your JCL chapter..." />
-
           <label for="message">Message</label>
           <textarea id="message" placeholder="Scribe hic..."></textarea>
-
           <button class="submit-btn" id="submit-btn" onclick="handleSubmit()">Send Message &rarr;</button>
           <p id="form-msg" style="margin-top:1rem; font-family:'Cormorant Garamond',serif; font-size:1rem; color:var(--purple); display:none;"></p>
         </div>
@@ -865,7 +758,6 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <div class="footer-name">Aahil Hasan for MassJCL President</div>
     <div class="footer-divider"></div>
@@ -919,7 +811,6 @@
       }
     }
 
-    // Subtle scroll reveal for sections
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) {
