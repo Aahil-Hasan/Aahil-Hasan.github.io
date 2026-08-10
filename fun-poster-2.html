@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Funky Chicken for President — Aahil Hasan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,700;1,900&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet"/>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #3b0764; margin: 0; padding: 0; }
+
+    .poster {
+      width: 8.27in;
+      height: 11.69in;
+      margin: 20px auto;
+      overflow: hidden;
+      display: flex;
+      box-shadow: 0 12px 48px rgba(0,0,0,0.5);
+    }
+
+    /* ── LEFT: CHICKEN IMAGE ── */
+    .img-side {
+      width: 43%;
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+      background: #1a0030;
+    }
+    .img-side img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    /* Fade right edge into purple bg */
+    .img-side::after {
+      content: '';
+      position: absolute;
+      inset: 0 0 0 auto;
+      width: 45%;
+      background: linear-gradient(to left, #3b0764 0%, transparent 100%);
+      z-index: 1;
+    }
+    /* Bottom vignette */
+    .img-side::before {
+      content: '';
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 15%;
+      background: linear-gradient(to top, #3b0764 0%, transparent 100%);
+      z-index: 1;
+    }
+
+    /* ── RIGHT: TEXT ── */
+    .text-side {
+      flex: 1;
+      background: #3b0764;
+      padding: 0.42in 0.38in 0.35in 0.28in;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .eyebrow {
+      font-family: 'Cinzel', serif;
+      font-size: 0.58rem;
+      letter-spacing: 0.32em;
+      color: rgba(251,191,36,0.65);
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 0.08in;
+    }
+
+    .candidate-name {
+      font-family: 'Cinzel', serif;
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 0.06em;
+      display: block;
+      margin-bottom: 0.14in;
+      line-height: 1.05;
+    }
+
+    .headline {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.15rem;
+      font-weight: 900;
+      font-style: italic;
+      color: #fbbf24;
+      line-height: 1.1;
+      margin-bottom: 0.1in;
+    }
+
+    .sub-headline {
+      font-family: 'Cinzel', serif;
+      font-size: 1.3rem;
+      color: #ffffff;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      line-height: 1.2;
+    }
+
+    .gold-rule {
+      width: 55px;
+      height: 3px;
+      background: #fbbf24;
+      margin: 0.22in 0;
+    }
+
+    .point-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.11in;
+    }
+    .point {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.11in;
+    }
+    .point-marker {
+      color: #fbbf24;
+      font-size: 0.65rem;
+      flex-shrink: 0;
+      margin-top: 0.025in;
+      font-weight: 700;
+    }
+    .point-text {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.83rem;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.45;
+    }
+    .point-text strong { color: #fbbf24; }
+
+    /* ── CHANT BOX ── */
+    .chant-box {
+      border: 2px solid rgba(251,191,36,0.35);
+      padding: 0.17in 0.18in;
+      text-align: center;
+      background: rgba(251,191,36,0.06);
+      margin-bottom: 0.18in;
+    }
+    .chant-line {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.92rem;
+      color: rgba(251,191,36,0.88);
+      font-style: italic;
+      line-height: 1.65;
+      display: block;
+    }
+    .chant-note {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.62rem;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      display: block;
+      margin-top: 0.08in;
+    }
+
+    /* ── VOTE BAR ── */
+    .vote-bar {
+      background: #fbbf24;
+      padding: 0.15in 0.18in;
+      text-align: center;
+    }
+    .vote-text {
+      font-family: 'Cinzel', serif;
+      font-size: 0.95rem;
+      letter-spacing: 0.2em;
+      color: #3b0764;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    @media print {
+      @page { size: A4; margin: 0; }
+      body { margin: 0; padding: 0; background: #3b0764; }
+      .poster { margin: 0; box-shadow: none; width: 100vw; height: 100vh; }
+    }
+  </style>
+</head>
+<body>
+  <div class="poster">
+
+    <div class="img-side">
+      <img src="chicken.jpeg" alt="Aahil Hasan in chicken costume"/>
+    </div>
+
+    <div class="text-side">
+      <div>
+        <div class="eyebrow">MassJCL Candidate · 2026–2027</div>
+        <span class="candidate-name">Aahil Hasan</span>
+        <h1 class="headline">"How funky is your candidate?"</h1>
+        <div class="sub-headline">Funky enough<br/>to get things done.</div>
+        <div class="gold-rule"></div>
+
+        <ul class="point-list">
+          <li class="point">
+            <span class="point-marker">✦</span>
+            <span class="point-text">Revived MassJCL's <strong>501(c)(3)</strong> nonprofit status</span>
+          </li>
+          <li class="point">
+            <span class="point-marker">✦</span>
+            <span class="point-text">Introduced Zeffy: <strong>$50,000+ transacted</strong>, zero fees</span>
+          </li>
+          <li class="point">
+            <span class="point-marker">✦</span>
+            <span class="point-text">Grew Shrewsbury JCL to <strong>61 members</strong> &amp; 10 convention delegates</span>
+          </li>
+          <li class="point">
+            <span class="point-marker">✦</span>
+            <span class="point-text">Latin League <strong>Regional Champions 2 years running</strong></span>
+          </li>
+          <li class="point">
+            <span class="point-marker">✦</span>
+            <span class="point-text">National Certamen Captain, <strong>2 years</strong></span>
+          </li>
+          <li class="point">
+            <span class="point-marker">✦</span>
+            <span class="point-text"><strong>President's Gold Medal</strong> Service Award, 3 years in a row</span>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="chant-box">
+          <span class="chant-line">"How funky is your chicken?</span>
+          <span class="chant-line">How loose is your goose?"</span>
+          <span class="chant-note">Your next MassJCL President knows every word.</span>
+        </div>
+        <div class="vote-bar">
+          <span class="vote-text">Vote Aahil Hasan for MassJCL President · 2026–2027</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>SALVE — Aahil Hasan for MassJCL President</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Playfair+Display:ital,wght@0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #f0ece4; margin: 0; padding: 20px; }
+
+    .poster {
+      width: 8.27in;
+      height: 11.69in;
+      margin: 0 auto;
+      background: #ffffff;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+    }
+
+    /* ── TOP HEADER ── */
+    .header {
+      background: #2d1b69;
+      padding: 0.32in 0.45in 0.28in;
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .header::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: repeating-linear-gradient(
+        90deg, transparent, transparent 58px,
+        rgba(201,162,39,0.04) 58px, rgba(201,162,39,0.04) 60px
+      );
+      pointer-events: none;
+    }
+    .header-eyebrow {
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: rgba(201,162,39,0.55);
+      font-weight: 700;
+      display: block;
+      margin-bottom: 0.1in;
+      position: relative;
+      z-index: 1;
+    }
+    .header-name {
+      font-family: 'Cinzel', serif;
+      font-size: 2.9rem;
+      font-weight: 900;
+      color: #ffffff;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 0.06in;
+      position: relative;
+      z-index: 1;
+      line-height: 1;
+    }
+    .header-title {
+      font-family: 'Cinzel', serif;
+      font-size: 5.5rem;
+      font-weight: 900;
+      color: #c9a227;
+      line-height: 0.88;
+      letter-spacing: 0.08em;
+      position: relative;
+      z-index: 1;
+      paint-order: stroke fill;
+      -webkit-text-stroke: 3px rgba(255,255,255,0.12);
+    }
+    .header-sub {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.0rem;
+      font-style: italic;
+      color: rgba(255,255,255,0.55);
+      display: block;
+      margin-top: 0.1in;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Gold rule below header */
+    .gold-rule {
+      height: 4px;
+      background: linear-gradient(90deg, #a07818, #e8c84a, #c9a227, #a07818);
+      flex-shrink: 0;
+    }
+
+    /* ── PLATFORM ITEMS ── */
+    .items {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 0 0.38in;
+      min-height: 0;
+    }
+
+    .platform-item {
+      flex: 1;
+      display: flex;
+      align-items: stretch;
+      border-bottom: 1px solid rgba(201,162,39,0.18);
+      padding: 0.14in 0;
+      gap: 0.28in;
+    }
+    .platform-item:last-child {
+      border-bottom: none;
+    }
+
+    /* Big letter */
+    .item-letter {
+      font-family: 'Cinzel', serif;
+      font-weight: 900;
+      font-size: 4.8rem;
+      color: #2d1b69;
+      line-height: 1;
+      flex-shrink: 0;
+      width: 1.1in;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .item-letter::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 15%;
+      bottom: 15%;
+      width: 2px;
+      background: linear-gradient(to bottom, transparent, #c9a227, transparent);
+    }
+
+    /* Text side */
+    .item-text {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-left: 0.1in;
+    }
+    .item-keyword {
+      font-family: 'Cinzel', serif;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: #c9a227;
+      display: block;
+      margin-bottom: 0.04in;
+    }
+    .item-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.0rem;
+      font-weight: 700;
+      color: #2d1b69;
+      line-height: 1.25;
+      margin-bottom: 0.06in;
+      display: block;
+    }
+    .item-body {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.72rem;
+      color: rgba(45,27,105,0.65);
+      line-height: 1.65;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      flex-shrink: 0;
+      background: #2d1b69;
+      padding: 0.18in 0.45in;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer-name {
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #c9a227;
+      font-weight: 700;
+    }
+    .footer-tagline {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.72rem;
+      font-style: italic;
+      color: rgba(255,255,255,0.4);
+    }
+
+    @media print {
+      @page { size: A4; margin: 0; }
+      body { margin: 0; padding: 0; background: #ffffff; }
+      .poster { margin: 0; box-shadow: none; width: 100vw; height: 100vh; }
+    }
+  </style>
+</head>
+<body>
+<div class="poster">
+
+  <!-- HEADER -->
+  <div class="header">
+    <span class="header-eyebrow">MassJCL President · 2026–2027</span>
+    <span class="header-name">Aahil Hasan</span>
+    <div class="header-title">SALVE</div>
+    <span class="header-sub">My platform, one letter at a time.</span>
+  </div>
+  <div class="gold-rule"></div>
+
+  <!-- PLATFORM ITEMS -->
+  <div class="items">
+
+    <div class="platform-item">
+      <div class="item-letter">S</div>
+      <div class="item-text">
+        <span class="item-keyword">State &amp; Local Outreach</span>
+        <span class="item-title">Strengthening Connections Across the Circuit</span>
+        <p class="item-body">I will launch idea exchanges between local JCLs, a resource timeline, and a peer-mentorship system so new chapters have real guidance. We grew Shrewsbury JCL from one certamen player to ten state convention delegates this year. I know how hard that climb is, and I want to make it easier for everyone.</p>
+      </div>
+    </div>
+
+    <div class="platform-item">
+      <div class="item-letter">A</div>
+      <div class="item-text">
+        <span class="item-keyword">Alumni Connections</span>
+        <span class="item-title">Anchoring Our Community to Its Roots</span>
+        <p class="item-body">We built a spreadsheet of SCLers and engaged them for Giving Tuesday, and they gave generously. As President, I will launch exclusive alumni newsletters to keep former members informed, connected, and invested in the future of this organization.</p>
+      </div>
+    </div>
+
+    <div class="platform-item">
+      <div class="item-letter">L</div>
+      <div class="item-text">
+        <span class="item-keyword">Listening to Ideas</span>
+        <span class="item-title">Leading with Open Ears</span>
+        <p class="item-body">Every member deserves a real way to share feedback, positive or constructive. I will add a standing feedback form to the president's email signature so anyone, from any chapter, can reach leadership easily. Your voice shapes this organization.</p>
+      </div>
+    </div>
+
+    <div class="platform-item">
+      <div class="item-letter">V</div>
+      <div class="item-text">
+        <span class="item-keyword">Vision for Fundraising &amp; Service</span>
+        <span class="item-title">Vaulting MassJCL's Impact Forward</span>
+        <p class="item-body">As Treasurer, I launched Chipotle Dine-Ins, Silent Auctions, Giving Tuesday, and grocery gift card drives, raising $5,000+ in a year for scholarships and convention support. I'll keep that momentum going, explore read-a-thons and walk-a-thons, and introduce service projects like letter-writing campaigns for hospitals.</p>
+      </div>
+    </div>
+
+    <div class="platform-item">
+      <div class="item-letter">E</div>
+      <div class="item-text">
+        <span class="item-keyword">Entertainment</span>
+        <span class="item-title">Energizing MassJCL with That's Entertainment</span>
+        <p class="item-body">Let's bring back the beloved That's Entertainment showcase, a night where students across the state perform, laugh, and celebrate together. Having written every officer skit this year, from Nationals to Kickoff to Classics Day, I know how to craft moments that bring a room alive.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span class="footer-name">Vote Aahil Hasan for MassJCL President</span>
+    <span class="footer-tagline">Fortis · Fidelis · Funky</span>
+  </div>
+
+</div>
+</body>
+</html>

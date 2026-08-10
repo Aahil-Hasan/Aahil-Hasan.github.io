@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Aahil for Prez — Graffiti</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Permanent+Marker&family=Black+Ops+One&family=Cinzel:wght@700&display=swap" rel="stylesheet"/>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #1a1a2e; margin: 0; padding: 20px; }
+
+    .poster {
+      width: 8.27in;
+      height: 11.69in;
+      margin: 0 auto;
+      background: #07091a;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 16px 60px rgba(0,0,0,0.9);
+    }
+
+    /* ── BACKGROUND COLOR BLOBS (like spray paint zones) ── */
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(70px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── ALL TEXT SITS ABOVE ── */
+    .t {
+      position: absolute;
+      z-index: 2;
+      line-height: 1;
+    }
+
+    /* ── FONTS ── */
+    .bang  { font-family: 'Bangers', cursive; letter-spacing: 0.04em; }
+    .mark  { font-family: 'Permanent Marker', cursive; }
+    .ops   { font-family: 'Black Ops One', cursive; }
+    .cinz  { font-family: 'Cinzel', serif; }
+
+    /*
+      BUBBLE LETTER TECHNIQUE:
+      color = fill, -webkit-text-stroke = outline, text-shadow = depth
+      paint-order: stroke fill keeps fill visible under thick stroke
+    */
+    .tag {
+      paint-order: stroke fill;
+      text-shadow: 5px 5px 0 rgba(0,0,0,0.7), 7px 7px 0 rgba(0,0,0,0.3);
+    }
+
+    /* Stroke thicknesses */
+    .str-w4 { -webkit-text-stroke: 4px #ffffff; }
+    .str-w5 { -webkit-text-stroke: 5px #ffffff; }
+    .str-w6 { -webkit-text-stroke: 6px #ffffff; }
+    .str-blk { -webkit-text-stroke: 3px #000000; }
+
+    /* Fill colors */
+    .fcyan  { color: #00d4ff; }
+    .fmag   { color: #ff00cc; }
+    .fyel   { color: #ffe600; }
+    .fgrn   { color: #39ff14; }
+    .forg   { color: #ff6600; }
+    .fred   { color: #ff2020; }
+    .fpur   { color: #bb44ff; }
+    .fwht   { color: #ffffff; }
+    .fpnk   { color: #ff66bb; }
+
+    /* Small asides — marker style, no heavy stroke */
+    .aside {
+      font-family: 'Permanent Marker', cursive;
+      color: rgba(255,255,255,0.7);
+      text-shadow: 1px 1px 0 rgba(0,0,0,0.5);
+    }
+
+    /* ── PAINT DRIP ── */
+    .drip {
+      position: absolute;
+      border-radius: 0 0 50% 50%;
+      z-index: 1;
+    }
+
+    /* ── DECORATIVE CIRCLE DOTS ── */
+    .dot {
+      position: absolute;
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    /* ── DIVIDER BARS ── */
+    .bar {
+      position: absolute;
+      left: 0.2in;
+      right: 0.2in;
+      height: 5px;
+      border-radius: 3px;
+      z-index: 2;
+    }
+  </style>
+</head>
+<body>
+<div class="poster">
+
+  <!-- ═══════════════════════════════ -->
+  <!--   BACKGROUND BLOBS             -->
+  <!-- ═══════════════════════════════ -->
+  <div class="blob" style="width:5in;height:5in;background:#2a0060;top:-1.5in;left:-1in;opacity:0.7;"></div>
+  <div class="blob" style="width:4in;height:4in;background:#003a5c;top:-0.5in;right:-0.5in;opacity:0.8;"></div>
+  <div class="blob" style="width:4.5in;height:3in;background:#600040;top:2.5in;left:1in;opacity:0.4;"></div>
+  <div class="blob" style="width:3in;height:3in;background:#004a00;top:4in;right:-0.5in;opacity:0.45;"></div>
+  <div class="blob" style="width:4in;height:4in;background:#5a1a00;top:6in;left:-0.5in;opacity:0.45;"></div>
+  <div class="blob" style="width:3.5in;height:3.5in;background:#1a0050;top:7.5in;right:-0.5in;opacity:0.6;"></div>
+  <div class="blob" style="width:5in;height:4in;background:#000a40;top:8.5in;left:0;opacity:0.5;"></div>
+
+  <!-- ═══════════════════════════════ -->
+  <!--   DECORATIVE DOTS & CIRCLES    -->
+  <!-- ═══════════════════════════════ -->
+  <div class="dot" style="width:0.18in;height:0.18in;background:#ff00cc;top:0.3in;right:0.5in;opacity:0.9;"></div>
+  <div class="dot" style="width:0.1in;height:0.1in;background:#ffe600;top:0.5in;right:0.9in;opacity:0.8;"></div>
+  <div class="dot" style="width:0.28in;height:0.28in;background:#00d4ff;top:2.3in;left:1.1in;opacity:0.7;"></div>
+  <div class="dot" style="width:0.14in;height:0.14in;background:#39ff14;top:2.55in;left:3.2in;opacity:0.8;"></div>
+  <div class="dot" style="width:0.22in;height:0.22in;background:#ff6600;top:4.8in;right:0.4in;opacity:0.9;"></div>
+  <div class="dot" style="width:0.12in;height:0.12in;background:#ff2020;top:5.1in;right:0.8in;opacity:0.8;"></div>
+  <div class="dot" style="width:0.32in;height:0.32in;background:#bb44ff;top:6.9in;left:3.5in;opacity:0.7;"></div>
+  <div class="dot" style="width:0.15in;height:0.15in;background:#ffe600;top:7.2in;right:1.5in;opacity:0.8;"></div>
+  <div class="dot" style="width:0.24in;height:0.24in;background:#00d4ff;top:9.1in;right:0.6in;opacity:0.7;"></div>
+  <div class="dot" style="width:0.16in;height:0.16in;background:#ff00cc;top:10.0in;left:2.0in;opacity:0.8;"></div>
+
+  <!-- ═══════════════════════════════ -->
+  <!--  TITLE BLOCK                   -->
+  <!-- ═══════════════════════════════ -->
+
+  <!-- AAHIL -->
+  <div class="t bang tag fcyan str-w6"
+    style="font-size:6.5rem;top:0.12in;left:0.18in;">
+    AAHIL
+  </div>
+
+  <!-- Drips below AAHIL -->
+  <div class="drip" style="background:#00d4ff;width:9px;height:0.42in;top:1.55in;left:0.42in;opacity:0.85;"></div>
+  <div class="drip" style="background:#00d4ff;width:6px;height:0.65in;top:1.55in;left:0.85in;opacity:0.7;"></div>
+  <div class="drip" style="background:#00d4ff;width:7px;height:0.3in;top:1.55in;left:1.4in;opacity:0.75;"></div>
+
+  <!-- "for" - handwritten, floating top right -->
+  <div class="t mark fmag"
+    style="font-size:2.4rem;top:0.32in;right:0.25in;transform:rotate(-11deg);
+           text-shadow:3px 3px 0 rgba(0,0,0,0.6);-webkit-text-stroke:1.5px #ffffff;">
+    for
+  </div>
+
+  <!-- MASSJCL — yellow with bold outline -->
+  <div class="t bang tag fyel str-w5"
+    style="font-size:4.1rem;top:1.08in;left:0.15in;">
+    MASSJCL
+  </div>
+
+  <!-- PREZ — magenta, massive -->
+  <div class="t bang tag fmag str-w6"
+    style="font-size:8rem;top:1.5in;left:0.1in;">
+    PREZ
+  </div>
+
+  <!-- Drips below PREZ -->
+  <div class="drip" style="background:#ff00cc;width:10px;height:0.55in;top:2.88in;left:0.2in;opacity:0.9;"></div>
+  <div class="drip" style="background:#ff00cc;width:7px;height:0.35in;top:2.88in;left:0.75in;opacity:0.7;"></div>
+  <div class="drip" style="background:#ff00cc;width:8px;height:0.7in;top:2.88in;left:1.35in;opacity:0.8;"></div>
+  <div class="drip" style="background:#ff00cc;width:5px;height:0.45in;top:2.88in;left:2.1in;opacity:0.65;"></div>
+
+  <!-- Stars top right -->
+  <div class="t fyel" style="font-size:2.8rem;top:1.55in;right:0.2in;transform:rotate(12deg);
+    text-shadow:3px 3px 0 rgba(0,0,0,0.5);">★</div>
+  <div class="t fmag" style="font-size:1.4rem;top:2.0in;right:0.55in;transform:rotate(-8deg);
+    text-shadow:2px 2px 0 rgba(0,0,0,0.5);">★</div>
+  <div class="t fcyan" style="font-size:0.9rem;top:1.85in;right:0.9in;transform:rotate(22deg);
+    text-shadow:1px 1px 0 rgba(0,0,0,0.5);">★</div>
+
+  <!-- small tag right -->
+  <div class="t ops fpur"
+    style="font-size:1.1rem;top:2.2in;right:0.2in;transform:rotate(3deg);text-align:right;
+           text-shadow:2px 2px 0 rgba(0,0,0,0.6);-webkit-text-stroke:1px #ffffff;">
+    MassJCL · 2026–27
+  </div>
+
+  <!-- ═══════════════════════════════ -->
+  <!--   DIVIDER #1 with drips        -->
+  <!-- ═══════════════════════════════ -->
+  <div class="bar" style="top:3.55in;background:linear-gradient(90deg,#ff00cc,#ffe600,#39ff14,#00d4ff,#ff6600,#bb44ff);"></div>
+  <!-- Drips from bar -->
+  <div class="drip" style="background:#ffe600;width:6px;height:0.25in;top:3.6in;left:0.8in;opacity:0.9;"></div>
+  <div class="drip" style="background:#39ff14;width:5px;height:0.38in;top:3.6in;left:2.1in;opacity:0.85;"></div>
+  <div class="drip" style="background:#00d4ff;width:7px;height:0.18in;top:3.6in;left:3.5in;opacity:0.9;"></div>
+  <div class="drip" style="background:#ff6600;width:5px;height:0.3in;top:3.6in;left:5.2in;opacity:0.85;"></div>
+  <div class="drip" style="background:#bb44ff;width:6px;height:0.22in;top:3.6in;left:6.8in;opacity:0.9;"></div>
+
+  <!-- ═══════════════════════════════ -->
+  <!--  LATIN SECTION                 -->
+  <!-- ═══════════════════════════════ -->
+
+  <!-- VENI. VIDI. marker left -->
+  <div class="t mark fpnk"
+    style="font-size:1.3rem;top:3.7in;left:0.28in;transform:rotate(-4deg);
+           text-shadow:2px 2px 0 rgba(0,0,0,0.7);-webkit-text-stroke:1px #ffffff;">
+    VENI. VIDI.
+  </div>
+
+  <!-- FUNDRAISED. -->
+  <div class="t bang tag fgrn str-w5"
+    style="font-size:3.5rem;top:3.92in;left:0.18in;transform:rotate(-4deg);">
+    FUNDRAISED.
+  </div>
+  <!-- Drip below -->
+  <div class="drip" style="background:#39ff14;width:7px;height:0.3in;top:4.65in;left:0.5in;opacity:0.8;transform:rotate(-4deg);"></div>
+
+  <!-- (Julius Caesar, probably) -->
+  <div class="t aside"
+    style="font-size:0.7rem;top:4.72in;left:0.32in;transform:rotate(-4deg);opacity:0.5;">
+    Julius Caesar, probably
+  </div>
+
+  <!-- HOC TANGERE NON POTES — right, different angle -->
+  <div class="t bang tag forg str-w5"
+    style="font-size:1.65rem;top:3.72in;right:0.18in;text-align:right;
+           transform:rotate(6deg);line-height:1.25;width:3.5in;">
+    HOC TANGERE<br/>NON POTES
+  </div>
+  <div class="t aside"
+    style="font-size:0.68rem;top:4.6in;right:0.22in;transform:rotate(6deg);opacity:0.5;text-align:right;">
+    (see: the shorts)
+  </div>
+
+  <!-- ═══════════════════════════════ -->
+  <!--  STATS ZONE                    -->
+  <!-- ═══════════════════════════════ -->
+
+  <!-- $50K+ -->
+  <div class="t bang tag fyel str-w5"
+    style="font-size:4.8rem;top:5.0in;left:0.15in;">
+    $50K+
+  </div>
+  <div class="drip" style="background:#ffe600;width:8px;height:0.45in;top:5.88in;left:0.3in;opacity:0.85;"></div>
+  <div class="drip" style="background:#ffe600;width:5px;height:0.28in;top:5.88in;left:0.75in;opacity:0.7;"></div>
+  <div class="t aside"
+    style="font-size:0.72rem;top:6.05in;left:0.25in;opacity:0.55;line-height:1.5;">
+    transacted via Zeffy<br/><em style="font-size:0.6rem;opacity:0.7;">not flexing... ok maybe a little</em>
+  </div>
+
+  <!-- CHICKEN SUIT right -->
+  <div class="t mark fpnk"
+    style="font-size:1.05rem;top:5.05in;right:0.2in;width:3.1in;text-align:right;
+           transform:rotate(-7deg);line-height:1.5;
+           text-shadow:2px 2px 0 rgba(0,0,0,0.6);-webkit-text-stroke:1px #ffffff;">
+    he wore a chicken<br/>suit for you.<br/>the least you can do<br/>is vote. 🐔
+  </div>
+
+  <!-- CERTIFIED FUNKY -->
+  <div class="t bang tag fmag str-w4"
+    style="font-size:2.1rem;top:6.55in;left:0.18in;transform:rotate(-2.5deg);">
+    CERTIFIED FUNKY ✓
+  </div>
+
+  <!-- even Cicero -->
+  <div class="t mark fgrn"
+    style="font-size:1.05rem;top:6.45in;right:0.2in;width:3in;text-align:right;
+           transform:rotate(5deg);line-height:1.5;
+           text-shadow:2px 2px 0 rgba(0,0,0,0.6);-webkit-text-stroke:1px #ffffff;">
+    "even Cicero<br/>would approve"
+  </div>
+  <div class="t aside"
+    style="font-size:0.6rem;top:7.1in;right:0.25in;opacity:0.4;text-align:right;transform:rotate(5deg);">
+    probably Cicero
+  </div>
+
+  <!-- ═══════════════════════════════ -->
+  <!--   DIVIDER #2 with drips        -->
+  <!-- ═══════════════════════════════ -->
+  <div class="bar" style="top:7.2in;background:linear-gradient(90deg,#39ff14,#00d4ff,#bb44ff,#ff2020,#ffe600,#ff00cc);"></div>
+  <div class="drip" style="background:#00d4ff;width:7px;height:0.32in;top:7.25in;left:1.2in;opacity:0.9;"></div>
+  <div class="drip" style="background:#bb44ff;width:5px;height:0.48in;top:7.25in;left:2.8in;opacity:0.85;"></div>
+  <div class="drip" style="background:#ff2020;width:8px;height:0.22in;top:7.25in;left:4.5in;opacity:0.9;"></div>
+  <div class="drip" style="background:#ffe600;width:6px;height:0.38in;top:7.25in;left:6.1in;opacity:0.85;"></div>
+
+  <!-- ═══════════════════════════════ -->
+  <!--  MID-LOWER ZONE                -->
+  <!-- ═══════════════════════════════ -->
+
+  <!-- SALVE! outlined -->
+  <div class="t bang tag fcyan str-w6"
+    style="font-size:5.4rem;top:7.35in;left:0.12in;">
+    SALVE!
+  </div>
+  <div class="drip" style="background:#00d4ff;width:9px;height:0.4in;top:8.25in;left:0.25in;opacity:0.8;"></div>
+  <div class="drip" style="background:#00d4ff;width:6px;height:0.58in;top:8.25in;left:0.8in;opacity:0.65;"></div>
+
+  <div class="t aside"
+    style="font-size:0.82rem;top:8.42in;left:0.28in;transform:rotate(-1deg);opacity:0.6;line-height:1.5;">
+    (that means "hello"<br/>…also vote for me)
+  </div>
+
+  <!-- 2× REGIONAL CHAMPS right -->
+  <div class="t bang tag forg str-w5"
+    style="font-size:2.5rem;top:7.38in;right:0.18in;text-align:right;
+           line-height:1.15;width:3.4in;">
+    2× REGIONAL<br/>CHAMPS
+  </div>
+
+  <!-- 501(c)(3) AND CHILL -->
+  <div class="t ops fpur"
+    style="font-size:1.45rem;top:9.0in;left:0.22in;transform:rotate(2deg);
+           text-shadow:3px 3px 0 rgba(0,0,0,0.6);-webkit-text-stroke:1.5px #ffffff;">
+    501(c)(3) AND CHILL
+  </div>
+
+  <!-- Gold medal right -->
+  <div class="t mark fyel"
+    style="font-size:1.05rem;top:8.5in;right:0.2in;text-align:right;
+           transform:rotate(-4deg);line-height:1.5;
+           text-shadow:2px 2px 0 rgba(0,0,0,0.6);-webkit-text-stroke:1px #ffffff;">
+    🏅 Gold Medal Service Award<br/>3 years in a row
+  </div>
+
+  <!-- TAEKWONDO + FRC -->
+  <div class="t ops fred"
+    style="font-size:1.0rem;top:9.5in;left:0.22in;transform:rotate(-2deg);
+           text-shadow:2px 2px 0 rgba(0,0,0,0.6);-webkit-text-stroke:1px #ffffff;">
+    FRC IMPACT AWARD WINNER 🏆
+  </div>
+
+  <div class="t mark fpnk"
+    style="font-size:0.95rem;top:9.5in;right:0.22in;text-align:right;transform:rotate(3deg);
+           text-shadow:2px 2px 0 rgba(0,0,0,0.6);-webkit-text-stroke:1px #ffffff;">
+    2nd Degree Black Belt 🥋<br/><span style="font-size:0.78rem;opacity:0.7;">Taekwondo Instructor</span>
+  </div>
+
+  <!-- ═══════════════════════════════ -->
+  <!--  BOTTOM BIG STAT               -->
+  <!-- ═══════════════════════════════ -->
+
+  <!-- Thin divider -->
+  <div class="t" style="top:9.85in;left:0.2in;right:0.2in;height:2px;background:rgba(255,255,255,0.12);z-index:2;"></div>
+
+  <div class="t"
+    style="top:9.98in;left:0.2in;right:0.2in;text-align:center;z-index:2;line-height:1.6;">
+    <span class="bang fwht" style="font-size:0.92rem;">Grew Shrewsbury JCL from </span>
+    <span class="bang fcyan" style="font-size:1.1rem;-webkit-text-stroke:1.5px #fff;paint-order:stroke fill;"> 1 PERSON </span>
+    <span class="bang fwht" style="font-size:0.92rem;">to </span>
+    <span class="bang fgrn" style="font-size:1.1rem;-webkit-text-stroke:1.5px #fff;paint-order:stroke fill;"> 61 MEMBERS </span>
+    <span class="bang fwht" style="font-size:0.92rem;">&amp; </span>
+    <span class="bang fmag" style="font-size:1.1rem;-webkit-text-stroke:1.5px #fff;paint-order:stroke fill;"> 10 DELEGATES.</span>
+  </div>
+
+  <div class="t aside"
+    style="top:10.58in;left:0.2in;right:0.2in;text-align:center;font-size:0.72rem;opacity:0.45;">
+    he's kind of a big deal.
+  </div>
+
+  <!-- ═══════════════════════════════ -->
+  <!--  FOOTER                        -->
+  <!-- ═══════════════════════════════ -->
+  <div class="t cinz fwht"
+    style="bottom:0.08in;left:0.22in;right:0.22in;text-align:center;
+           border-top:1px solid rgba(255,255,255,0.2);padding-top:0.08in;opacity:0.9;">
+    <span style="font-family:'Cinzel',serif;font-size:2.5rem;font-weight:700;color:#ffffff;
+                 letter-spacing:0.06em;display:block;line-height:1.0;">Aahil Hasan</span>
+    <span style="font-family:'Cinzel',serif;font-size:0.72rem;letter-spacing:0.28em;
+                 text-transform:uppercase;color:rgba(255,255,255,0.65);font-weight:700;
+                 display:block;margin-top:0.03in;">for MassJCL President · 2026–2027</span>
+  </div>
+
+</div>
+</body>
+</html>

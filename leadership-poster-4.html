@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aahil Hasan - Full Leadership Profile</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --purple: #2d1b69;
+      --purple-light: #5a3fa8;
+      --gold: #c9a227;
+      --cream: #faf6ee;
+      --text-dark: #1a0f3e;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      padding: 0; margin: 0;
+    }
+
+    .poster-container {
+      width: 8.27in;
+      height: 11.69in;
+      margin: 20px auto;
+      background: var(--white);
+      padding: 0.22in 0.25in;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── HEADER ── */
+    .poster-header {
+      text-align: center;
+      padding: 0.1in 0 0.11in;
+      border-bottom: 4px solid var(--gold);
+      flex-shrink: 0;
+    }
+    .poster-title {
+      font-family: 'Cinzel', serif;
+      font-size: 2.7rem;
+      font-weight: 700;
+      color: var(--purple);
+      letter-spacing: 0.06em;
+      line-height: 1.05;
+    }
+    .poster-title-for {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--purple);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      display: block;
+      margin-top: 0.02in;
+      line-height: 1.2;
+    }
+    .poster-subtitle {
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin: 0.04in 0 0;
+    }
+    .name-badge {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--gold);
+      font-style: italic;
+      margin: 0.04in 0 0;
+    }
+    .header-rule {
+      display: block;
+      width: 50px; height: 2px;
+      background: var(--gold);
+      margin: 0.07in auto 0;
+    }
+
+    /* ── BODY ── */
+    .poster-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 0.1in 0 0.06in;
+      gap: 0;
+      min-height: 0;
+    }
+
+    /* ── TOP ROW: two equal columns ── */
+    .top-row {
+      flex: 58;
+      display: grid;
+      grid-template-columns: 1fr 1px 1fr;
+      gap: 0 0.18in;
+      min-height: 0;
+    }
+    .col-divider {
+      background: rgba(201,162,39,0.3);
+    }
+    .poster-col {
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+    }
+
+    /* ── ROW DIVIDER ── */
+    .row-divider {
+      flex-shrink: 0;
+      height: 1px;
+      background: rgba(201,162,39,0.4);
+      margin: 0.1in 0;
+    }
+
+    /* ── BOTTOM ROW: full-width achievements ── */
+    .bottom-row {
+      flex: 42;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+    }
+
+    /* ── SECTION HEADING ── */
+    .section-heading {
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      color: var(--purple);
+      text-transform: uppercase;
+      font-weight: 700;
+      flex-shrink: 0;
+      padding-bottom: 0.045in;
+      margin-bottom: 0.07in;
+      border-bottom: 2px solid var(--gold);
+    }
+
+    /* ── ITEM LIST ── */
+    .item-list {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Two-column grid for bottom section */
+    .item-grid {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-auto-rows: 1fr;
+      gap: 0 0.18in;
+    }
+
+    /* ── ITEM (top sections) ── */
+    .item {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      border-left: 3px solid var(--gold);
+      padding-left: 0.13in;
+      border-bottom: 1px solid rgba(201,162,39,0.15);
+    }
+    .item:last-child { border-bottom: none; }
+
+    /* ── ITEM (bottom grid) ── */
+    .grid-item {
+      display: flex;
+      align-items: center;
+      border-left: 3px solid var(--gold);
+      padding-left: 0.13in;
+      border-bottom: 1px solid rgba(201,162,39,0.15);
+    }
+    /* Remove bottom border on last two items */
+    .grid-item:nth-last-child(-n+2) { border-bottom: none; }
+
+    /* ── ROLE LABELS ── */
+    .item-role {
+      font-family: 'Cinzel', serif;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      text-transform: uppercase;
+      font-weight: 700;
+      display: block;
+      line-height: 1.2;
+      margin-bottom: 0.025in;
+    }
+    .top-col .item-role   { font-size: 0.65rem; }
+    .bottom-row .item-role { font-size: 0.65rem; }
+
+    /* ── DETAIL TEXT ── */
+    .item-details {
+      font-family: 'Cormorant Garamond', serif;
+      line-height: 1.25;
+      color: var(--text-dark);
+      font-weight: 400;
+    }
+    .top-col .item-details   { font-size: 0.95rem; }
+    .bottom-row .item-details { font-size: 0.88rem; }
+
+    /* ── FOOTER ── */
+    .poster-footer {
+      text-align: center;
+      padding: 0.09in 0 0.04in;
+      border-top: 2px solid var(--gold);
+      font-family: 'Cinzel', serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      color: var(--purple);
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+
+    button {
+      position: fixed;
+      bottom: 20px; right: 20px;
+      padding: 10px 16px;
+      background: var(--purple);
+      color: var(--white);
+      border: none; border-radius: 4px;
+      font-family: 'Cinzel', serif;
+      letter-spacing: 0.1em;
+      cursor: pointer; font-size: 0.8rem; z-index: 10;
+    }
+    button:hover { background: var(--purple-light); }
+
+    @media print {
+      @page { size: A4; margin: 0; }
+      body { padding: 0; margin: 0; background: var(--white); }
+      .poster-container {
+        margin: 0; box-shadow: none;
+        width: 100vw; height: 100vh;
+        padding: 0.22in 0.25in;
+      }
+      button { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="poster-container">
+
+    <!-- HEADER -->
+    <div class="poster-header">
+      <h1 class="poster-title">Aahil Hasan<span class="poster-title-for">for MassJCL President</span></h1>
+      <p class="poster-subtitle">Massachusetts Junior Classical League</p>
+      <span class="header-rule"></span>
+      <p class="name-badge">Leadership &amp; Achievements</p>
+    </div>
+
+    <div class="poster-body">
+
+      <!-- ══ TOP ROW ══ -->
+      <div class="top-row">
+
+        <!-- Left: Leadership in JCL (7 items) -->
+        <div class="poster-col top-col">
+          <div class="section-heading">Leadership in JCL</div>
+          <div class="item-list">
+
+            <div class="item">
+              <div>
+                <span class="item-role">Treasurer 2025-26</span>
+                <span class="item-details">Executive Board of MassJCL</span>
+              </div>
+            </div>
+
+            <div class="item">
+              <div>
+                <span class="item-role">Captain, National Certamen</span>
+                <span class="item-details">MassJCL National Certamen Team, 2024 &amp; 2025</span>
+              </div>
+            </div>
+
+            <div class="item">
+              <div>
+                <span class="item-role">Fundraising Coordinator</span>
+                <span class="item-details">MassJCL, 2024–2025</span>
+              </div>
+            </div>
+
+            <div class="item">
+              <div>
+                <span class="item-role">Co-President</span>
+                <span class="item-details">Shrewsbury National Honor Society, 2024–25 &amp; 2025–26</span>
+              </div>
+            </div>
+
+            <div class="item">
+              <div>
+                <span class="item-role">Duke</span>
+                <span class="item-details">Shrewsbury JCL, 2024, 2025, 2026</span>
+              </div>
+            </div>
+
+            <div class="item">
+              <div>
+                <span class="item-role">Captain, Certamen Team</span>
+                <span class="item-details">Shrewsbury High School, 2023–24, 2024–25, 2025–26</span>
+              </div>
+            </div>
+
+            <div class="item">
+              <div>
+                <span class="item-role">Founder &amp; Captain</span>
+                <span class="item-details">Latin League at Shrewsbury • <strong>Regional Champions 2024–25 &amp; 2025–26</strong></span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-divider"></div>
+
+        <!-- Right: Other Leadership (10 items) -->
+        <div class="poster-col top-col">
+          <div class="section-heading">Other Leadership Positions</div>
+          <div class="item-list">
+
+            <div class="item">
+              <div>
+                <span class="item-role">Student Council Member</span>
+                <span class="item-details">Shrewsbury High School</span>
+              </div>
+            </div>
+
+            <div class="item">
+              <div>
+                <span class="item-role">Student Wellness Advisory Committee</span>
+                <span class="item-details">Board Member, Shrewsbury High School</span>
+              </div>
+            </div>
+
+            <div class="item">
+              <div>
+                <span class="item-role">Language Advisory Committee</span>
+                <span class="item-details">Board Member, Shrewsbury High School</span>
+              </div>
+            </div>
+
+            <div class="item">
+              <div>
+                <span class="item-role">Student Advisory Committee</span>
+                <span class="item-details">Member, Shrewsbury High School</span>
+              </div>
+            </div>
+
+            <div class="item">
+              <div>
+                <span class="item-role">FRC Impact Award</span>
+                <span class="item-details">Impact Presenter &amp; Winner of Highest Award in FIRST Robotics</span>
+              </div>
+            </div>
+
+            <div class="item">
+              <div>
+                <span class="item-role">Taekwondo Instructor</span>
+                <span class="item-details">Certified instructor leading classes and mentoring students</span>
+              </div>
+            </div>
+
+            <div class="item">
+              <div>
+                <span class="item-role">Speech &amp; Debate Officer</span>
+                <span class="item-details">Shrewsbury High School Speech and Debate Team</span>
+              </div>
+            </div>
+
+            <div class="item">
+              <div>
+                <span class="item-role">Top Fundraiser</span>
+                <span class="item-details">Raised ~<strong>$15,000</strong> for Robotics, Crew &amp; Speech and Debate</span>
+              </div>
+            </div>
+
+            <div class="item">
+              <div>
+                <span class="item-role">President's Gold Medal Service Award</span>
+                <span class="item-details">Awarded <strong>3 years in a row</strong></span>
+              </div>
+            </div>
+
+            <div class="item">
+              <div>
+                <span class="item-role">Superintendent Interview Committee</span>
+                <span class="item-details"><strong>1 of 5</strong> student representatives selected from 500+ juniors to interview candidates for Shrewsbury's new Superintendent</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div><!-- /top-row -->
+
+      <div class="row-divider"></div>
+
+      <!-- ══ BOTTOM ROW: Achievements (7 items, 2-col grid) ══ -->
+      <div class="bottom-row">
+        <div class="section-heading">Achievements &amp; Initiatives in JCL</div>
+        <div class="item-grid">
+
+          <div class="grid-item">
+            <div>
+              <span class="item-role">Revived 501(c)(3) Status</span>
+              <span class="item-details">Reinstated MassJCL's nonprofit status, enabling Zeffy, donor solicitation &amp; free BPL bookings for members</span>
+            </div>
+          </div>
+
+          <div class="grid-item">
+            <div>
+              <span class="item-role">Introduced Zeffy Platform</span>
+              <span class="item-details">Zero-cost nonprofit fundraising platform: <strong>$50,000+ transacted</strong>, saving ~$3,000 in fees</span>
+            </div>
+          </div>
+
+          <div class="grid-item">
+            <div>
+              <span class="item-role">New Fundraising Initiatives</span>
+              <span class="item-details">Silent Auction, Giving Tuesday, Chipotle Dine-Ins &amp; grocery drives: <strong>$5,000+ raised</strong></span>
+            </div>
+          </div>
+
+          <div class="grid-item">
+            <div>
+              <span class="item-role">SCLer Engagement</span>
+              <span class="item-details">Reconnected SCLers through Giving Tuesday donations and Silent Auction participation</span>
+            </div>
+          </div>
+
+          <div class="grid-item">
+            <div>
+              <span class="item-role">School Outreach &amp; Recruitment</span>
+              <span class="item-details">Attended 3 Classics Days at Holy Cross, personally invited non-member schools to join MassJCL</span>
+            </div>
+          </div>
+
+          <div class="grid-item">
+            <div>
+              <span class="item-role">Business Partnerships</span>
+              <span class="item-details">Reached 100s of businesses, with partnerships with Panera, Whole Foods, Chipotle, Wegmans &amp; more</span>
+            </div>
+          </div>
+
+          <div class="grid-item">
+            <div>
+              <span class="item-role">Growing JCL Membership</span>
+              <span class="item-details">Grew Shrewsbury JCL to <strong>61 members</strong> and <strong>10 delegates</strong> at this year's convention</span>
+            </div>
+          </div>
+
+        </div>
+      </div><!-- /bottom-row -->
+
+    </div><!-- /poster-body -->
+
+    <div class="poster-footer">
+      Aahil Hasan for MassJCL President • 2026–2027
+    </div>
+
+  </div>
+
+  <button onclick="toggleEdit()">Enable Edit Mode</button>
+
+  <script>
+    function toggleEdit() {
+      const btn = document.querySelector('button');
+      const roles = document.querySelectorAll('.item-role');
+      const details = document.querySelectorAll('.item-details');
+      const title = document.querySelector('.poster-title');
+      const footer = document.querySelector('.poster-footer');
+      const isEditable = title.contentEditable === 'true';
+      [title, footer, ...roles, ...details].forEach(el => {
+        el.contentEditable = isEditable ? 'false' : 'true';
+      });
+      btn.textContent = isEditable ? 'Enable Edit Mode' : 'Done Editing';
+      btn.style.background = isEditable ? 'var(--purple)' : 'var(--gold)';
+    }
+  </script>
+
+</body>
+</html>

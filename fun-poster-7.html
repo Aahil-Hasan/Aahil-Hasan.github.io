@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Aahil for Prez — SALVE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@900&family=Cormorant+Garamond:ital,wght@1,400&display=swap" rel="stylesheet"/>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #f0ece4; margin: 0; padding: 20px; }
+
+    .poster {
+      width: 8.27in;
+      height: 11.69in;
+      margin: 0 auto;
+      background: #ffffff;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+    }
+
+    /* ── BORDER FRAME ── */
+    .outer-frame {
+      position: absolute;
+      inset: 0.28in;
+      border: 2px solid rgba(201,162,39,0.35);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .inner-frame {
+      position: absolute;
+      inset: 0.38in;
+      border: 1px solid rgba(201,162,39,0.15);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Corner ornaments */
+    .corner {
+      position: absolute;
+      width: 0.55in;
+      height: 0.55in;
+      z-index: 3;
+    }
+    .corner-tl { top: 0.22in; left: 0.22in; border-top: 3px solid #c9a227; border-left: 3px solid #c9a227; }
+    .corner-tr { top: 0.22in; right: 0.22in; border-top: 3px solid #c9a227; border-right: 3px solid #c9a227; }
+    .corner-bl { bottom: 0.22in; left: 0.22in; border-bottom: 3px solid #c9a227; border-left: 3px solid #c9a227; }
+    .corner-br { bottom: 0.22in; right: 0.22in; border-bottom: 3px solid #c9a227; border-right: 3px solid #c9a227; }
+
+    /* ── BACKGROUND RINGS ── */
+    .ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(201,162,39,0.08);
+      pointer-events: none;
+    }
+
+    /* ── SALVE BORDER ITEMS ── */
+    /*
+      Each letter sits near the edge of the poster, with its full word below it.
+      S — top-left area (running down the left)
+      A — top area
+      L — right side
+      V — bottom area
+      E — bottom-left / left-bottom
+      Layout: S left-vertical, A top-center, L right-vertical, V bottom-center, E bottom-left corner
+    */
+
+    .salve-item {
+      position: absolute;
+      z-index: 4;
+      text-align: center;
+    }
+
+    .salve-letter {
+      font-family: 'Cinzel', serif;
+      font-weight: 900;
+      font-size: 3.8rem;
+      color: #2d1b69;
+      paint-order: stroke fill;
+      -webkit-text-stroke: 3px #c9a227;
+      text-shadow: 4px 4px 0 rgba(201,162,39,0.18);
+      line-height: 1;
+      display: block;
+    }
+
+    .salve-word {
+      font-family: 'Cinzel', serif;
+      font-size: 0.48rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(45,27,105,0.5);
+      display: block;
+      margin-top: 0.04in;
+      line-height: 1.5;
+    }
+
+    .salve-desc {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.58rem;
+      font-style: italic;
+      color: rgba(45,27,105,0.38);
+      display: block;
+      line-height: 1.5;
+      max-width: 1in;
+    }
+
+    /* Side items rotated */
+    .salve-left {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      text-align: left;
+    }
+    .salve-right {
+      writing-mode: vertical-rl;
+      text-align: left;
+    }
+    .salve-left .salve-letter,
+    .salve-right .salve-letter {
+      writing-mode: horizontal-tb;
+      transform: none;
+    }
+
+    /* ── CENTER TEXT BLOCK ── */
+    .center-wrap {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+    }
+
+    .graffiti-block {
+      transform: rotate(-12deg);
+      text-align: left;
+      line-height: 0.9;
+    }
+
+    .tag {
+      font-family: 'Cinzel', serif;
+      font-weight: 900;
+      display: block;
+      paint-order: stroke fill;
+      letter-spacing: 0.02em;
+    }
+
+    .aahil {
+      font-size: 6.4rem;
+      color: #2d1b69;
+      -webkit-text-stroke: 5px #c9a227;
+      text-shadow: 6px 6px 0 rgba(201,162,39,0.2);
+    }
+
+    .for-word {
+      font-family: 'Lato', sans-serif;
+      font-weight: 900;
+      font-size: 1.4rem;
+      letter-spacing: 0.5em;
+      text-transform: uppercase;
+      color: #c9a227;
+      display: block;
+      margin-left: 0.15in;
+      margin-top: 0.05in;
+      margin-bottom: 0.02in;
+    }
+
+    .massjcl {
+      font-size: 4rem;
+      color: #c9a227;
+      -webkit-text-stroke: 4px #2d1b69;
+      text-shadow: 5px 5px 0 rgba(45,27,105,0.15);
+    }
+
+    .prez {
+      font-size: 8.2rem;
+      color: #2d1b69;
+      -webkit-text-stroke: 6px #c9a227;
+      text-shadow: 7px 7px 0 rgba(201,162,39,0.2);
+      margin-top: -0.02in;
+    }
+
+    .certified {
+      font-size: 2.2rem;
+      color: #c9a227;
+      -webkit-text-stroke: 2.5px #2d1b69;
+      text-shadow: 3px 3px 0 rgba(45,27,105,0.15);
+      margin-top: 0.18in;
+      border-top: 2px solid rgba(201,162,39,0.45);
+      padding-top: 0.1in;
+    }
+
+    /* ── BOTTOM FOOTER ── */
+    .poster-footer {
+      position: absolute;
+      bottom: 0.35in;
+      left: 0.55in;
+      right: 0.55in;
+      text-align: center;
+      z-index: 5;
+      border-top: 1px solid rgba(201,162,39,0.3);
+      padding-top: 0.1in;
+    }
+    .poster-footer span {
+      font-family: 'Cinzel', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(45,27,105,0.45);
+      font-weight: 700;
+    }
+
+    @media print {
+      @page { size: A4; margin: 0; }
+      body { margin: 0; padding: 0; background: #ffffff; }
+      .poster { margin: 0; box-shadow: none; width: 100vw; height: 100vh; }
+    }
+  </style>
+</head>
+<body>
+<div class="poster">
+
+  <!-- ── BACKGROUND RINGS ── -->
+  <div class="ring" style="width:10in;height:10in;top:-2in;left:-1in;"></div>
+  <div class="ring" style="width:7in;height:7in;top:0.8in;left:0.3in;border-color:rgba(201,162,39,0.06);"></div>
+  <div class="ring" style="width:4.5in;height:4.5in;top:2.5in;left:1.6in;border-color:rgba(45,27,105,0.05);"></div>
+
+  <!-- ── CORNER ORNAMENTS ── -->
+  <div class="corner corner-tl"></div>
+  <div class="corner corner-tr"></div>
+  <div class="corner corner-bl"></div>
+  <div class="corner corner-br"></div>
+  <div class="outer-frame"></div>
+  <div class="inner-frame"></div>
+
+  <!-- ═══════════ S — TOP LEFT, VERTICAL DOWN LEFT SIDE ═══════════ -->
+  <div class="salve-item" style="left:0.42in; top:0.6in; width:0.9in;">
+    <span class="salve-letter">S</span>
+    <span class="salve-word">State &amp;<br/>Local</span>
+    <span class="salve-desc">Outreach &amp;<br/>chapter support</span>
+  </div>
+
+  <!-- ═══════════ A — TOP CENTER ═══════════ -->
+  <div class="salve-item" style="top:0.42in; left:50%; transform:translateX(-50%); width:1.4in;">
+    <span class="salve-letter">A</span>
+    <span class="salve-word">Alumni<br/>Connections</span>
+    <span class="salve-desc">Keeping our<br/>SCLers close</span>
+  </div>
+
+  <!-- ═══════════ L — RIGHT SIDE, TOP THIRD ═══════════ -->
+  <div class="salve-item" style="right:0.42in; top:2.2in; width:0.9in;">
+    <span class="salve-letter">L</span>
+    <span class="salve-word">Listening<br/>to Ideas</span>
+    <span class="salve-desc">Your voice<br/>shapes us</span>
+  </div>
+
+  <!-- ═══════════ V — RIGHT SIDE, LOWER ═══════════ -->
+  <div class="salve-item" style="right:0.42in; top:6.2in; width:0.9in;">
+    <span class="salve-letter">V</span>
+    <span class="salve-word">Vision for<br/>Fundraising</span>
+    <span class="salve-desc">$5K+ raised<br/>in one year</span>
+  </div>
+
+  <!-- ═══════════ E — BOTTOM CENTER ═══════════ -->
+  <div class="salve-item" style="bottom:0.65in; left:50%; transform:translateX(-50%); width:1.4in;">
+    <span class="salve-letter">E</span>
+    <span class="salve-word">Entertainment</span>
+    <span class="salve-desc">That's<br/>Entertainment</span>
+  </div>
+
+  <!-- ═══════════ SALVE WORD — LEFT SIDE LABEL ═══════════ -->
+  <div style="position:absolute; left:0.44in; top:50%; transform:translateY(-50%) rotate(180deg);
+              writing-mode:vertical-rl; z-index:4;">
+    <span style="font-family:'Cinzel',serif; font-size:0.55rem; letter-spacing:0.35em;
+                 text-transform:uppercase; color:rgba(201,162,39,0.4); font-weight:700;">
+      S · A · L · V · E
+    </span>
+  </div>
+
+  <!-- ─── CENTER TEXT ─── -->
+  <div class="center-wrap">
+    <div class="graffiti-block">
+      <span class="tag aahil">AAHIL</span>
+      <span class="for-word">FOR</span>
+      <span class="tag massjcl">MASSJCL</span>
+      <span class="tag prez">PREZ</span>
+      <span class="tag certified">CERTIFIED FUNKY ✓</span>
+    </div>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <div class="poster-footer">
+    <span>Aahil Hasan · MassJCL President · 2026–2027 · Fortis · Fidelis · Funky</span>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Actions Speak — Aahil Hasan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #f0ece4; margin: 0; padding: 20px; }
+
+    .poster {
+      width: 8.27in;
+      height: 11.69in;
+      margin: 0 auto;
+      background: #ffffff;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+      position: relative;
+    }
+
+    /* ── TOP HEADER ── */
+    .header {
+      background: #2d1b69;
+      padding: 0.2in 0.42in 0.2in;
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: repeating-linear-gradient(
+        90deg, transparent, transparent 58px,
+        rgba(201,162,39,0.04) 58px, rgba(201,162,39,0.04) 60px
+      );
+      pointer-events: none;
+    }
+    .eyebrow {
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: rgba(201,162,39,0.6);
+      font-weight: 700;
+      display: block;
+      margin-bottom: 0.06in;
+      position: relative;
+      z-index: 1;
+    }
+    .header-name {
+      font-family: 'Cinzel', serif;
+      font-size: 2.7rem;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 0.06em;
+      display: block;
+      margin-bottom: 0.08in;
+      position: relative;
+      z-index: 1;
+      line-height: 1.05;
+    }
+    .headline-sm {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.55rem;
+      font-weight: 900;
+      color: #ffffff;
+      line-height: 1.05;
+      display: block;
+      margin-bottom: 0in;
+      position: relative;
+      z-index: 1;
+    }
+    .headline-lg {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.55rem;
+      font-weight: 900;
+      color: #c9a227;
+      line-height: 1.05;
+      position: relative;
+      z-index: 1;
+      display: block;
+    }
+    .headline-lg em {
+      font-style: italic;
+      color: #ffffff;
+    }
+
+    /* Gold rule */
+    .gold-rule {
+      height: 4px;
+      background: linear-gradient(90deg, #a07818, #e8c84a, #c9a227, #a07818);
+      flex-shrink: 0;
+    }
+
+    /* ── MAIN BODY ── */
+    .body {
+      flex: 1;
+      display: flex;
+      min-height: 0;
+    }
+
+    /* Left: list */
+    .list-side {
+      width: 46%;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0.22in 0.25in 0.22in 0.38in;
+      border-right: none;
+    }
+
+    .list-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.58rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #c9a227;
+      font-weight: 700;
+      margin-bottom: 0.2in;
+      display: block;
+    }
+
+    .deliver-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.18in;
+      padding: 0.13in 0;
+      border-bottom: 1px solid rgba(201,162,39,0.14);
+    }
+    .deliver-item:last-child { border-bottom: none; }
+
+    .check {
+      font-size: 0.85rem;
+      color: #c9a227;
+      flex-shrink: 0;
+      margin-top: 0.01in;
+      line-height: 1;
+    }
+
+    .deliver-text {
+      flex: 1;
+    }
+    .deliver-stat {
+      font-family: 'Cinzel', serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #2d1b69;
+      display: block;
+      line-height: 1.2;
+    }
+    .deliver-stat strong {
+      color: #c9a227;
+    }
+    .deliver-desc {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.68rem;
+      color: rgba(45,27,105,0.55);
+      display: block;
+      margin-top: 0.02in;
+      line-height: 1.5;
+    }
+
+    /* Right: image */
+    .image-side {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+    .image-side img {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 102%;
+      width: auto;
+      display: block;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      flex-shrink: 0;
+      background: #2d1b69;
+      padding: 0.15in 0.42in;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer-name {
+      font-family: 'Cinzel', serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #c9a227;
+      font-weight: 700;
+    }
+    .footer-tagline {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.68rem;
+      font-style: italic;
+      color: rgba(255,255,255,0.38);
+    }
+
+    @media print {
+      @page { size: A4; margin: 0; }
+      body { margin: 0; padding: 0; background: #ffffff; }
+      .poster { margin: 0; box-shadow: none; width: 100vw; height: 100vh; }
+    }
+  </style>
+</head>
+<body>
+<div class="poster">
+
+  <!-- HEADER -->
+  <div class="header">
+    <span class="eyebrow">MassJCL President · 2026–2027</span>
+    <span class="header-name">Aahil Hasan</span>
+    <span class="headline-sm">Actions speak</span>
+    <span class="headline-lg"><em>louder</em> than words.</span>
+    <span style="font-family:'Playfair Display',serif;font-size:1.55rem;font-weight:900;font-style:italic;color:#c9a227;display:block;margin-top:0.04in;position:relative;z-index:1;letter-spacing:0.04em;">and his speak volumes</span>
+  </div>
+  <div class="gold-rule"></div>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <!-- LIST SIDE -->
+    <div class="list-side">
+      <span class="list-label">Already delivered. Not just promised.</span>
+
+      <div class="deliver-item">
+        <span class="check">✦</span>
+        <div class="deliver-text">
+          <span class="deliver-stat">Revived MassJCL's <strong>501(c)(3)</strong> nonprofit status</span>
+          <span class="deliver-desc">Enabling donor solicitation, Zeffy fundraising, free BPL venue booking for all members, and tax free status</span>
+        </div>
+      </div>
+
+      <div class="deliver-item">
+        <span class="check">✦</span>
+        <div class="deliver-text">
+          <span class="deliver-stat"><strong>$50,000+</strong> transacted via Zeffy</span>
+          <span class="deliver-desc">Zero platform fees, saving MassJCL thousands of dollars</span>
+        </div>
+      </div>
+
+      <div class="deliver-item">
+        <span class="check">✦</span>
+        <div class="deliver-text">
+          <span class="deliver-stat"><strong>$5,000+</strong> fundraised in a single year</span>
+          <span class="deliver-desc">Silent Auction, Giving Tuesday, Chipotle Dine-Ins, grocery gift card drives, and more</span>
+        </div>
+      </div>
+
+      <div class="deliver-item">
+        <span class="check">✦</span>
+        <div class="deliver-text">
+          <span class="deliver-stat">Grew Shrewsbury JCL <strong>to 61 members</strong></span>
+          <span class="deliver-desc">Sent 10 delegates to this year's state convention</span>
+        </div>
+      </div>
+
+      <div class="deliver-item">
+        <span class="check">✦</span>
+        <div class="deliver-text">
+          <span class="deliver-stat"><strong>2× Latin League Regional Champions</strong></span>
+          <span class="deliver-desc">Founded and captained Shrewsbury Latin League team</span>
+        </div>
+      </div>
+
+      <div class="deliver-item">
+        <span class="check">✦</span>
+        <div class="deliver-text">
+          <span class="deliver-stat">2× MassJCL National Certamen Team Captain</span>
+          <span class="deliver-desc">Represented MassJCL on the national stage every year since 8th grade</span>
+        </div>
+      </div>
+
+      <div class="deliver-item">
+        <span class="check">✦</span>
+        <div class="deliver-text">
+          <span class="deliver-stat"><strong>President's Gold Medal</strong> Service Award</span>
+          <span class="deliver-desc">The highest community service honor 3 years in a row</span>
+        </div>
+      </div>
+
+      <div class="deliver-item">
+        <span class="check">✦</span>
+        <div class="deliver-text">
+          <span class="deliver-stat">SCLer outreach network</span>
+          <span class="deliver-desc">Spreadsheet of alumni engaged for Giving Tuesday and Silent Auction; gave generously</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- IMAGE SIDE -->
+    <div class="image-side">
+      <img src="aahil clipped.png" alt="Aahil Hasan"/>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span class="footer-name">Vote Aahil Hasan for MassJCL President</span>
+    <span class="footer-tagline">Fortis · Fidelis · Funky</span>
+  </div>
+
+</div>
+</body>
+</html>

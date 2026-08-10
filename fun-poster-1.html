@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Hoc Tangere Non Potes — Aahil Hasan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Playfair+Display:ital,wght@0,400;0,900;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #080e18; margin: 0; padding: 0; }
+
+    .poster {
+      width: 8.27in;
+      height: 11.69in;
+      margin: 20px auto;
+      background: #080e18;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 12px 48px rgba(0,0,0,0.7);
+    }
+
+    /* ── TOP GOLD BAR ── */
+    .bar {
+      background: linear-gradient(90deg, #a07818, #e8c84a, #a07818);
+      padding: 0.13in 0.3in;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .bar-text {
+      font-family: 'Cinzel', serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.3em;
+      color: #0c1520;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    /* ── MAIN SPLIT ── */
+    .main {
+      flex: 1;
+      display: flex;
+      min-height: 0;
+    }
+
+    /* Left text side */
+    .left {
+      width: 54%;
+      padding: 0.42in 0.35in 0.35in 0.38in;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Right image side */
+    .right {
+      width: 46%;
+      position: relative;
+      overflow: hidden;
+    }
+    .right img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      filter: contrast(1.05) saturate(1.1);
+    }
+    .right::before {
+      content: '';
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 50%;
+      background: linear-gradient(to right, #080e18 0%, transparent 100%);
+      z-index: 1;
+    }
+    .right::after {
+      content: '';
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 20%;
+      background: linear-gradient(to top, #080e18 0%, transparent 100%);
+      z-index: 1;
+    }
+
+    /* ── LATIN HERO TEXT ── */
+    .latin-stack { margin-bottom: 0.05in; }
+    .word {
+      font-family: 'Cinzel', serif;
+      font-weight: 900;
+      text-transform: uppercase;
+      display: block;
+      line-height: 0.9;
+    }
+    .w-hoc     { font-size: 6rem;   color: #c9a227; letter-spacing: 0.04em; }
+    .w-tangere { font-size: 3.6rem; color: #c9a227; letter-spacing: 0.06em; margin-top: 0.04in; }
+    .w-non     { font-size: 2.5rem; color: #ffffff; letter-spacing: 0.08em; margin-top: 0.1in; }
+    .w-potes   { font-size: 4.4rem; color: #ffffff; letter-spacing: 0.04em; margin-top: -0.04in; }
+
+    .translation {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.68rem;
+      color: rgba(201,162,39,0.5);
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      font-weight: 300;
+      margin-top: 0.18in;
+    }
+
+    .rule {
+      width: 100%;
+      height: 1px;
+      background: rgba(201,162,39,0.22);
+      margin: 0.24in 0;
+    }
+
+    .tagline {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.8);
+      font-style: italic;
+      line-height: 1.55;
+    }
+
+    /* ── STATS ── */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.1in;
+    }
+    .stat {
+      border: 1px solid rgba(201,162,39,0.3);
+      padding: 0.14in 0.1in;
+      text-align: center;
+      background: rgba(201,162,39,0.04);
+    }
+    .stat-n {
+      font-family: 'Cinzel', serif;
+      font-size: 1.55rem;
+      color: #c9a227;
+      font-weight: 700;
+      display: block;
+      line-height: 1;
+    }
+    .stat-l {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.52rem;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      display: block;
+      margin-top: 0.05in;
+    }
+
+    /* ── BOTTOM GOLD BAR ── */
+    .bottom-bar {
+      background: linear-gradient(90deg, #a07818, #e8c84a, #a07818);
+      padding: 0.1in 0.3in 0.12in;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .bottom-bar-name {
+      font-family: 'Cinzel', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #0c1520;
+      letter-spacing: 0.06em;
+      display: block;
+      line-height: 1.05;
+    }
+    .bottom-bar-text {
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      color: rgba(12,21,32,0.75);
+      text-transform: uppercase;
+      font-weight: 700;
+      display: block;
+      margin-top: 0.04in;
+    }
+
+    @media print {
+      @page { size: A4; margin: 0; }
+      body { margin: 0; padding: 0; background: #080e18; }
+      .poster { margin: 0; box-shadow: none; width: 100vw; height: 100vh; }
+    }
+  </style>
+</head>
+<body>
+  <div class="poster">
+
+    <div class="bar">
+      <span class="bar-text">Massachusetts Junior Classical League · 2026–2027</span>
+    </div>
+
+    <div class="main">
+      <div class="left">
+        <div>
+          <div class="latin-stack">
+            <span class="word w-hoc">HOC</span>
+            <span class="word w-tangere">TANGERE</span>
+            <span class="word w-non">NON</span>
+            <span class="word w-potes">POTES.</span>
+          </div>
+          <div class="translation">You Can't Touch This</div>
+          <div class="rule"></div>
+          <p class="tagline">"The results speak for themselves. It's time to bring that same energy to the MassJCL presidency."</p>
+          <div class="rule"></div>
+        </div>
+
+        <div class="stats">
+          <div class="stat">
+            <span class="stat-n">$50K+</span>
+            <span class="stat-l">Transacted via Zeffy</span>
+          </div>
+          <div class="stat">
+            <span class="stat-n">$5K+</span>
+            <span class="stat-l">Fundraised in one year</span>
+          </div>
+          <div class="stat">
+            <span class="stat-n">61</span>
+            <span class="stat-l">JCL Members grown</span>
+          </div>
+          <div class="stat">
+            <span class="stat-n">2×</span>
+            <span class="stat-l">Regional Champions</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="right">
+        <img src="behind.jpg" alt="Aahil Hasan holding trophies"/>
+      </div>
+    </div>
+
+    <div class="bottom-bar">
+      <span class="bottom-bar-name">Aahil Hasan</span>
+      <span class="bottom-bar-text">Vote for MassJCL President · 2026–2027</span>
+    </div>
+
+  </div>
+</body>
+</html>

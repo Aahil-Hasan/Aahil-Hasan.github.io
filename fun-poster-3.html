@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Dance Floor to Executive Board — Aahil Hasan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #f0ece4; margin: 0; padding: 0; }
+
+    .poster {
+      width: 8.27in;
+      height: 11.69in;
+      margin: 20px auto;
+      background: #ffffff;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      padding: 0.28in 0.35in;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+    }
+
+    /* ── TOP HEADLINE ── */
+    .headline-section {
+      text-align: center;
+      flex-shrink: 0;
+      padding-bottom: 0.18in;
+      border-bottom: 3px solid #c9a227;
+      margin-bottom: 0.2in;
+    }
+
+    .eyebrow {
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      color: #c9a227;
+      text-transform: uppercase;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 0.06in;
+    }
+
+    .header-name {
+      font-family: 'Cinzel', serif;
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: #2d1b69;
+      letter-spacing: 0.06em;
+      display: block;
+      margin-bottom: 0.1in;
+      line-height: 1.05;
+    }
+
+    .headline {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      font-weight: 900;
+      font-style: italic;
+      color: #2d1b69;
+      line-height: 1.15;
+    }
+    .headline em { color: #c9a227; font-style: normal; }
+
+    /* ── IMAGE ROW ── */
+    .images-row {
+      flex: 1;
+      display: flex;
+      gap: 0.22in;
+      min-height: 0;
+    }
+
+    /* Each image column */
+    .img-col {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+    }
+
+    .img-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-weight: 700;
+      text-align: center;
+      padding-bottom: 0.09in;
+      flex-shrink: 0;
+    }
+    .img-label-left  { color: #c9a227; }
+    .img-label-right { color: #2d1b69; }
+
+    .img-frame {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 0;
+      overflow: hidden;
+      border: 2px solid #c9a227;
+      box-shadow: 0 4px 18px rgba(45,27,105,0.12), 3px 3px 0 #c9a227;
+      background: #faf6ee;
+    }
+
+    .img-frame img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      display: block;
+    }
+
+    /* Caption below each image */
+    .img-caption {
+      flex-shrink: 0;
+      text-align: center;
+      padding-top: 0.1in;
+    }
+    .img-caption-main {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.68rem;
+      color: #2d1b69;
+      line-height: 1.45;
+      display: block;
+    }
+    .img-caption-main strong { color: #c9a227; }
+
+    /* ── BOTTOM SECTION ── */
+    .bottom-section {
+      flex-shrink: 0;
+      text-align: center;
+      padding-top: 0.18in;
+      border-top: 3px solid #c9a227;
+      margin-top: 0.2in;
+    }
+
+    .vote-call {
+      font-family: 'Cinzel', serif;
+      font-size: 1.05rem;
+      letter-spacing: 0.25em;
+      color: #2d1b69;
+      text-transform: uppercase;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 0.06in;
+    }
+
+    .vote-sub {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.82rem;
+      font-style: italic;
+      color: rgba(45,27,105,0.5);
+    }
+
+    @media print {
+      @page { size: A4; margin: 0; }
+      body { margin: 0; padding: 0; background: #ffffff; }
+      .poster { margin: 0; box-shadow: none; width: 100vw; height: 100vh; }
+    }
+  </style>
+</head>
+<body>
+  <div class="poster">
+
+    <!-- HEADLINE -->
+    <div class="headline-section">
+      <span class="eyebrow">MassJCL President · 2026–2027</span>
+      <span class="header-name">Aahil Hasan</span>
+      <div class="headline">
+        From the <em>Dance Floor</em> to the <em>Executive Board</em>
+      </div>
+    </div>
+
+    <!-- IMAGES -->
+    <div class="images-row">
+
+      <div class="img-col">
+        <div class="img-label img-label-left">The Personality</div>
+        <div class="img-frame">
+          <img src="chicken.jpeg" alt="Aahil Hasan in chicken costume"/>
+        </div>
+        <div class="img-caption">
+          <span class="img-caption-main">
+            Convention Spirit · Skit Writer · Chant Leader<br/>
+            <strong>"How funky is your chicken?"</strong>
+          </span>
+        </div>
+      </div>
+
+      <div class="img-col">
+        <div class="img-label img-label-right">The Results</div>
+        <div class="img-frame">
+          <img src="Aahil-prom.jpeg" alt="Aahil Hasan at prom"/>
+        </div>
+        <div class="img-caption">
+          <span class="img-caption-main">
+            <strong>$50K+</strong> transacted · <strong>2× Regional Champs</strong><br/>
+            Treasurer · Certamen Captain · 501(c)(3) Revived
+          </span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- BOTTOM -->
+    <div class="bottom-section">
+      <span class="vote-call">Vote Aahil Hasan for MassJCL President · 2026–2027</span>
+      <span class="vote-sub">Fortis · Fidelis · Funky</span>
+    </div>
+
+  </div>
+</body>
+</html>

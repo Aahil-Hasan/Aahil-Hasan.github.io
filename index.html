@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aahil Hasan for MassJCL President</title>
+  <title>Aahil Hasan · MassJCL President 2025-2026</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
@@ -476,8 +476,6 @@
     }
     .latin-cameo img { display: block; }
 
-
-    /* ── PHOTO GALLERY ── */
     .gallery-strip {
       background: var(--purple-dark);
       padding: 0;
@@ -551,18 +549,9 @@
       .why-columns { grid-template-columns: 1fr; gap: 2rem; }
     }
 
-    /* ================= RIDDLES SECTION ================= */
-
-    #riddles {
-      background: var(--cream-dark);
-    }
-
-    .riddle-container {
-      max-width: 720px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
+    /* ================= RIDDLES ================= */
+    #riddles { background: var(--cream-dark); }
+    .riddle-container { max-width: 720px; margin: 0 auto; text-align: center; }
     .riddle-card {
       background: var(--white);
       border: 1px solid rgba(201,162,39,0.35);
@@ -570,7 +559,6 @@
       margin-top: 2rem;
       box-shadow: 0 12px 30px rgba(26,15,62,0.08);
     }
-
     .riddle-num {
       font-family: 'Cinzel', serif;
       font-size: 0.7rem;
@@ -579,7 +567,6 @@
       color: var(--gold-dim);
       margin-bottom: 1.5rem;
     }
-
     .riddle-q {
       font-family: 'Playfair Display', serif;
       font-size: 1.6rem;
@@ -587,13 +574,7 @@
       margin-bottom: 2rem;
       line-height: 1.5;
     }
-
-    .riddle-input-row {
-      display: flex;
-      gap: 0.75rem;
-      margin-bottom: 1rem;
-    }
-
+    .riddle-input-row { display: flex; gap: 0.75rem; margin-bottom: 1rem; }
     .riddle-input {
       flex: 1;
       padding: 0.9rem 1rem;
@@ -602,11 +583,7 @@
       background: var(--cream);
       outline: none;
     }
-
-    .riddle-input:focus {
-      border-color: var(--gold);
-    }
-
+    .riddle-input:focus { border-color: var(--gold); }
     .riddle-submit {
       background: var(--purple);
       color: var(--gold);
@@ -617,11 +594,7 @@
       text-transform: uppercase;
       cursor: pointer;
     }
-
-    .riddle-submit:hover {
-      background: var(--purple-mid);
-    }
-
+    .riddle-submit:hover { background: var(--purple-mid); }
     .riddle-hint-btn {
       font-family: 'Cinzel', serif;
       font-size: 0.7rem;
@@ -634,7 +607,6 @@
       cursor: pointer;
       margin-top: 0.5rem;
     }
-
     .riddle-hint {
       margin-top: 1rem;
       font-family: 'Cormorant Garamond', serif;
@@ -643,25 +615,10 @@
       opacity: 0;
       transition: opacity 0.3s ease;
     }
-
-    .riddle-hint.show {
-      opacity: 1;
-    }
-
-    .riddle-feedback {
-      margin-top: 1rem;
-      font-family: 'Lato', sans-serif;
-      font-size: 0.95rem;
-    }
-
-    .riddle-feedback.correct {
-      color: #2e7d32;
-    }
-
-    .riddle-feedback.wrong {
-      color: #a32d2d;
-    }
-
+    .riddle-hint.show { opacity: 1; }
+    .riddle-feedback { margin-top: 1rem; font-family: 'Lato', sans-serif; font-size: 0.95rem; }
+    .riddle-feedback.correct { color: #2e7d32; }
+    .riddle-feedback.wrong { color: #a32d2d; }
     .riddle-next {
       margin-top: 1.5rem;
       display: none;
@@ -671,34 +628,11 @@
       font-family: 'Cinzel', serif;
       cursor: pointer;
     }
-
-    .riddle-next:hover {
-      background: var(--gold-light);
-    }
-
-    /* progress pips */
-    .riddle-progress {
-      display: flex;
-      justify-content: center;
-      gap: 0.5rem;
-    }
-
-    .riddle-pip {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: rgba(201,162,39,0.3);
-    }
-
-    .riddle-pip.active {
-      background: var(--gold);
-    }
-
-    .riddle-pip.done {
-      background: var(--purple);
-    }
-
-    /* finale screen */
+    .riddle-next:hover { background: var(--gold-light); }
+    .riddle-progress { display: flex; justify-content: center; gap: 0.5rem; }
+    .riddle-pip { width: 10px; height: 10px; border-radius: 50%; background: rgba(201,162,39,0.3); }
+    .riddle-pip.active { background: var(--gold); }
+    .riddle-pip.done { background: var(--purple); }
     .riddle-finale {
       display: none;
       flex-direction: column;
@@ -708,32 +642,10 @@
       background: var(--white);
       border: 1px solid rgba(201,162,39,0.35);
     }
-
-    .finale-score {
-      font-family: 'Playfair Display', serif;
-      font-size: 3rem;
-      color: var(--purple);
-    }
-
-    .finale-score span {
-      font-size: 1rem;
-      color: var(--gold-dim);
-    }
-
-    .finale-title {
-      font-family: 'Cinzel', serif;
-      margin-top: 0.5rem;
-      letter-spacing: 0.2em;
-      color: var(--gold);
-    }
-
-    .finale-msg {
-      margin-top: 1rem;
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      text-align: center;
-    }
-
+    .finale-score { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--purple); }
+    .finale-score span { font-size: 1rem; color: var(--gold-dim); }
+    .finale-title { font-family: 'Cinzel', serif; margin-top: 0.5rem; letter-spacing: 0.2em; color: var(--gold); }
+    .finale-msg { margin-top: 1rem; font-family: 'Cormorant Garamond', serif; font-style: italic; text-align: center; }
     .finale-restart {
       margin-top: 1.5rem;
       background: var(--purple);
@@ -741,28 +653,30 @@
       border: none;
       padding: 0.8rem 1.5rem;
       cursor: pointer;
+      font-family: 'Cinzel', serif;
     }
   </style>
 </head>
 <body>
 
   <nav>
-    <div class="nav-brand">Aahil Hasan · MassJCL</div>
+    <div class="nav-brand">Aahil Hasan · MassJCL President</div>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#platform">Platform</a></li>
       <li><a href="#why">Why Aahil</a></li>
+      <li><a href="#riddles">Riddles</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
   <section id="hero">
     <div class="hero-content">
-      <p class="hero-eyebrow">Massachusetts Junior Classical League · 2026-2027</p>
+      <p class="hero-eyebrow">Massachusetts Junior Classical League · 2025-2026</p>
       <h1 class="hero-name">Aahil<br /><span>Hasan</span></h1>
-      <p class="hero-office">Candidate for President</p>
-      <p class="hero-tagline">"Always ready to say <em>SALVE</em>, bringing new ideas, new energy, and a stronger MassJCL."</p>
-      <a href="#platform" class="hero-btn">Explore the Platform</a>
+      <p class="hero-office">MassJCL President</p>
+      <p class="hero-tagline">"Thank you, MassJCL. It is the honor of my life to serve as your President. Let's get to work."</p>
+      <a href="#platform" class="hero-btn">See What's Ahead</a>
     </div>
     <div class="hero-lounging">
       <img src="Aahil-latingear-cropped.png" alt="Aahil in Roman attire" />
@@ -771,13 +685,33 @@
   </section>
 
   <div class="laurel-banner">
-    ⸻ &nbsp; Fortis · Fidelis &nbsp; ⸻
+    ⸻ &nbsp; Gratias Vobis Ago · Thank You MassJCL &nbsp; ⸻
+  </div>
+
+  <!-- PHOTO GALLERY -->
+  <div class="gallery-strip">
+    <div class="gallery-item">
+      <img src="classics-day.jpg" alt="Aahil at Classics Day 2025" />
+      <span class="gallery-caption">Classics Day 2025</span>
+    </div>
+    <div class="gallery-item">
+      <img src="tshirts.jpg" alt="MassJCL Agora merchandise table" />
+      <span class="gallery-caption">Agora at Nationals</span>
+    </div>
+    <div class="gallery-item">
+      <img src="scrapbook.jpg" alt="Aahil with NJCL scrapbook" />
+      <span class="gallery-caption">NJCL Nationals</span>
+    </div>
+    <div class="gallery-item">
+      <img src="chipotle.jpg" alt="Chipotle Fundraiser Results" />
+      <span class="gallery-caption">Chipotle Fundraiser Win</span>
+    </div>
   </div>
 
   <section id="about">
     <div class="container">
       <p class="section-label">De Me</p>
-      <h2 class="section-title">A Passion for the Classics,<br />A Commitment to Community</h2>
+      <h2 class="section-title">Thank You, MassJCL.<br />Let's Build Something Great.</h2>
       <div class="divider"><span class="divider-icon">✦</span></div>
       <div class="about-grid">
         <div class="about-portrait">
@@ -790,10 +724,10 @@
           <div class="portrait-corner br"></div>
         </div>
         <div class="about-text">
-          <p>Salvete! I'm <strong>Aahil Hasan</strong>, and JCL has been my home since 2023, when I joined as an 8th grader. This year I will attend my <strong>4th State Convention and 4th National Convention</strong>, and I want to spend the next year giving back to the organization that has given me so much.</p>
-          <p>I founded and captained the Latin League chapter at my school (Regional champions, 2 years running!). I've competed on the National Certamen circuit for three years, two as captain, and served as <strong>Co-President of the Shrewsbury NJCL Latin Honor Society</strong> two years running.</p>
-          <p>As <strong>MassJCL Treasurer (2024-2025)</strong> and unofficial fundraising coordinator the year before, I managed over $25,000 in funds, introduced Zeffy to the organization, revived our <strong>501(c)(3) nonprofit status</strong>, and launched fundraisers raising more than $5,000 in a single year for scholarships and convention cost reductions.</p>
-          <p>Outside of JCL, I'm an officer in Speech &amp; Debate, Student Health and Wellness Advisory Committee board, Language Advisory Committee Board, a 2nd degree black belt in Taekwondo, and a lead fundraiser in both Robotics and Crew. I have made some of my best friends in this organization, and it would mean the world to me to serve it as your President.</p>
+          <p>Salvete, MassJCL! I am <strong>Aahil Hasan</strong>, your newly elected President, and I am beyond grateful for the trust you have placed in me. This organization has been my home since 2023, and getting to serve it is a dream come true.</p>
+          <p>From the bottom of my heart, <strong>thank you</strong> to every member who voted, every advisor who believed in this campaign, and every JCLer who has been a part of my journey. You are why I ran, and you are why I will give this role everything I have.</p>
+          <p>The work begins now. Everything in the <strong>SALVE platform</strong> is ready to be put into action, from alumni outreach to reviving That's Entertainment to building stronger local chapters across Massachusetts.</p>
+          <p>MassJCL's best days are ahead. I am honored, humbled, and ready. <strong>Valete et valete bene!</strong></p>
         </div>
       </div>
     </div>
@@ -819,7 +753,7 @@
           <span class="platform-letter">A</span>
           <span class="platform-word">Alumni Connections</span>
           <h3>Anchoring Our Community to Its Roots</h3>
-          <p>I built a spreadsheet of SCLers and engaged them for Giving Tuesday and they gave generously. As president, I will launch exclusive alumni newsletters to keep former members informed, connected, and invested in the future of the organization they once called home.</p>
+          <p>I built a spreadsheet of MassJCL alumni and engaged them for Giving Tuesday and they gave generously. As president, I will launch exclusive alumni newsletters to keep former members informed, connected, and invested in the future of the organization they once called home.</p>
         </div>
         <div class="platform-card">
           <span class="platform-letter">L</span>
@@ -893,7 +827,7 @@
             <h4>Latin Honor Society Leader</h4>
             <p>Served as Co-President of the Shrewsbury NJCL Latin Honor Society two years in a row, attending Classics Day at Boston University and Holy Cross to promote the classics across Massachusetts.</p>
             <div class="why-item-photo">
-              <img src="classics-day.jpg" alt="Aahil at Classics Day 2025" style="object-position: center 20%;" />
+              <img src="holycross.jpg" alt="Aahil at Holy Cross Classics Day" style="object-position: center 20%;" />
             </div>
           </div>
         </div>
@@ -902,8 +836,13 @@
           <div>
             <h4>Creative &amp; Energetic</h4>
             <p>Wrote every MassJCL officer skit this year, from Nationals to Kickoff to Classics Day. I bring creativity and charisma to everything I do, and I'll bring that same energy to the presidency.</p>
-            <div class="why-item-photo">
-              <img src="scrapbook.jpg" alt="Aahil with NJCL scrapbook at Nationals" style="object-position: center 15%;" />
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:0.75rem;">
+              <div class="why-item-photo" style="margin-top:0;">
+                <img src="scrapbook.jpg" alt="Aahil with NJCL scrapbook at Nationals" style="object-position: center 15%;" />
+              </div>
+              <div class="why-item-photo" style="margin-top:0;">
+                <img src="classics-day.jpg" alt="Aahil at Classics Day 2025" style="object-position: center 20%;" />
+              </div>
             </div>
           </div>
         </div>
@@ -926,99 +865,39 @@
         </div>
       </div>
       <span class="pullquote-mark">"</span>
-      <p>I want to be your president because I want to be a leader in what I have learned to love as a second family. I want to be YOUR president.</p>
-      <cite>Aahil Hasan, Candidate for MassJCL President · Gratias vobis ago</cite>
+      <p>Thank you for believing in me. I will spend every day of this presidency making sure you never regret it.</p>
+      <cite>Aahil Hasan · MassJCL President 2025-2026 · Gratias vobis ago</cite>
     </div>
   </section>
 
   <section id="riddles">
-  <div class="container">
-    <p class="section-label">Aenigmata Romana</p>
-    <h2 class="section-title">The MassJCL Riddle Challenge</h2>
-    <div class="divider"><span class="divider-icon">✦</span></div>
-
-    <div class="riddle-container">
-
-      <!-- Progress bars -->
-      <div class="riddle-progress" id="riddle-pips"></div>
-
-      <!-- Main riddle card -->
-      <div class="riddle-card" id="riddle-main">
-
-        <div class="riddle-num" id="riddle-num">
-          Riddle I of V
+    <div class="container">
+      <p class="section-label">Aenigmata Romana</p>
+      <h2 class="section-title">The MassJCL Riddle Challenge</h2>
+      <div class="divider"><span class="divider-icon">✦</span></div>
+      <div class="riddle-container">
+        <div class="riddle-progress" id="riddle-pips"></div>
+        <div class="riddle-card" id="riddle-main">
+          <div class="riddle-num" id="riddle-num">Riddle I of V</div>
+          <div class="riddle-q" id="riddle-q">Loading riddle...</div>
+          <div class="riddle-input-row">
+            <input type="text" id="riddle-input" class="riddle-input" placeholder="Your answer..." />
+            <button class="riddle-submit" id="riddle-submit" onclick="checkRiddle()">Submit</button>
+          </div>
+          <button class="riddle-hint-btn" id="riddle-hint-btn" onclick="showHint()">Need a Hint?</button>
+          <div class="riddle-hint" id="riddle-hint"></div>
+          <div class="riddle-feedback" id="riddle-feedback"></div>
+          <button class="riddle-next" id="riddle-next" onclick="nextRiddle()">Next Riddle &rarr;</button>
         </div>
-
-        <div class="riddle-q" id="riddle-q">
-          Loading riddle...
+        <div class="riddle-finale" id="riddle-finale">
+          <div class="finale-score" id="finale-score">5<span>/5</span></div>
+          <div class="finale-title" id="finale-title">Imperator</div>
+          <div class="finale-msg" id="finale-msg">Extraordinary! You think like a Roman.</div>
+          <button class="finale-restart" onclick="restartRiddles()">Try Again</button>
         </div>
-
-        <div class="riddle-input-row">
-          <input
-            type="text"
-            id="riddle-input"
-            class="riddle-input"
-            placeholder="Your answer..."
-          />
-
-          <button
-            class="riddle-submit"
-            id="riddle-submit"
-            onclick="checkRiddle()"
-          >
-            Submit
-          </button>
-        </div>
-
-        <button
-          class="riddle-hint-btn"
-          id="riddle-hint-btn"
-          onclick="showHint()"
-        >
-          Need a Hint?
-        </button>
-
-        <div class="riddle-hint" id="riddle-hint"></div>
-
-        <div class="riddle-feedback" id="riddle-feedback"></div>
-
-        <button
-          class="riddle-next"
-          id="riddle-next"
-          onclick="nextRiddle()"
-        >
-          Next Riddle →
-        </button>
-
       </div>
-
-      <!-- Finale -->
-      <div class="riddle-finale" id="riddle-finale">
-
-        <div class="finale-score" id="finale-score">
-          5<span>/5</span>
-        </div>
-
-        <div class="finale-title" id="finale-title">
-          Imperator
-        </div>
-
-        <div class="finale-msg" id="finale-msg">
-          Extraordinary! You think like a Roman.
-        </div>
-
-        <button
-          class="finale-restart"
-          onclick="restartRiddles()"
-        >
-          Try Again
-        </button>
-
-      </div>
-
     </div>
-  </div>
-</section>
+  </section>
 
   <section id="contact">
     <div class="container">
@@ -1026,7 +905,7 @@
         <p class="section-label">Colloquamur</p>
         <h2 class="section-title">Get in Touch</h2>
         <div class="divider"><span class="divider-icon">✦</span></div>
-        <p>Have a question, a suggestion, or want to show your support? I'd love to hear from you. Every message matters.</p>
+        <p>Have an idea, a question, or just want to say hello? I want to hear from every corner of MassJCL. Every message matters.</p>
         <div class="contact-box">
           <label for="name">Your Name</label>
           <input type="text" id="name" placeholder="Nomen tuum..." />
@@ -1044,51 +923,43 @@
   </section>
 
   <footer>
-    <div class="footer-name">Aahil Hasan for MassJCL President</div>
+    <div class="footer-name">Aahil Hasan · MassJCL President 2025-2026</div>
     <div class="footer-divider"></div>
     <div class="footer-sub">Massachusetts Junior Classical League</div>
   </footer>
-  
+
   <script>
-    /* ================= RIDDLES ================= */
-
     const RIDDLES = [
-
       {
         q: "I am the month named for the god of war, the month that once began the Roman year. Soldiers march in my cold winds. What month am I?",
         answers: ["march", "martius"],
         hint: "Think of the Roman god Mars.",
         explanation: "March (Martius) was named for Mars, god of war."
       },
-
       {
         q: "I have cities but no houses, mountains but no trees, water but no fish, and roads but no cars. What am I?",
         answers: ["map", "a map"],
         hint: "Roman generals relied on me.",
         explanation: "A map."
       },
-
       {
         q: "I am spoken every time you say the days of the week. I have seven brothers, each a heavenly body. The Romans named us all. What am I?",
         answers: ["planet", "sun", "moon", "star"],
         hint: "Think celestial.",
         explanation: "The days of the week are named after celestial bodies."
       },
-
       {
         q: "I am the structure that brought water to Roman cities across mountains and valleys. What am I?",
         answers: ["aqueduct", "aquaeductus", "an aqueduct"],
         hint: "Aqua means water.",
         explanation: "An aqueduct."
       },
-
       {
         q: "I am what every JCL member fears in competition and craves in victory. I am asked in Latin, answered in knowledge, and won in speed. What am I?",
         answers: ["certamen"],
         hint: "Aahil captains this.",
-        explanation: "Certamen."
+        explanation: "Certamen!"
       }
-
     ];
 
     let current = 0;
@@ -1096,184 +967,81 @@
     let answered = false;
 
     function buildPips() {
-
       const pips = document.getElementById('riddle-pips');
-
       if (!pips) return;
-
       pips.innerHTML = '';
-
       RIDDLES.forEach((_, i) => {
-
         const pip = document.createElement('div');
-
-        pip.className =
-          'riddle-pip' +
-          (i === current
-            ? ' active'
-            : (i < current ? ' done' : ''));
-
+        pip.className = 'riddle-pip' + (i === current ? ' active' : (i < current ? ' done' : ''));
         pips.appendChild(pip);
-
       });
-
     }
 
     function loadRiddle() {
-
       answered = false;
-
       const r = RIDDLES[current];
-
-      document.getElementById('riddle-num').textContent =
-        `Riddle ${toRoman(current + 1)} of V`;
-
-      document.getElementById('riddle-q').textContent =
-        r.q;
-
+      document.getElementById('riddle-num').textContent = 'Riddle ' + toRoman(current + 1) + ' of V';
+      document.getElementById('riddle-q').textContent = r.q;
       document.getElementById('riddle-input').value = '';
-
       document.getElementById('riddle-input').disabled = false;
-
       document.getElementById('riddle-submit').disabled = false;
-
       document.getElementById('riddle-feedback').textContent = '';
-
-      document.getElementById('riddle-feedback').className =
-        'riddle-feedback';
-
+      document.getElementById('riddle-feedback').className = 'riddle-feedback';
       document.getElementById('riddle-hint').textContent = '';
-
-      document.getElementById('riddle-hint').className =
-        'riddle-hint';
-
-      document.getElementById('riddle-next').style.display =
-        'none';
-
-      document.getElementById('riddle-hint-btn').style.display =
-        'inline';
-
+      document.getElementById('riddle-hint').className = 'riddle-hint';
+      document.getElementById('riddle-next').style.display = 'none';
+      document.getElementById('riddle-hint-btn').style.display = 'inline';
       buildPips();
-
     }
 
     function toRoman(n) {
-
-      return ['I', 'II', 'III', 'IV', 'V'][n - 1];
-
+      return ['I','II','III','IV','V'][n - 1];
     }
 
     function showHint() {
-
-      const hint =
-        document.getElementById('riddle-hint');
-
-      hint.textContent =
-        RIDDLES[current].hint;
-
+      const hint = document.getElementById('riddle-hint');
+      hint.textContent = RIDDLES[current].hint;
       hint.classList.add('show');
-
-      document.getElementById('riddle-hint-btn')
-        .style.display = 'none';
-
+      document.getElementById('riddle-hint-btn').style.display = 'none';
     }
 
     function checkRiddle() {
-
       if (answered) return;
-
-      const input =
-        document.getElementById('riddle-input')
-          .value
-          .trim()
-          .toLowerCase();
-
+      const input = document.getElementById('riddle-input').value.trim().toLowerCase();
       if (!input) return;
-
       answered = true;
-
       const r = RIDDLES[current];
-
-      const correct = r.answers.some(a =>
-        input === a.toLowerCase() ||
-        input.includes(a.toLowerCase())
-      );
-
-      const fb =
-        document.getElementById('riddle-feedback');
-
+      const correct = r.answers.some(a => input === a.toLowerCase() || input.includes(a.toLowerCase()));
+      const fb = document.getElementById('riddle-feedback');
       if (correct) {
-
         score++;
-
-        fb.textContent =
-          'Optime! Correct! ' + r.explanation;
-
-        fb.className =
-          'riddle-feedback correct';
-
+        fb.textContent = 'Optime! Correct! ' + r.explanation;
+        fb.className = 'riddle-feedback correct';
       } else {
-
-        fb.textContent =
-          'Non ita. The answer was: ' +
-          r.answers[0] +
-          '. ' +
-          r.explanation;
-
-        fb.className =
-          'riddle-feedback wrong';
-
+        fb.textContent = 'Non ita. The answer was: ' + r.answers[0] + '. ' + r.explanation;
+        fb.className = 'riddle-feedback wrong';
       }
-
       document.getElementById('riddle-input').disabled = true;
-
       document.getElementById('riddle-submit').disabled = true;
-
-      document.getElementById('riddle-hint-btn').style.display =
-        'none';
-
+      document.getElementById('riddle-hint-btn').style.display = 'none';
       if (current < RIDDLES.length - 1) {
-
-        document.getElementById('riddle-next').style.display =
-          'inline-block';
-
+        document.getElementById('riddle-next').style.display = 'inline-block';
       } else {
-
         setTimeout(showFinale, 1400);
-
       }
-
     }
 
     function nextRiddle() {
-
       current++;
-
       loadRiddle();
-
     }
 
     function showFinale() {
-
-      document.getElementById('riddle-main').style.display =
-        'none';
-
-      const finale =
-        document.getElementById('riddle-finale');
-
+      document.getElementById('riddle-main').style.display = 'none';
+      const finale = document.getElementById('riddle-finale');
       finale.style.display = 'flex';
-
-      document.getElementById('finale-score').innerHTML =
-        score + '<span>/5</span>';
-
-      const titles = [
-        'Discipulus',
-        'Scholaris',
-        'Civis Romanus',
-        'Senator',
-        'Imperator'
-      ];
-
+      document.getElementById('finale-score').innerHTML = score + '<span>/5</span>';
+      const titles = ['Discipulus','Scholaris','Civis Romanus','Senator','Imperator'];
       const msgs = [
         'Keep studying. Rome was not built in a day.',
         'A promising start!',
@@ -1281,62 +1049,19 @@
         'Impressive!',
         'Extraordinary! You think like a Roman.'
       ];
-
-      document.getElementById('finale-title').textContent =
-        score === 0 ? 'Tiro' : titles[score - 1];
-
-      document.getElementById('finale-msg').textContent =
-        score === 0
-          ? 'Every great Roman started somewhere. Try again!'
-          : msgs[score - 1];
-
-      document.querySelectorAll('.riddle-pip')
-        .forEach(p => {
-          p.classList.remove('active');
-          p.classList.add('done');
-        });
-
+      document.getElementById('finale-title').textContent = score === 0 ? 'Tiro' : titles[score - 1];
+      document.getElementById('finale-msg').textContent = score === 0 ? 'Every great Roman started somewhere. Try again!' : msgs[score - 1];
+      document.querySelectorAll('.riddle-pip').forEach(p => { p.classList.remove('active'); p.classList.add('done'); });
     }
 
     function restartRiddles() {
-
       current = 0;
       score = 0;
-
-      document.getElementById('riddle-main').style.display =
-        'block';
-
-      document.getElementById('riddle-finale').style.display =
-        'none';
-
+      document.getElementById('riddle-main').style.display = 'block';
+      document.getElementById('riddle-finale').style.display = 'none';
       loadRiddle();
-
     }
 
-    /* initialize riddles */
-
-    document.addEventListener('DOMContentLoaded', () => {
-
-      if (document.getElementById('riddle-input')) {
-
-        loadRiddle();
-
-        document.getElementById('riddle-input')
-          .addEventListener('keydown', e => {
-
-            if (e.key === 'Enter') {
-
-              e.preventDefault();
-
-              checkRiddle();
-
-            }
-
-          });
-
-      }
-
-    });
     async function handleSubmit() {
       const name = document.getElementById('name').value.trim();
       const email = document.getElementById('email').value.trim();
@@ -1344,24 +1069,20 @@
       const message = document.getElementById('message').value.trim();
       const btn = document.getElementById('submit-btn');
       const msg = document.getElementById('form-msg');
-
       if (!name || !email || !message) {
         msg.style.display = 'block';
         msg.style.color = '#a32d2d';
         msg.textContent = 'Please fill in your name, email, and message before sending.';
         return;
       }
-
-      btn.textContent = 'Sending…';
+      btn.textContent = 'Sending...';
       btn.disabled = true;
-
       try {
         const res = await fetch('https://formspree.io/f/mpqbkakn', {
           method: 'POST',
           headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
           body: JSON.stringify({ name, email, school, message })
         });
-
         if (res.ok) {
           msg.style.display = 'block';
           msg.style.color = 'var(--purple)';
@@ -1370,33 +1091,37 @@
           document.getElementById('email').value = '';
           document.getElementById('school').value = '';
           document.getElementById('message').value = '';
-          btn.textContent = 'Sent ✓';
-        } else {
-          throw new Error('Server error');
-        }
+          btn.textContent = 'Sent!';
+        } else { throw new Error('error'); }
       } catch (e) {
         msg.style.display = 'block';
         msg.style.color = '#a32d2d';
         msg.textContent = 'Something went wrong. Please try again or email directly.';
-        btn.textContent = 'Send Message →';
+        btn.textContent = 'Send Message';
         btn.disabled = false;
       }
     }
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.style.opacity = '1';
-          e.target.style.transform = 'translateY(0)';
-        }
+    document.addEventListener('DOMContentLoaded', () => {
+      loadRiddle();
+      document.getElementById('riddle-input').addEventListener('keydown', e => {
+        if (e.key === 'Enter') { e.preventDefault(); checkRiddle(); }
       });
-    }, { threshold: 0.1 });
 
-    document.querySelectorAll('.platform-card, .why-item, .about-text p').forEach(el => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(20px)';
-      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-      observer.observe(el);
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.style.opacity = '1';
+            e.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.platform-card, .why-item, .about-text p').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+      });
     });
   </script>
 </body>
