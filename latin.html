@@ -1,1955 +1,1129 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aahil Hasan's Portfolio</title>
-<meta name="description" content="Portfolio site for Aahil Hasan, a Shrewsbury High School senior, Latin &amp; Classics leader, athlete, and community builder.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Space+Grotesk:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aahil Hasan · MassJCL President 2025-2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --purple:     #2d1b69;
+      --purple-mid: #3d2690;
+      --purple-dark:#1a0f3e;
+      --purple-light:#5a3fa8;
+      --gold:       #c9a227;
+      --gold-light: #e8c84a;
+      --gold-pale:  #f5e199;
+      --gold-dim:   #a07d18;
+      --cream:      #faf6ee;
+      --cream-dark: #f0e9d8;
+      --text-dark:  #1a0f3e;
+      --text-mid:   #3d2a7a;
+      --white:      #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 0 auto 2.5rem;
+      max-width: 420px;
+      justify-content: center;
+    }
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.6;
+    }
+    .divider-icon { font-size: 1rem; color: var(--gold); letter-spacing: 0.2em; }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(29, 11, 70, 0.97);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(201,162,39,0.3);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 2.5rem;
+      height: 64px;
+    }
+    .nav-brand {
+      font-family: 'Cinzel', serif;
+      font-size: 0.9rem;
+      color: var(--gold);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold-light); }
+
+    #hero {
+      min-height: 100vh;
+      background: var(--purple-dark);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8rem 2rem 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(90deg, transparent, transparent 78px, rgba(201,162,39,0.04) 78px, rgba(201,162,39,0.04) 80px),
+        repeating-linear-gradient(0deg, transparent, transparent 78px, rgba(201,162,39,0.03) 78px, rgba(201,162,39,0.03) 80px);
+      pointer-events: none;
+    }
+    #hero::after {
+      content: '';
+      position: absolute;
+      top: 30%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 700px; height: 500px;
+      background: radial-gradient(ellipse, rgba(61,38,144,0.6) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-content { position: relative; z-index: 2; max-width: 820px; }
+    .hero-eyebrow {
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.6rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.2s forwards;
+    }
+    .hero-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3.5rem, 9vw, 7.5rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 0.3em;
+      opacity: 0;
+      animation: fadeUp 0.9s 0.4s forwards;
+    }
+    .hero-name span { color: var(--gold); }
+    .hero-office {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1rem, 2.5vw, 1.5rem);
+      letter-spacing: 0.2em;
+      color: rgba(255,255,255,0.7);
+      text-transform: uppercase;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.9s 0.6s forwards;
+    }
+    .hero-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.25rem, 2.5vw, 1.7rem);
+      font-style: italic;
+      color: var(--gold-pale);
+      max-width: 560px;
+      margin: 0 auto 3rem;
+      line-height: 1.6;
+      opacity: 0;
+      animation: fadeUp 0.9s 0.8s forwards;
+    }
+    .hero-btn {
+      display: inline-block;
+      font-family: 'Cinzel', serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--purple-dark);
+      background: var(--gold);
+      padding: 1rem 2.5rem;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      opacity: 0;
+      animation: fadeUp 0.9s 1s forwards;
+    }
+    .hero-btn:hover { background: var(--gold-light); transform: translateY(-2px); }
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem; left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgba(255,255,255,0.4);
+      font-family: 'Cinzel', serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      animation: bounce 2s 2s infinite;
+      z-index: 2;
+    }
+    .hero-scroll::after { content: '▼'; font-size: 0.55rem; }
+
+    .laurel-banner {
+      background: var(--gold);
+      padding: 0.9rem 2rem;
+      text-align: center;
+      font-family: 'Cinzel', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--purple-dark);
+      font-weight: 700;
+    }
+
+    section { padding: 6rem 2rem; }
+    .container { max-width: 1080px; margin: 0 auto; }
+    .section-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      text-align: center;
+      margin-bottom: 0.8rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      text-align: center;
+      color: var(--purple);
+      margin-bottom: 3rem;
+      line-height: 1.2;
+    }
+
+    #about { background: var(--cream); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; align-items: center; }
+    .about-portrait { position: relative; }
+    .portrait-frame {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: var(--purple-mid);
+      border: 3px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .portrait-corner { position: absolute; width: 20px; height: 20px; border-color: var(--gold); border-style: solid; }
+    .portrait-corner.tl { top: -6px; left: -6px; border-width: 2px 0 0 2px; }
+    .portrait-corner.tr { top: -6px; right: -6px; border-width: 2px 2px 0 0; }
+    .portrait-corner.bl { bottom: -6px; left: -6px; border-width: 0 0 2px 2px; }
+    .portrait-corner.br { bottom: -6px; right: -6px; border-width: 0 2px 2px 0; }
+    .about-text p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      line-height: 1.8;
+      color: #2a1d5c;
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+    }
+    .about-text p:first-child { font-size: 1.5rem; font-weight: 400; }
+    .about-text p strong { font-weight: 600; color: var(--purple); }
+
+    #platform { background: var(--purple-dark); }
+    #platform .section-label { color: rgba(201,162,39,0.6); }
+    #platform .section-title { color: var(--white); }
+    #platform .divider::before, #platform .divider::after { background: rgba(201,162,39,0.4); }
+    #platform .divider-icon { color: rgba(201,162,39,0.7); }
+
+    .platform-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: rgba(201,162,39,0.15);
+    }
+    .platform-card {
+      background: rgba(29,11,70,0.8);
+      padding: 2.5rem 2rem;
+      position: relative;
+      transition: background 0.25s;
+    }
+    .platform-card:hover { background: rgba(61,38,144,0.4); }
+    .platform-letter {
+      font-family: 'Cinzel', serif;
+      font-size: 4rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+      display: block;
+    }
+    .platform-word {
+      font-family: 'Cinzel', serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(201,162,39,0.65);
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .platform-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      margin-bottom: 0.85rem;
+      line-height: 1.3;
+    }
+    .platform-card p {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.9rem;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.7);
+    }
+    .platform-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 100%; height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s;
+    }
+    .platform-card:hover::after { transform: scaleX(1); }
+
+    #why { background: var(--cream-dark); }
+    .why-columns { display: grid; grid-template-columns: repeat(2, 1fr); gap: 3rem 4rem; }
+    .why-item { display: flex; gap: 1.25rem; align-items: flex-start; }
+    .why-num {
+      font-family: 'Cinzel', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: rgba(201,162,39,0.25);
+      line-height: 1;
+      flex-shrink: 0;
+      width: 3rem;
+      text-align: right;
+    }
+    .why-item h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--purple);
+      margin-bottom: 0.5rem;
+    }
+    .why-item p {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: #4a3880;
+    }
+
+    #quote { background: var(--purple); padding: 5rem 2rem; text-align: center; }
+    .pullquote { max-width: 720px; margin: 0 auto; }
+    .pullquote-mark {
+      font-family: 'Playfair Display', serif;
+      font-size: 5rem;
+      color: var(--gold);
+      opacity: 0.3;
+      line-height: 0.5;
+      display: block;
+      margin-bottom: 1.5rem;
+    }
+    .pullquote p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-style: italic;
+      color: var(--white);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+    .pullquote cite {
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+      opacity: 0.8;
+    }
+
+    #contact { background: var(--cream); }
+    .contact-inner { max-width: 620px; margin: 0 auto; text-align: center; }
+    .contact-inner p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      color: #3d2a7a;
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+    }
+    .contact-box {
+      background: var(--white);
+      border: 1px solid rgba(201,162,39,0.3);
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+    }
+    .contact-box label {
+      display: block;
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--purple-mid);
+      margin-bottom: 0.5rem;
+      text-align: left;
+    }
+    .contact-box input, .contact-box textarea {
+      width: 100%;
+      border: 1px solid rgba(201,162,39,0.3);
+      background: var(--cream);
+      padding: 0.75rem 1rem;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      margin-bottom: 1.25rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .contact-box input:focus, .contact-box textarea:focus { border-color: var(--gold); }
+    .contact-box textarea { height: 130px; resize: vertical; }
+    .submit-btn {
+      display: inline-block;
+      font-family: 'Cinzel', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      background: var(--purple);
+      color: var(--gold);
+      border: none;
+      padding: 1rem 2.5rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      width: 100%;
+    }
+    .submit-btn:hover { background: var(--purple-mid); }
+
+    footer {
+      background: var(--purple-dark);
+      border-top: 1px solid rgba(201,162,39,0.2);
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+    .footer-name {
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+    .footer-sub {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.05em;
+    }
+    .footer-divider { width: 60px; height: 1px; background: rgba(201,162,39,0.3); margin: 1.2rem auto; }
+
+    .hero-lounging {
+      position: absolute;
+      bottom: 0; right: 2vw;
+      width: clamp(260px, 35vw, 440px);
+      z-index: 3;
+      pointer-events: none;
+      opacity: 0;
+      animation: fadeUp 1s 1.2s forwards;
+      filter: drop-shadow(-8px 0px 18px rgba(26,15,62,0.85));
+    }
+    .hero-lounging img {
+      width: 100%;
+      display: block;
+      mix-blend-mode: screen;
+      opacity: 0.97;
+    }
+
+    .latin-cameo {
+      display: inline-block;
+      position: relative;
+      border: 3px solid var(--gold);
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 0 0 4px var(--purple-dark), 0 0 0 7px var(--gold);
+      flex-shrink: 0;
+    }
+    .latin-cameo img { display: block; }
+
+    .gallery-strip {
+      background: var(--purple-dark);
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3px;
+      height: 280px;
+    }
+    .gallery-item {
+      overflow: hidden;
+      position: relative;
+      background: var(--purple-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.4s ease, filter 0.4s ease;
+      filter: brightness(0.92) saturate(0.9);
+    }
+    .gallery-item:hover img {
+      transform: scale(1.03);
+      filter: brightness(1) saturate(1.1);
+    }
+    .gallery-item .gallery-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(26,15,62,0.85), transparent);
+      padding: 10px 12px 8px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.55rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .gallery-item:hover .gallery-caption { opacity: 1; }
+    .why-item-photo {
+      margin-top: 0.75rem;
+      border-radius: 4px;
+      overflow: hidden;
+      border: 2px solid rgba(201,162,39,0.25);
+      background: var(--cream-dark);
+    }
+    .why-item-photo img {
+      width: 100%;
+      display: block;
+      max-height: 200px;
+      object-fit: contain;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(6px); }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 1.25rem; }
+      .nav-links { display: none; }
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .portrait-frame { aspect-ratio: 1; max-width: 280px; margin: 0 auto; }
+      .platform-grid { grid-template-columns: 1fr; }
+      .why-columns { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    /* ================= RIDDLES ================= */
+    #riddles { background: var(--cream-dark); }
+    .riddle-container { max-width: 720px; margin: 0 auto; text-align: center; }
+    .riddle-card {
+      background: var(--white);
+      border: 1px solid rgba(201,162,39,0.35);
+      padding: 2.5rem;
+      margin-top: 2rem;
+      box-shadow: 0 12px 30px rgba(26,15,62,0.08);
+    }
+    .riddle-num {
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      margin-bottom: 1.5rem;
+    }
+    .riddle-q {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      color: var(--purple);
+      margin-bottom: 2rem;
+      line-height: 1.5;
+    }
+    .riddle-input-row { display: flex; gap: 0.75rem; margin-bottom: 1rem; }
+    .riddle-input {
+      flex: 1;
+      padding: 0.9rem 1rem;
+      font-family: 'Lato', sans-serif;
+      border: 1px solid rgba(201,162,39,0.4);
+      background: var(--cream);
+      outline: none;
+    }
+    .riddle-input:focus { border-color: var(--gold); }
+    .riddle-submit {
+      background: var(--purple);
+      color: var(--gold);
+      border: none;
+      padding: 0 1.5rem;
+      font-family: 'Cinzel', serif;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+    .riddle-submit:hover { background: var(--purple-mid); }
+    .riddle-hint-btn {
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      background: transparent;
+      border: 1px solid var(--gold);
+      color: var(--purple);
+      padding: 0.6rem 1rem;
+      cursor: pointer;
+      margin-top: 0.5rem;
+    }
+    .riddle-hint {
+      margin-top: 1rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      color: var(--text-mid);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .riddle-hint.show { opacity: 1; }
+    .riddle-feedback { margin-top: 1rem; font-family: 'Lato', sans-serif; font-size: 0.95rem; }
+    .riddle-feedback.correct { color: #2e7d32; }
+    .riddle-feedback.wrong { color: #a32d2d; }
+    .riddle-next {
+      margin-top: 1.5rem;
+      display: none;
+      background: var(--gold);
+      border: none;
+      padding: 0.8rem 1.5rem;
+      font-family: 'Cinzel', serif;
+      cursor: pointer;
+    }
+    .riddle-next:hover { background: var(--gold-light); }
+    .riddle-progress { display: flex; justify-content: center; gap: 0.5rem; }
+    .riddle-pip { width: 10px; height: 10px; border-radius: 50%; background: rgba(201,162,39,0.3); }
+    .riddle-pip.active { background: var(--gold); }
+    .riddle-pip.done { background: var(--purple); }
+    .riddle-finale {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 2rem;
+      padding: 2.5rem;
+      background: var(--white);
+      border: 1px solid rgba(201,162,39,0.35);
+    }
+    .finale-score { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--purple); }
+    .finale-score span { font-size: 1rem; color: var(--gold-dim); }
+    .finale-title { font-family: 'Cinzel', serif; margin-top: 0.5rem; letter-spacing: 0.2em; color: var(--gold); }
+    .finale-msg { margin-top: 1rem; font-family: 'Cormorant Garamond', serif; font-style: italic; text-align: center; }
+    .finale-restart {
+      margin-top: 1.5rem;
+      background: var(--purple);
+      color: var(--gold);
+      border: none;
+      padding: 0.8rem 1.5rem;
+      cursor: pointer;
+      font-family: 'Cinzel', serif;
+    }
+  </style>
 </head>
 <body>
 
-<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
-
-<header class="site-header" id="top">
-  <nav class="navbar">
-    <div class="navbar-left">
-      <a href="#top" class="logo">Aahil<span>.</span></a>
-      <div class="theme-select-wrap">
-        <span class="theme-toggle-dot" aria-hidden="true"></span>
-        <select class="theme-select" id="themeSelect" aria-label="Switch color theme">
-        <option value="woodsy">Woodsy Sunset</option>
-        <option value="roman">Roman Classical</option>
-        <option value="ivy">Ivy Academic</option>
-        <option value="slate">Slate & Ember</option>
-        <option value="light-academia">Light Academia</option>
-        <option value="dusty-sage">Dusty Sage & Clay</option>
-        <option value="powder-ink">Powder & Ink</option>
-        <option value="lavender-mist">Lavender Mist</option>
-        <option value="sage-honey">Sage & Honey</option>
-        <option value="watercolor-morning">Watercolor Morning</option>
-        </select>
-      </div>
-    </div>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-    <ul class="nav-links" id="navLinks">
+  <nav>
+    <div class="nav-brand">Aahil Hasan · MassJCL President</div>
+    <ul class="nav-links">
       <li><a href="#about">About</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#activities">Activities</a></li>
-      <li><a href="#awards">Awards</a></li>
-      <li><a href="#contact" class="nav-cta">Contact</a></li>
+      <li><a href="#platform">Platform</a></li>
+      <li><a href="#why">Why Aahil</a></li>
+      <li><a href="#riddles">Riddles</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="index.html" target="_blank" style="color:var(--gold-light)!important;">Portfolio ↗</a></li>
     </ul>
   </nav>
-</header>
 
-<button class="side-nav-toggle" id="sideNavToggle" type="button" aria-label="Open section menu" aria-expanded="false" aria-controls="sideNavPanel">
-  <span></span><span></span><span></span>
-</button>
-<div class="side-nav-overlay" id="sideNavOverlay"></div>
-<nav class="side-nav-panel" id="sideNavPanel" aria-label="Quick section navigation">
-  <button class="side-nav-close" id="sideNavClose" type="button" aria-label="Close menu">&times;</button>
-  <p class="side-nav-title">Jump to</p>
-  <ul>
-    <li><a href="#about">About</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#activities">Activities</a></li>
-    <li><a href="#awards">Awards</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
-
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-particles" aria-hidden="true">
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-  </div>
-  <div class="sun"></div>
-  <div class="hero-haze" aria-hidden="true"></div>
-  <!-- Woodsy Sunset: layered realistic pine forest -->
-  <div class="treeline deco-woodsy" aria-hidden="true">
-    <svg viewBox="0 0 1440 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M0,220 L0,168 C240,150 480,172 720,158 C960,144 1200,168 1440,155 L1440,220 Z" fill="#B7C4A9" opacity="0.4"></path>
-  <g opacity="0.55">
-      <rect x="63.3" y="160.6" width="5.0" height="11.5" fill="#6B5138"/>
-      <polygon points="46.7,164.6 57.4,159.8 65.8,124.3 74.3,159.8 85.0,164.6" fill="#8AA381"/>
-      <polygon points="51.7,141.3 59.6,136.4 65.8,101.0 72.1,136.4 80.0,141.3" fill="#8AA381"/>
-      <polygon points="56.6,117.9 61.8,113.1 65.8,77.6 69.9,113.1 75.0,117.9" fill="#8AA381"/>
-      <rect x="84.7" y="152.6" width="5.0" height="11.7" fill="#6B5138"/>
-      <polygon points="68.1,156.6 78.8,151.7 87.2,115.6 95.6,151.7 106.3,156.6" fill="#8AA381"/>
-      <polygon points="73.1,132.8 81.0,127.9 87.2,91.8 93.4,127.9 101.4,132.8" fill="#8AA381"/>
-      <polygon points="78.0,109.0 83.2,104.1 87.2,68.0 91.2,104.1 96.4,109.0" fill="#8AA381"/>
-      <rect x="200.9" y="166.1" width="4.7" height="11.8" fill="#6B5138"/>
-      <polygon points="185.1,170.1 195.3,165.1 203.3,128.6 211.2,165.1 221.4,170.1" fill="#8AA381"/>
-      <polygon points="189.9,146.0 197.4,141.1 203.3,104.5 209.2,141.1 216.7,146.0" fill="#8AA381"/>
-      <polygon points="194.6,122.0 199.4,117.0 203.3,80.5 207.1,117.0 212.0,122.0" fill="#8AA381"/>
-      <rect x="456.7" y="160.1" width="5.2" height="14.2" fill="#6B5138"/>
-      <polygon points="439.4,164.1 450.5,157.7 459.3,110.9 468.0,157.7 479.2,164.1" fill="#8AA381"/>
-      <polygon points="444.6,133.2 452.8,126.8 459.3,80.0 465.7,126.8 474.0,133.2" fill="#8AA381"/>
-      <polygon points="449.7,102.3 455.1,96.0 459.3,49.2 463.5,96.0 468.8,102.3" fill="#8AA381"/>
-      <rect x="519.0" y="155.8" width="4.5" height="14.3" fill="#6B5138"/>
-      <polygon points="504.0,159.8 513.6,153.4 521.2,106.2 528.8,153.4 538.5,159.8" fill="#8AA381"/>
-      <polygon points="508.5,128.7 515.6,122.3 521.2,75.1 526.8,122.3 534.0,128.7" fill="#8AA381"/>
-      <polygon points="512.9,97.6 517.6,91.2 521.2,44.0 524.9,91.2 529.5,97.6" fill="#8AA381"/>
-      <rect x="770.8" y="166.2" width="4.6" height="12.3" fill="#6B5138"/>
-      <polygon points="755.4,170.2 765.3,164.9 773.1,126.3 780.9,164.9 790.8,170.2" fill="#8AA381"/>
-      <polygon points="760.0,144.7 767.3,139.5 773.1,100.9 778.9,139.5 786.2,144.7" fill="#8AA381"/>
-      <polygon points="764.6,119.3 769.4,114.1 773.1,75.5 776.8,114.1 781.6,119.3" fill="#8AA381"/>
-      <rect x="940.6" y="152.8" width="5.5" height="12.3" fill="#6B5138"/>
-      <polygon points="922.3,156.8 934.1,151.5 943.4,112.7 952.7,151.5 964.5,156.8" fill="#8AA381"/>
-      <polygon points="927.8,131.2 936.5,125.9 943.4,87.1 950.2,125.9 959.0,131.2" fill="#8AA381"/>
-      <polygon points="933.3,105.6 938.9,100.3 943.4,61.5 947.8,100.3 953.5,105.6" fill="#8AA381"/>
-</g>
-<g opacity="0.85">
-      <rect x="65.2" y="178.4" width="6.0" height="16.2" fill="#5A4530"/>
-      <polygon points="45.0,182.4 58.0,174.9 68.2,120.0 78.4,174.9 91.4,182.4" fill="#4C6F52"/>
-      <polygon points="51.0,146.2 60.7,138.7 68.2,83.8 75.8,138.7 85.4,146.2" fill="#4C6F52"/>
-      <polygon points="57.1,110.0 63.3,102.5 68.2,47.6 73.1,102.5 79.3,110.0" fill="#4C6F52"/>
-      <rect x="69.9" y="176.4" width="6.0" height="16.3" fill="#5A4530"/>
-      <polygon points="49.8,180.4 62.8,172.9 72.9,117.5 83.1,172.9 96.0,180.4" fill="#4C6F52"/>
-      <polygon points="55.8,143.9 65.4,136.3 72.9,81.0 80.4,136.3 90.0,143.9" fill="#4C6F52"/>
-      <polygon points="61.8,107.4 68.0,99.8 72.9,44.5 77.8,99.8 84.0,107.4" fill="#4C6F52"/>
-      <rect x="244.5" y="179.6" width="5.9" height="17.3" fill="#5A4530"/>
-      <polygon points="224.8,183.6 237.5,175.4 247.5,115.7 257.5,175.4 270.2,183.6" fill="#4C6F52"/>
-      <polygon points="230.7,144.2 240.1,136.1 247.5,76.4 254.9,136.1 264.3,144.2" fill="#4C6F52"/>
-      <polygon points="236.6,104.9 242.7,96.7 247.5,37.0 252.3,96.7 258.4,104.9" fill="#4C6F52"/>
-      <rect x="281.3" y="175.9" width="7.1" height="16.6" fill="#5A4530"/>
-      <polygon points="257.7,179.9 272.9,172.2 284.8,115.5 296.8,172.2 311.9,179.9" fill="#4C6F52"/>
-      <polygon points="264.7,142.5 276.0,134.8 284.8,78.2 293.7,134.8 304.9,142.5" fill="#4C6F52"/>
-      <polygon points="271.8,105.2 279.1,97.5 284.8,40.8 290.5,97.5 297.8,105.2" fill="#4C6F52"/>
-      <rect x="527.5" y="180.0" width="7.2" height="15.6" fill="#5A4530"/>
-      <polygon points="503.3,184.0 518.9,176.8 531.1,124.3 543.4,176.8 559.0,184.0" fill="#4C6F52"/>
-      <polygon points="510.5,149.4 522.1,142.2 531.1,89.7 540.2,142.2 551.8,149.4" fill="#4C6F52"/>
-      <polygon points="517.8,114.8 525.3,107.6 531.1,55.1 537.0,107.6 544.5,114.8" fill="#4C6F52"/>
-      <rect x="787.2" y="167.2" width="6.8" height="16.2" fill="#5A4530"/>
-      <polygon points="764.4,171.2 779.1,163.7 790.7,109.0 802.2,163.7 817.0,171.2" fill="#4C6F52"/>
-      <polygon points="771.2,135.1 782.1,127.6 790.7,72.9 799.2,127.6 810.1,135.1" fill="#4C6F52"/>
-      <polygon points="778.0,99.0 785.1,91.5 790.7,36.8 796.2,91.5 803.3,99.0" fill="#4C6F52"/>
-      <rect x="838.0" y="167.6" width="5.5" height="16.5" fill="#5A4530"/>
-      <polygon points="819.5,171.6 831.4,163.9 840.8,107.9 850.1,163.9 862.0,171.6" fill="#4C6F52"/>
-      <polygon points="825.0,134.7 833.8,127.0 840.8,71.0 847.7,127.0 856.5,134.7" fill="#4C6F52"/>
-      <polygon points="830.6,97.8 836.3,90.1 840.8,34.1 845.3,90.1 851.0,97.8" fill="#4C6F52"/>
-      <rect x="922.3" y="176.8" width="6.5" height="17.6" fill="#5A4530"/>
-      <polygon points="900.6,180.8 914.6,172.5 925.6,111.6 936.6,172.5 950.6,180.8" fill="#4C6F52"/>
-      <polygon points="907.1,140.7 917.4,132.4 925.6,71.5 933.7,132.4 944.1,140.7" fill="#4C6F52"/>
-      <polygon points="913.6,100.6 920.3,92.3 925.6,31.4 930.9,92.3 937.6,100.6" fill="#4C6F52"/>
-</g>
-<g opacity="1.0">
-      <rect x="440.1" y="200.6" width="8.5" height="21.2" fill="#3E301F"/>
-      <polygon points="411.7,204.6 430.0,194.3 444.3,118.7 458.7,194.3 477.0,204.6" fill="#1E3A2C"/>
-      <polygon points="420.2,154.8 433.7,144.5 444.3,68.9 455.0,144.5 468.5,154.8" fill="#1E3A2C"/>
-      <polygon points="428.7,105.0 437.5,94.6 444.3,19.0 451.2,94.6 460.0,105.0" fill="#1E3A2C"/>
-      <rect x="651.0" y="179.9" width="8.4" height="22.4" fill="#3E301F"/>
-      <polygon points="622.7,183.9 640.9,172.9 655.2,92.2 669.5,172.9 687.7,183.9" fill="#1E3A2C"/>
-      <polygon points="631.2,130.7 644.6,119.7 655.2,39.0 665.8,119.7 679.2,130.7" fill="#1E3A2C"/>
-      <polygon points="639.6,77.5 648.3,66.5 655.2,-14.2 662.0,66.5 670.8,77.5" fill="#1E3A2C"/>
-      <rect x="834.5" y="199.8" width="7.5" height="23.0" fill="#3E301F"/>
-      <polygon points="809.4,203.8 825.6,192.4 838.2,109.0 850.9,192.4 867.1,203.8" fill="#1E3A2C"/>
-      <polygon points="816.9,148.8 828.9,137.4 838.2,54.0 847.6,137.4 859.6,148.8" fill="#1E3A2C"/>
-      <polygon points="824.4,93.8 832.2,82.5 838.2,-1.0 844.3,82.5 852.1,93.8" fill="#1E3A2C"/>
-      <rect x="856.3" y="187.3" width="6.8" height="22.2" fill="#3E301F"/>
-      <polygon points="833.4,191.3 848.1,180.4 859.7,100.4 871.2,180.4 885.9,191.3" fill="#1E3A2C"/>
-      <polygon points="840.3,138.6 851.1,127.7 859.7,47.7 868.2,127.7 879.1,138.6" fill="#1E3A2C"/>
-      <polygon points="847.1,85.8 854.1,74.9 859.7,-5.0 865.2,74.9 872.3,85.8" fill="#1E3A2C"/>
-      <rect x="1005.5" y="191.6" width="7.1" height="19.5" fill="#3E301F"/>
-      <polygon points="981.9,195.6 997.1,186.3 1009.0,117.6 1021.0,186.3 1036.2,195.6" fill="#1E3A2C"/>
-      <polygon points="988.9,150.4 1000.2,141.0 1009.0,72.3 1017.9,141.0 1029.1,150.4" fill="#1E3A2C"/>
-      <polygon points="996.0,105.1 1003.3,95.7 1009.0,27.0 1014.8,95.7 1022.1,105.1" fill="#1E3A2C"/>
-      <rect x="1219.6" y="179.5" width="7.1" height="22.7" fill="#3E301F"/>
-      <polygon points="1195.9,183.5 1211.1,172.3 1223.2,90.1 1235.2,172.3 1250.4,183.5" fill="#1E3A2C"/>
-      <polygon points="1203.0,129.4 1214.3,118.1 1223.2,35.9 1232.0,118.1 1243.3,129.4" fill="#1E3A2C"/>
-      <polygon points="1210.1,75.2 1217.4,64.0 1223.2,-18.3 1228.9,64.0 1236.3,75.2" fill="#1E3A2C"/>
-      <rect x="1271.2" y="185.7" width="9.0" height="20.7" fill="#3E301F"/>
-      <polygon points="1241.0,189.7 1260.4,179.7 1275.7,105.9 1291.0,179.7 1310.4,189.7" fill="#1E3A2C"/>
-      <polygon points="1250.0,141.1 1264.4,131.1 1275.7,57.3 1287.0,131.1 1301.4,141.1" fill="#1E3A2C"/>
-      <polygon points="1259.0,92.5 1268.4,82.5 1275.7,8.7 1283.0,82.5 1292.4,92.5" fill="#1E3A2C"/>
-</g>
-</svg>
-  </div>
-
-  <!-- Roman / Classical: temple facade with fluted columns and pediment -->
-  <div class="treeline deco-roman" aria-hidden="true">
-    <svg viewBox="0 0 1440 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="pedGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#E8C468"/>
-      <stop offset="100%" stop-color="#B8814A"/>
-    </linearGradient>
-  </defs>
-  <!-- distant haze hills for depth -->
-  <path d="M0,220 L0,180 C300,165 600,185 900,172 C1100,164 1300,178 1440,168 L1440,220 Z" fill="#E8D2AE" opacity="0.45"></path>
-  <!-- stepped stylobate -->
-  <rect x="0" y="216" width="1440" height="6" fill="#5B3A29"></rect>
-  <rect x="0" y="210" width="1440" height="6" fill="#7A3B2E"></rect>
-  <!-- pediment -->
-  <polygon points="360,54 720,8 1080,54" fill="url(#pedGrad)" stroke="#5B3A29" stroke-width="2"></polygon>
-  <polygon points="380,48 720,18 1060,48" fill="#F1E3CC" opacity="0.55"></polygon>
-  <!-- entablature -->
-  <rect x="0" y="46" width="1440" height="8" fill="#5B3A29"></rect>
-  <rect x="0" y="54" width="1440" height="10" fill="#7A3B2E"></rect>
-  <!-- columns -->
-    <rect x="37.9" y="204.0" width="44.2" height="6" fill="#8A5A34"/>
-  <rect x="41.3" y="198.0" width="37.4" height="6" fill="#D9A066"/>
-  <rect x="43.0" y="78.0" width="34.0" height="120.0" fill="#D9A066"/>
-  <line x1="49.8" y1="78.0" x2="49.8" y2="198.0" stroke="#8A5A34" stroke-width="1.4" opacity="0.55"/>
-  <line x1="56.6" y1="78.0" x2="56.6" y2="198.0" stroke="#8A5A34" stroke-width="1.4" opacity="0.55"/>
-  <line x1="63.4" y1="78.0" x2="63.4" y2="198.0" stroke="#8A5A34" stroke-width="1.4" opacity="0.55"/>
-  <line x1="70.2" y1="78.0" x2="70.2" y2="198.0" stroke="#8A5A34" stroke-width="1.4" opacity="0.55"/>
-  <rect x="41.3" y="72.0" width="37.4" height="6" fill="#C9A227"/>
-  <polygon points="48.1,78.0 71.9,78.0 81.1,72.0 38.9,72.0" fill="#C9A227"/>
-  <rect x="36.9" y="64.0" width="46.2" height="8" fill="#8A5A34"/>
-  <rect x="226.5" y="204.0" width="44.2" height="6" fill="#8A5A34"/>
-  <rect x="229.9" y="198.0" width="37.4" height="6" fill="#D9A066"/>
-  <rect x="231.6" y="78.0" width="34.0" height="120.0" fill="#D9A066"/>
-  <line x1="238.4" y1="78.0" x2="238.4" y2="198.0" stroke="#8A5A34" stroke-width="1.4" opacity="0.55"/>
-  <line x1="245.2" y1="78.0" x2="245.2" y2="198.0" stroke="#8A5A34" stroke-width="1.4" opacity="0.55"/>
-  <line x1="252.0" y1="78.0" x2="252.0" y2="198.0" stroke="#8A5A34" stroke-width="1.4" opacity="0.55"/>
-  <line x1="258.8" y1="78.0" x2="258.8" y2="198.0" stroke="#8A5A34" stroke-width="1.4" opacity="0.55"/>
-  <rect x="229.9" y="72.0" width="37.4" height="6" fill="#C9A227"/>
-  <polygon points="236.7,78.0 260.5,78.0 269.7,72.0 227.5,72.0" fill="#C9A227"/>
-  <rect x="225.5" y="64.0" width="46.2" height="8" fill="#8A5A34"/>
-  <rect x="415.0" y="204.0" width="44.2" height="6" fill="#8A5A34"/>
-  <rect x="418.4" y="198.0" width="37.4" height="6" fill="#D9A066"/>
-  <rect x="420.1" y="78.0" width="34.0" height="120.0" fill="#D9A066"/>
-  <line x1="426.9" y1="78.0" x2="426.9" y2="198.0" stroke="#8A5A34" stroke-width="1.4" opacity="0.55"/>
-  <line x1="433.7" y1="78.0" x2="433.7" y2="198.0" stroke="#8A5A34" stroke-width="1.4" opacity="0.55"/>
-  <line x1="440.5" y1="78.0" x2="440.5" y2="198.0" stroke="#8A5A34" stroke-width="1.4" opacity="0.55"/>
-  <line x1="447.3" y1="78.0" x2="447.3" y2="198.0" stroke="#8A5A34" stroke-width="1.4" opacity="0.55"/>
-  <rect x="418.4" y="72.0" width="37.4" height="6" fill="#C9A227"/>
-  <polygon points="425.2,78.0 449.0,78.0 458.2,72.0 416.1,72.0" fill="#C9A227"/>
-  <rect x="414.0" y="64.0" width="46.2" height="8" fill="#8A5A34"/>
-  <rect x="603.6" y="204.0" width="44.2" height="6" fill="#8A5A34"/>
-  <rect x="607.0" y="198.0" width="37.4" height="6" fill="#D9A066"/>
-  <rect x="608.7" y="78.0" width="34.0" height="120.0" fill="#D9A066"/>
-  <line x1="615.5" y1="78.0" x2="615.5" y2="198.0" stroke="#8A5A34" stroke-width="1.4" opacity="0.55"/>
-  <line x1="622.3" y1="78.0" x2="622.3" y2="198.0" stroke="#8A5A34" stroke-width="1.4" opacity="0.55"/>
-  <line x1="629.1" y1="78.0" x2="629.1" y2="198.0" stroke="#8A5A34" stroke-width="1.4" opacity="0.55"/>
-  <line x1="635.9" y1="78.0" x2="635.9" y2="198.0" stroke="#8A5A34" stroke-width="1.4" opacity="0.55"/>
-  <rect x="607.0" y="72.0" width="37.4" height="6" fill="#C9A227"/>
-  <polygon points="613.8,78.0 637.6,78.0 646.8,72.0 604.6,72.0" fill="#C9A227"/>
-  <rect x="602.6" y="64.0" width="46.2" height="8" fill="#8A5A34"/>
-  <rect x="792.2" y="204.0" width="44.2" height="6" fill="#8A5A34"/>
-  <rect x="795.6" y="198.0" width="37.4" height="6" fill="#D9A066"/>
-  <rect x="797.3" y="78.0" width="34.0" height="120.0" fill="#D9A066"/>
-  <line x1="804.1" y1="78.0" x2="804.1" y2="198.0" stroke="#8A5A34" stroke-width="1.4" opacity="0.55"/>
-  <line x1="810.9" y1="78.0" x2="810.9" y2="198.0" stroke="#8A5A34" stroke-width="1.4" opacity="0.55"/>
-  <line x1="817.7" y1="78.0" x2="817.7" y2="198.0" stroke="#8A5A34" stroke-width="1.4" opacity="0.55"/>
-  <line x1="824.5" y1="78.0" x2="824.5" y2="198.0" stroke="#8A5A34" stroke-width="1.4" opacity="0.55"/>
-  <rect x="795.6" y="72.0" width="37.4" height="6" fill="#C9A227"/>
-  <polygon points="802.4,78.0 826.2,78.0 835.4,72.0 793.2,72.0" fill="#C9A227"/>
-  <rect x="791.2" y="64.0" width="46.2" height="8" fill="#8A5A34"/>
-  <rect x="980.8" y="204.0" width="44.2" height="6" fill="#8A5A34"/>
-  <rect x="984.2" y="198.0" width="37.4" height="6" fill="#D9A066"/>
-  <rect x="985.9" y="78.0" width="34.0" height="120.0" fill="#D9A066"/>
-  <line x1="992.7" y1="78.0" x2="992.7" y2="198.0" stroke="#8A5A34" stroke-width="1.4" opacity="0.55"/>
-  <line x1="999.5" y1="78.0" x2="999.5" y2="198.0" stroke="#8A5A34" stroke-width="1.4" opacity="0.55"/>
-  <line x1="1006.3" y1="78.0" x2="1006.3" y2="198.0" stroke="#8A5A34" stroke-width="1.4" opacity="0.55"/>
-  <line x1="1013.1" y1="78.0" x2="1013.1" y2="198.0" stroke="#8A5A34" stroke-width="1.4" opacity="0.55"/>
-  <rect x="984.2" y="72.0" width="37.4" height="6" fill="#C9A227"/>
-  <polygon points="991.0,78.0 1014.8,78.0 1023.9,72.0 981.8,72.0" fill="#C9A227"/>
-  <rect x="979.7" y="64.0" width="46.2" height="8" fill="#8A5A34"/>
-  <rect x="1169.3" y="204.0" width="44.2" height="6" fill="#8A5A34"/>
-  <rect x="1172.7" y="198.0" width="37.4" height="6" fill="#D9A066"/>
-  <rect x="1174.4" y="78.0" width="34.0" height="120.0" fill="#D9A066"/>
-  <line x1="1181.2" y1="78.0" x2="1181.2" y2="198.0" stroke="#8A5A34" stroke-width="1.4" opacity="0.55"/>
-  <line x1="1188.0" y1="78.0" x2="1188.0" y2="198.0" stroke="#8A5A34" stroke-width="1.4" opacity="0.55"/>
-  <line x1="1194.8" y1="78.0" x2="1194.8" y2="198.0" stroke="#8A5A34" stroke-width="1.4" opacity="0.55"/>
-  <line x1="1201.6" y1="78.0" x2="1201.6" y2="198.0" stroke="#8A5A34" stroke-width="1.4" opacity="0.55"/>
-  <rect x="1172.7" y="72.0" width="37.4" height="6" fill="#C9A227"/>
-  <polygon points="1179.5,78.0 1203.3,78.0 1212.5,72.0 1170.3,72.0" fill="#C9A227"/>
-  <rect x="1168.3" y="64.0" width="46.2" height="8" fill="#8A5A34"/>
-  <rect x="1357.9" y="204.0" width="44.2" height="6" fill="#8A5A34"/>
-  <rect x="1361.3" y="198.0" width="37.4" height="6" fill="#D9A066"/>
-  <rect x="1363.0" y="78.0" width="34.0" height="120.0" fill="#D9A066"/>
-  <line x1="1369.8" y1="78.0" x2="1369.8" y2="198.0" stroke="#8A5A34" stroke-width="1.4" opacity="0.55"/>
-  <line x1="1376.6" y1="78.0" x2="1376.6" y2="198.0" stroke="#8A5A34" stroke-width="1.4" opacity="0.55"/>
-  <line x1="1383.4" y1="78.0" x2="1383.4" y2="198.0" stroke="#8A5A34" stroke-width="1.4" opacity="0.55"/>
-  <line x1="1390.2" y1="78.0" x2="1390.2" y2="198.0" stroke="#8A5A34" stroke-width="1.4" opacity="0.55"/>
-  <rect x="1361.3" y="72.0" width="37.4" height="6" fill="#C9A227"/>
-  <polygon points="1368.1,78.0 1391.9,78.0 1401.1,72.0 1358.9,72.0" fill="#C9A227"/>
-  <rect x="1356.9" y="64.0" width="46.2" height="8" fill="#8A5A34"/>
-</svg>
-  </div>
-
-  <!-- Ivy Academic: collegiate gothic arches, towers, and tracery -->
-  <div class="treeline deco-ivy" aria-hidden="true">
-    <svg viewBox="0 0 1440 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <polygon points="154,160 160,136 166,160" fill="#2C3E63" opacity="0.28"/>
-  <rect x="154" y="160" width="12" height="60" fill="#2C3E63" opacity="0.28"/>
-  <polygon points="334,140 340,116 346,140" fill="#2C3E63" opacity="0.28"/>
-  <rect x="334" y="140" width="12" height="80" fill="#2C3E63" opacity="0.28"/>
-  <polygon points="514,165 520,141 526,165" fill="#2C3E63" opacity="0.28"/>
-  <rect x="514" y="165" width="12" height="55" fill="#2C3E63" opacity="0.28"/>
-  <polygon points="754,125 760,101 766,125" fill="#2C3E63" opacity="0.28"/>
-  <rect x="754" y="125" width="12" height="95" fill="#2C3E63" opacity="0.28"/>
-  <polygon points="974,160 980,136 986,160" fill="#2C3E63" opacity="0.28"/>
-  <rect x="974" y="160" width="12" height="60" fill="#2C3E63" opacity="0.28"/>
-  <polygon points="1174,140 1180,116 1186,140" fill="#2C3E63" opacity="0.28"/>
-  <rect x="1174" y="140" width="12" height="80" fill="#2C3E63" opacity="0.28"/>
-  <polygon points="1354,165 1360,141 1366,165" fill="#2C3E63" opacity="0.28"/>
-  <rect x="1354" y="165" width="12" height="55" fill="#2C3E63" opacity="0.28"/>
-  <rect x="0" y="176" width="1440" height="44" fill="#12233F"/>
-  <rect x="0.0" y="164.0" width="26.0" height="12" fill="#12233F"/>
-  <rect x="46.0" y="164.0" width="26.0" height="12" fill="#12233F"/>
-  <rect x="92.0" y="164.0" width="26.0" height="12" fill="#12233F"/>
-  <rect x="138.0" y="164.0" width="26.0" height="12" fill="#12233F"/>
-  <rect x="184.0" y="164.0" width="26.0" height="12" fill="#12233F"/>
-  <rect x="230.0" y="164.0" width="26.0" height="12" fill="#12233F"/>
-  <rect x="276.0" y="164.0" width="26.0" height="12" fill="#12233F"/>
-  <rect x="322.0" y="164.0" width="26.0" height="12" fill="#12233F"/>
-  <rect x="368.0" y="164.0" width="26.0" height="12" fill="#12233F"/>
-  <rect x="414.0" y="164.0" width="26.0" height="12" fill="#12233F"/>
-  <rect x="460.0" y="164.0" width="26.0" height="12" fill="#12233F"/>
-  <rect x="506.0" y="164.0" width="26.0" height="12" fill="#12233F"/>
-  <rect x="552.0" y="164.0" width="26.0" height="12" fill="#12233F"/>
-  <rect x="598.0" y="164.0" width="26.0" height="12" fill="#12233F"/>
-  <rect x="644.0" y="164.0" width="26.0" height="12" fill="#12233F"/>
-  <rect x="690.0" y="164.0" width="26.0" height="12" fill="#12233F"/>
-  <rect x="736.0" y="164.0" width="26.0" height="12" fill="#12233F"/>
-  <rect x="782.0" y="164.0" width="26.0" height="12" fill="#12233F"/>
-  <rect x="828.0" y="164.0" width="26.0" height="12" fill="#12233F"/>
-  <rect x="874.0" y="164.0" width="26.0" height="12" fill="#12233F"/>
-  <rect x="920.0" y="164.0" width="26.0" height="12" fill="#12233F"/>
-  <rect x="966.0" y="164.0" width="26.0" height="12" fill="#12233F"/>
-  <rect x="1012.0" y="164.0" width="26.0" height="12" fill="#12233F"/>
-  <rect x="1058.0" y="164.0" width="26.0" height="12" fill="#12233F"/>
-  <rect x="1104.0" y="164.0" width="26.0" height="12" fill="#12233F"/>
-  <rect x="1150.0" y="164.0" width="26.0" height="12" fill="#12233F"/>
-  <rect x="1196.0" y="164.0" width="26.0" height="12" fill="#12233F"/>
-  <rect x="1242.0" y="164.0" width="26.0" height="12" fill="#12233F"/>
-  <rect x="1288.0" y="164.0" width="26.0" height="12" fill="#12233F"/>
-  <rect x="1334.0" y="164.0" width="26.0" height="12" fill="#12233F"/>
-  <rect x="1380.0" y="164.0" width="26.0" height="12" fill="#12233F"/>
-  <rect x="1426.0" y="164.0" width="26.0" height="12" fill="#12233F"/>
-  <rect x="0" y="204" width="1440" height="3" fill="#C9A227" opacity="0.7"/>
-  <rect x="36" y="70" width="68" height="150" fill="#0E1B33"/>
-  <rect x="36.0" y="58.0" width="14.0" height="12" fill="#0E1B33"/>
-  <rect x="60.0" y="58.0" width="14.0" height="12" fill="#0E1B33"/>
-  <rect x="84.0" y="58.0" width="14.0" height="12" fill="#0E1B33"/>
-  <rect x="36" y="150" width="68" height="4" fill="#C9A227" opacity="0.6"/>
-  <rect x="1336" y="70" width="68" height="150" fill="#0E1B33"/>
-  <rect x="1336.0" y="58.0" width="14.0" height="12" fill="#0E1B33"/>
-  <rect x="1360.0" y="58.0" width="14.0" height="12" fill="#0E1B33"/>
-  <rect x="1384.0" y="58.0" width="14.0" height="12" fill="#0E1B33"/>
-  <rect x="1336" y="150" width="68" height="4" fill="#C9A227" opacity="0.6"/>
-  <path d="M 270.0,220.0 L 270.0,165.4 A 60.0,60.0 0 0 1 300.0,113.8 A 60.0,60.0 0 0 1 330.0,165.4 L 330.0,220.0 Z" fill="#1A2E52"/>
-  <circle cx="293.4" cy="130.3" r="5.6" fill="#C9A227" opacity="0.55"/>
-  <circle cx="306.6" cy="130.3" r="5.6" fill="#C9A227" opacity="0.55"/>
-  <circle cx="300.0" cy="123.7" r="5.6" fill="#C9A227" opacity="0.55"/>
-  <circle cx="300.0" cy="136.9" r="5.6" fill="#C9A227" opacity="0.55"/>
-  <line x1="300.0" y1="138.9" x2="300.0" y2="216" stroke="#C9A227" stroke-width="1.5" opacity="0.5"/>
-  <path d="M 435.0,220.0 L 435.0,157.0 A 70.0,70.0 0 0 1 470.0,96.8 A 70.0,70.0 0 0 1 505.0,157.0 L 505.0,220.0 Z" fill="#1A2E52"/>
-  <circle cx="462.3" cy="116.1" r="6.5" fill="#C9A227" opacity="0.55"/>
-  <circle cx="477.7" cy="116.1" r="6.5" fill="#C9A227" opacity="0.55"/>
-  <circle cx="470.0" cy="108.4" r="6.5" fill="#C9A227" opacity="0.55"/>
-  <circle cx="470.0" cy="123.8" r="6.5" fill="#C9A227" opacity="0.55"/>
-  <line x1="470.0" y1="125.8" x2="470.0" y2="216" stroke="#C9A227" stroke-width="1.5" opacity="0.5"/>
-  <path d="M 610.0,220.0 L 610.0,165.4 A 60.0,60.0 0 0 1 640.0,113.8 A 60.0,60.0 0 0 1 670.0,165.4 L 670.0,220.0 Z" fill="#1A2E52"/>
-  <circle cx="633.4" cy="130.3" r="5.6" fill="#C9A227" opacity="0.55"/>
-  <circle cx="646.6" cy="130.3" r="5.6" fill="#C9A227" opacity="0.55"/>
-  <circle cx="640.0" cy="123.7" r="5.6" fill="#C9A227" opacity="0.55"/>
-  <circle cx="640.0" cy="136.9" r="5.6" fill="#C9A227" opacity="0.55"/>
-  <line x1="640.0" y1="138.9" x2="640.0" y2="216" stroke="#C9A227" stroke-width="1.5" opacity="0.5"/>
-  <path d="M 770.0,220.0 L 770.0,165.4 A 60.0,60.0 0 0 1 800.0,113.8 A 60.0,60.0 0 0 1 830.0,165.4 L 830.0,220.0 Z" fill="#1A2E52"/>
-  <circle cx="793.4" cy="130.3" r="5.6" fill="#C9A227" opacity="0.55"/>
-  <circle cx="806.6" cy="130.3" r="5.6" fill="#C9A227" opacity="0.55"/>
-  <circle cx="800.0" cy="123.7" r="5.6" fill="#C9A227" opacity="0.55"/>
-  <circle cx="800.0" cy="136.9" r="5.6" fill="#C9A227" opacity="0.55"/>
-  <line x1="800.0" y1="138.9" x2="800.0" y2="216" stroke="#C9A227" stroke-width="1.5" opacity="0.5"/>
-  <path d="M 935.0,220.0 L 935.0,157.0 A 70.0,70.0 0 0 1 970.0,96.8 A 70.0,70.0 0 0 1 1005.0,157.0 L 1005.0,220.0 Z" fill="#1A2E52"/>
-  <circle cx="962.3" cy="116.1" r="6.5" fill="#C9A227" opacity="0.55"/>
-  <circle cx="977.7" cy="116.1" r="6.5" fill="#C9A227" opacity="0.55"/>
-  <circle cx="970.0" cy="108.4" r="6.5" fill="#C9A227" opacity="0.55"/>
-  <circle cx="970.0" cy="123.8" r="6.5" fill="#C9A227" opacity="0.55"/>
-  <line x1="970.0" y1="125.8" x2="970.0" y2="216" stroke="#C9A227" stroke-width="1.5" opacity="0.5"/>
-  <path d="M 1110.0,220.0 L 1110.0,165.4 A 60.0,60.0 0 0 1 1140.0,113.8 A 60.0,60.0 0 0 1 1170.0,165.4 L 1170.0,220.0 Z" fill="#1A2E52"/>
-  <circle cx="1133.4" cy="130.3" r="5.6" fill="#C9A227" opacity="0.55"/>
-  <circle cx="1146.6" cy="130.3" r="5.6" fill="#C9A227" opacity="0.55"/>
-  <circle cx="1140.0" cy="123.7" r="5.6" fill="#C9A227" opacity="0.55"/>
-  <circle cx="1140.0" cy="136.9" r="5.6" fill="#C9A227" opacity="0.55"/>
-  <line x1="1140.0" y1="138.9" x2="1140.0" y2="216" stroke="#C9A227" stroke-width="1.5" opacity="0.5"/>
-</svg>
-  </div>
-
-  <!-- Slate & Ember: layered mountain ridgeline with snow-capped peaks -->
-  <div class="treeline deco-slate" aria-hidden="true">
-    <svg viewBox="0 0 1440 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-  <linearGradient id="ridgeBack" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#7A828E"/><stop offset="100%" stop-color="#5B6270"/></linearGradient>
-  <linearGradient id="ridgeMid" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4A515C"/><stop offset="100%" stop-color="#2B2F38"/></linearGradient>
-  <linearGradient id="ridgeFront" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2A2E36"/><stop offset="100%" stop-color="#14171C"/></linearGradient>
-  </defs>
-  <path d="M 0,190 L 0,180 L 111,140 L 222,130 L 332,143 L 443,144 L 554,114 L 665,111 L 775,156 L 886,124 L 997,123 L 1108,165 L 1218,136 L 1329,156 L 1440,180 L 1440,190 Z" fill="url(#ridgeBack)" opacity="0.55"></path>
-  <path d="M 0,205 L 0,195 L 111,115 L 222,144 L 332,107 L 443,111 L 554,117 L 665,85 L 775,111 L 886,120 L 997,133 L 1108,78 L 1218,94 L 1329,77 L 1440,195 L 1440,205 Z" fill="url(#ridgeMid)" opacity="0.85"></path>
-  <path d="M 0,220 L 0,210 L 111,99 L 222,93 L 332,78 L 443,52 L 554,109 L 665,111 L 775,81 L 886,81 L 997,54 L 1108,30 L 1218,67 L 1329,89 L 1440,210 L 1440,220 Z" fill="url(#ridgeFront)"></path>
-  <polygon points="319,96 332,78 345,96" fill="#F2A65A" opacity="0.85"/>
-  <polygon points="326,84 332,78 338,84" fill="#FFE3C2"/>
-  <polygon points="430,70 443,52 456,70" fill="#F2A65A" opacity="0.85"/>
-  <polygon points="437,58 443,52 449,58" fill="#FFE3C2"/>
-  <polygon points="984,72 997,54 1010,72" fill="#F2A65A" opacity="0.85"/>
-  <polygon points="991,60 997,54 1003,60" fill="#FFE3C2"/>
-  <polygon points="1095,48 1108,30 1121,48" fill="#F2A65A" opacity="0.85"/>
-  <polygon points="1102,36 1108,30 1114,36" fill="#FFE3C2"/>
-  <polygon points="1205,85 1218,67 1231,85" fill="#F2A65A" opacity="0.85"/>
-  <polygon points="1212,73 1218,67 1224,73" fill="#FFE3C2"/>
-</svg>
-  </div>
-  <!-- Light Academia: bookshelf skyline with a glowing arch window -->
-  <div class="treeline deco-light-academia" aria-hidden="true">
-    <svg viewBox="0 0 1440 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-<ellipse cx="720.0" cy="90" rx="140" ry="140" fill="#F3E2B8" opacity="0.22"/>
-<path d="M 640.0,220 L 640.0,112 C 640.0,64 800.0,64 800.0,112 L 800.0,220 Z" fill="#EFDFC0" opacity="0.25"/>
-<rect x="10.0" y="99.4" width="37.2" height="50.6" fill="#B8A47E"/>
-<rect x="10.0" y="105.5" width="37.2" height="2.0" fill="#F3E2B8"/>
-<rect x="50.6" y="109.1" width="43.7" height="40.9" fill="#B8A47E"/>
-<rect x="50.6" y="114.0" width="43.7" height="2.0" fill="#F3E2B8"/>
-<rect x="98.2" y="111.6" width="42.7" height="38.4" fill="#B8A47E"/>
-<rect x="98.2" y="116.2" width="42.7" height="2.0" fill="#F3E2B8"/>
-<rect x="143.3" y="90.9" width="38.6" height="59.1" fill="#C9B896"/>
-<rect x="143.3" y="97.9" width="38.6" height="2.1" fill="#F3E2B8"/>
-<rect x="185.7" y="102.2" width="36.3" height="47.8" fill="#C9B896"/>
-<rect x="185.7" y="108.0" width="36.3" height="2.0" fill="#F3E2B8"/>
-<rect x="225.9" y="112.4" width="43.3" height="37.6" fill="#C9B896"/>
-<rect x="225.9" y="116.9" width="43.3" height="2.0" fill="#F3E2B8"/>
-<rect x="271.8" y="113.2" width="33.9" height="36.8" fill="#B8A47E"/>
-<rect x="271.8" y="117.6" width="33.9" height="2.0" fill="#F3E2B8"/>
-<rect x="308.6" y="108.9" width="39.5" height="41.1" fill="#C9B896"/>
-<rect x="308.6" y="113.9" width="39.5" height="2.0" fill="#F3E2B8"/>
-<rect x="352.0" y="96.8" width="38.0" height="53.2" fill="#B8A47E"/>
-<rect x="352.0" y="103.2" width="38.0" height="2.0" fill="#F3E2B8"/>
-<rect x="394.0" y="99.7" width="36.5" height="50.3" fill="#C9B896"/>
-<rect x="394.0" y="105.7" width="36.5" height="2.0" fill="#F3E2B8"/>
-<rect x="434.6" y="108.0" width="35.0" height="42.0" fill="#B8A47E"/>
-<rect x="434.6" y="113.1" width="35.0" height="2.0" fill="#F3E2B8"/>
-<rect x="471.7" y="111.2" width="39.0" height="38.8" fill="#C9B896"/>
-<rect x="471.7" y="115.9" width="39.0" height="2.0" fill="#F3E2B8"/>
-<rect x="515.3" y="89.1" width="36.2" height="60.9" fill="#C9B896"/>
-<rect x="515.3" y="96.4" width="36.2" height="2.1" fill="#F3E2B8"/>
-<rect x="554.1" y="112.6" width="44.8" height="37.4" fill="#B8A47E"/>
-<rect x="554.1" y="117.1" width="44.8" height="2.0" fill="#F3E2B8"/>
-<rect x="603.9" y="112.1" width="36.4" height="37.9" fill="#C9B896"/>
-<rect x="603.9" y="116.6" width="36.4" height="2.0" fill="#F3E2B8"/>
-<rect x="644.6" y="111.7" width="34.3" height="38.3" fill="#B8A47E"/>
-<rect x="644.6" y="116.3" width="34.3" height="2.0" fill="#F3E2B8"/>
-<rect x="680.9" y="90.0" width="36.6" height="60.0" fill="#C9B896"/>
-<rect x="680.9" y="97.2" width="36.6" height="2.1" fill="#F3E2B8"/>
-<rect x="720.2" y="112.4" width="31.6" height="37.6" fill="#B8A47E"/>
-<rect x="720.2" y="116.9" width="31.6" height="2.0" fill="#F3E2B8"/>
-<rect x="754.4" y="102.4" width="38.9" height="47.6" fill="#C9B896"/>
-<rect x="754.4" y="108.1" width="38.9" height="2.0" fill="#F3E2B8"/>
-<rect x="798.3" y="103.1" width="42.3" height="46.9" fill="#B8A47E"/>
-<rect x="798.3" y="108.7" width="42.3" height="2.0" fill="#F3E2B8"/>
-<rect x="842.9" y="108.5" width="36.7" height="41.5" fill="#B8A47E"/>
-<rect x="842.9" y="113.4" width="36.7" height="2.0" fill="#F3E2B8"/>
-<rect x="884.3" y="98.6" width="45.6" height="51.4" fill="#C9B896"/>
-<rect x="884.3" y="104.8" width="45.6" height="2.0" fill="#F3E2B8"/>
-<rect x="932.5" y="91.8" width="36.3" height="58.2" fill="#C9B896"/>
-<rect x="932.5" y="98.8" width="36.3" height="2.0" fill="#F3E2B8"/>
-<rect x="970.9" y="102.5" width="32.3" height="47.5" fill="#C9B896"/>
-<rect x="970.9" y="108.2" width="32.3" height="2.0" fill="#F3E2B8"/>
-<rect x="1007.6" y="106.3" width="35.3" height="43.7" fill="#C9B896"/>
-<rect x="1007.6" y="111.5" width="35.3" height="2.0" fill="#F3E2B8"/>
-<rect x="1045.1" y="97.4" width="33.3" height="52.6" fill="#C9B896"/>
-<rect x="1045.1" y="103.8" width="33.3" height="2.0" fill="#F3E2B8"/>
-<rect x="1082.2" y="102.2" width="35.9" height="47.8" fill="#B8A47E"/>
-<rect x="1082.2" y="108.0" width="35.9" height="2.0" fill="#F3E2B8"/>
-<rect x="1122.7" y="104.0" width="32.2" height="46.0" fill="#C9B896"/>
-<rect x="1122.7" y="109.5" width="32.2" height="2.0" fill="#F3E2B8"/>
-<rect x="1157.8" y="98.1" width="33.7" height="51.9" fill="#C9B896"/>
-<rect x="1157.8" y="104.4" width="33.7" height="2.0" fill="#F3E2B8"/>
-<rect x="1193.9" y="99.6" width="40.1" height="50.4" fill="#B8A47E"/>
-<rect x="1193.9" y="105.6" width="40.1" height="2.0" fill="#F3E2B8"/>
-<rect x="1238.6" y="103.0" width="39.7" height="47.0" fill="#C9B896"/>
-<rect x="1238.6" y="108.7" width="39.7" height="2.0" fill="#F3E2B8"/>
-<rect x="1280.6" y="107.4" width="38.2" height="42.6" fill="#B8A47E"/>
-<rect x="1280.6" y="112.5" width="38.2" height="2.0" fill="#F3E2B8"/>
-<rect x="1321.6" y="98.5" width="43.2" height="51.5" fill="#B8A47E"/>
-<rect x="1321.6" y="104.7" width="43.2" height="2.0" fill="#F3E2B8"/>
-<rect x="1368.3" y="88.6" width="44.9" height="61.4" fill="#C9B896"/>
-<rect x="1368.3" y="96.0" width="44.9" height="2.1" fill="#F3E2B8"/>
-<rect x="1415.9" y="91.8" width="38.9" height="58.2" fill="#C9B896"/>
-<rect x="1415.9" y="98.8" width="38.9" height="2.0" fill="#F3E2B8"/>
-<rect x="10.0" y="121.1" width="48.5" height="56.9" fill="#9C7A52"/>
-<rect x="10.0" y="127.9" width="48.5" height="2.0" fill="#F3E2B8"/>
-<rect x="60.7" y="119.5" width="39.4" height="58.5" fill="#9C7A52"/>
-<rect x="60.7" y="126.5" width="39.4" height="2.0" fill="#F3E2B8"/>
-<rect x="102.7" y="108.5" width="38.6" height="69.5" fill="#9C7A52"/>
-<rect x="102.7" y="116.9" width="38.6" height="2.4" fill="#F3E2B8"/>
-<rect x="143.6" y="112.7" width="34.5" height="65.3" fill="#8A6842"/>
-<rect x="143.6" y="120.5" width="34.5" height="2.3" fill="#F3E2B8"/>
-<rect x="182.0" y="108.1" width="44.4" height="69.9" fill="#9C7A52"/>
-<rect x="182.0" y="116.5" width="44.4" height="2.4" fill="#F3E2B8"/>
-<rect x="230.2" y="111.9" width="48.6" height="66.1" fill="#8A6842"/>
-<rect x="230.2" y="119.8" width="48.6" height="2.3" fill="#F3E2B8"/>
-<rect x="283.0" y="127.3" width="49.3" height="50.7" fill="#9C7A52"/>
-<rect x="283.0" y="133.4" width="49.3" height="2.0" fill="#F3E2B8"/>
-<rect x="335.7" y="117.2" width="45.1" height="60.8" fill="#9C7A52"/>
-<rect x="335.7" y="124.5" width="45.1" height="2.1" fill="#F3E2B8"/>
-<rect x="383.1" y="102.9" width="41.8" height="75.1" fill="#9C7A52"/>
-<rect x="383.1" y="111.9" width="41.8" height="2.6" fill="#F3E2B8"/>
-<rect x="429.3" y="116.0" width="48.5" height="62.0" fill="#8A6842"/>
-<rect x="429.3" y="123.5" width="48.5" height="2.2" fill="#F3E2B8"/>
-<rect x="482.5" y="113.8" width="47.7" height="64.2" fill="#9C7A52"/>
-<rect x="482.5" y="121.5" width="47.7" height="2.2" fill="#F3E2B8"/>
-<rect x="534.8" y="106.8" width="42.3" height="71.2" fill="#8A6842"/>
-<rect x="534.8" y="115.3" width="42.3" height="2.5" fill="#F3E2B8"/>
-<rect x="580.2" y="125.5" width="32.2" height="52.5" fill="#9C7A52"/>
-<rect x="580.2" y="131.8" width="32.2" height="2.0" fill="#F3E2B8"/>
-<rect x="616.4" y="98.1" width="49.9" height="79.9" fill="#8A6842"/>
-<rect x="616.4" y="107.7" width="49.9" height="2.8" fill="#F3E2B8"/>
-<rect x="669.4" y="108.2" width="45.2" height="69.8" fill="#8A6842"/>
-<rect x="669.4" y="116.6" width="45.2" height="2.4" fill="#F3E2B8"/>
-<rect x="718.0" y="110.4" width="41.7" height="67.6" fill="#9C7A52"/>
-<rect x="718.0" y="118.5" width="41.7" height="2.4" fill="#F3E2B8"/>
-<rect x="762.7" y="127.2" width="33.6" height="50.8" fill="#9C7A52"/>
-<rect x="762.7" y="133.3" width="33.6" height="2.0" fill="#F3E2B8"/>
-<rect x="799.8" y="96.7" width="43.1" height="81.3" fill="#8A6842"/>
-<rect x="799.8" y="106.5" width="43.1" height="2.8" fill="#F3E2B8"/>
-<rect x="847.5" y="123.1" width="38.6" height="54.9" fill="#9C7A52"/>
-<rect x="847.5" y="129.7" width="38.6" height="2.0" fill="#F3E2B8"/>
-<rect x="889.7" y="116.4" width="45.6" height="61.6" fill="#8A6842"/>
-<rect x="889.7" y="123.8" width="45.6" height="2.2" fill="#F3E2B8"/>
-<rect x="938.8" y="114.2" width="36.3" height="63.8" fill="#8A6842"/>
-<rect x="938.8" y="121.9" width="36.3" height="2.2" fill="#F3E2B8"/>
-<rect x="977.7" y="100.6" width="39.8" height="77.4" fill="#9C7A52"/>
-<rect x="977.7" y="109.9" width="39.8" height="2.7" fill="#F3E2B8"/>
-<rect x="1022.1" y="108.2" width="38.9" height="69.8" fill="#8A6842"/>
-<rect x="1022.1" y="116.6" width="38.9" height="2.4" fill="#F3E2B8"/>
-<rect x="1063.7" y="116.1" width="34.4" height="61.9" fill="#9C7A52"/>
-<rect x="1063.7" y="123.5" width="34.4" height="2.2" fill="#F3E2B8"/>
-<rect x="1102.2" y="118.6" width="49.1" height="59.4" fill="#9C7A52"/>
-<rect x="1102.2" y="125.7" width="49.1" height="2.1" fill="#F3E2B8"/>
-<rect x="1153.6" y="96.5" width="40.5" height="81.5" fill="#8A6842"/>
-<rect x="1153.6" y="106.3" width="40.5" height="2.9" fill="#F3E2B8"/>
-<rect x="1197.3" y="105.1" width="41.4" height="72.9" fill="#8A6842"/>
-<rect x="1197.3" y="113.9" width="41.4" height="2.5" fill="#F3E2B8"/>
-<rect x="1241.6" y="118.5" width="46.9" height="59.5" fill="#9C7A52"/>
-<rect x="1241.6" y="125.7" width="46.9" height="2.1" fill="#F3E2B8"/>
-<rect x="1292.6" y="116.0" width="37.1" height="62.0" fill="#9C7A52"/>
-<rect x="1292.6" y="123.4" width="37.1" height="2.2" fill="#F3E2B8"/>
-<rect x="1333.5" y="121.5" width="39.3" height="56.5" fill="#8A6842"/>
-<rect x="1333.5" y="128.3" width="39.3" height="2.0" fill="#F3E2B8"/>
-<rect x="1375.5" y="126.4" width="34.5" height="51.6" fill="#9C7A52"/>
-<rect x="1375.5" y="132.6" width="34.5" height="2.0" fill="#F3E2B8"/>
-<rect x="1413.4" y="105.7" width="43.3" height="72.3" fill="#8A6842"/>
-<rect x="1413.4" y="114.4" width="43.3" height="2.5" fill="#F3E2B8"/>
-<rect x="10.0" y="132.2" width="47.7" height="72.8" fill="#5A3F28"/>
-<rect x="10.0" y="141.0" width="47.7" height="2.5" fill="#F3E2B8"/>
-<rect x="60.5" y="102.2" width="48.3" height="102.8" fill="#4A3423"/>
-<rect x="60.5" y="114.6" width="48.3" height="3.6" fill="#F3E2B8"/>
-<rect x="112.9" y="128.3" width="37.6" height="76.7" fill="#5A3F28"/>
-<rect x="112.9" y="137.5" width="37.6" height="2.7" fill="#F3E2B8"/>
-<rect x="154.1" y="116.0" width="52.9" height="89.0" fill="#6B4E32"/>
-<rect x="154.1" y="126.7" width="52.9" height="3.1" fill="#F3E2B8"/>
-<rect x="210.2" y="94.1" width="49.8" height="110.9" fill="#6B4E32"/>
-<rect x="210.2" y="107.4" width="49.8" height="3.9" fill="#F3E2B8"/>
-<rect x="263.3" y="122.0" width="51.9" height="83.0" fill="#5A3F28"/>
-<rect x="263.3" y="132.0" width="51.9" height="2.9" fill="#F3E2B8"/>
-<rect x="318.5" y="93.9" width="46.5" height="111.1" fill="#5A3F28"/>
-<rect x="318.5" y="107.2" width="46.5" height="3.9" fill="#F3E2B8"/>
-<rect x="368.6" y="115.9" width="47.1" height="89.1" fill="#5A3F28"/>
-<rect x="368.6" y="126.6" width="47.1" height="3.1" fill="#F3E2B8"/>
-<rect x="419.1" y="131.9" width="47.0" height="73.1" fill="#4A3423"/>
-<rect x="419.1" y="140.7" width="47.0" height="2.6" fill="#F3E2B8"/>
-<rect x="470.7" y="93.1" width="50.0" height="111.9" fill="#6B4E32"/>
-<rect x="470.7" y="106.5" width="50.0" height="3.9" fill="#F3E2B8"/>
-<rect x="523.3" y="90.1" width="52.0" height="114.9" fill="#5A3F28"/>
-<rect x="523.3" y="103.8" width="52.0" height="4.0" fill="#F3E2B8"/>
-<rect x="578.9" y="125.7" width="49.8" height="79.3" fill="#4A3423"/>
-<rect x="578.9" y="135.2" width="49.8" height="2.8" fill="#F3E2B8"/>
-<rect x="633.3" y="138.5" width="41.0" height="66.5" fill="#5A3F28"/>
-<rect x="633.3" y="146.5" width="41.0" height="2.3" fill="#F3E2B8"/>
-<rect x="677.3" y="128.1" width="42.4" height="76.9" fill="#6B4E32"/>
-<rect x="677.3" y="137.4" width="42.4" height="2.7" fill="#F3E2B8"/>
-<rect x="722.4" y="119.8" width="51.4" height="85.2" fill="#6B4E32"/>
-<rect x="722.4" y="130.1" width="51.4" height="3.0" fill="#F3E2B8"/>
-<rect x="776.3" y="100.5" width="40.7" height="104.5" fill="#6B4E32"/>
-<rect x="776.3" y="113.0" width="40.7" height="3.7" fill="#F3E2B8"/>
-<rect x="820.4" y="94.4" width="54.0" height="110.6" fill="#4A3423"/>
-<rect x="820.4" y="107.6" width="54.0" height="3.9" fill="#F3E2B8"/>
-<rect x="878.9" y="91.9" width="47.8" height="113.1" fill="#5A3F28"/>
-<rect x="878.9" y="105.5" width="47.8" height="4.0" fill="#F3E2B8"/>
-<rect x="930.4" y="102.1" width="47.8" height="102.9" fill="#5A3F28"/>
-<rect x="930.4" y="114.4" width="47.8" height="3.6" fill="#F3E2B8"/>
-<rect x="981.8" y="103.6" width="39.8" height="101.4" fill="#4A3423"/>
-<rect x="981.8" y="115.8" width="39.8" height="3.5" fill="#F3E2B8"/>
-<rect x="1024.1" y="94.0" width="44.3" height="111.0" fill="#5A3F28"/>
-<rect x="1024.1" y="107.3" width="44.3" height="3.9" fill="#F3E2B8"/>
-<rect x="1071.3" y="97.4" width="41.6" height="107.6" fill="#4A3423"/>
-<rect x="1071.3" y="110.3" width="41.6" height="3.8" fill="#F3E2B8"/>
-<rect x="1115.5" y="90.7" width="51.0" height="114.3" fill="#4A3423"/>
-<rect x="1115.5" y="104.4" width="51.0" height="4.0" fill="#F3E2B8"/>
-<rect x="1169.4" y="120.8" width="44.0" height="84.2" fill="#6B4E32"/>
-<rect x="1169.4" y="130.9" width="44.0" height="2.9" fill="#F3E2B8"/>
-<rect x="1216.8" y="141.5" width="46.1" height="63.5" fill="#6B4E32"/>
-<rect x="1216.8" y="149.1" width="46.1" height="2.2" fill="#F3E2B8"/>
-<rect x="1266.5" y="99.7" width="42.0" height="105.3" fill="#4A3423"/>
-<rect x="1266.5" y="112.4" width="42.0" height="3.7" fill="#F3E2B8"/>
-<rect x="1310.9" y="134.0" width="35.9" height="71.0" fill="#4A3423"/>
-<rect x="1310.9" y="142.5" width="35.9" height="2.5" fill="#F3E2B8"/>
-<rect x="1350.1" y="99.8" width="52.4" height="105.2" fill="#5A3F28"/>
-<rect x="1350.1" y="112.4" width="52.4" height="3.7" fill="#F3E2B8"/>
-<rect x="1405.3" y="136.1" width="43.5" height="68.9" fill="#5A3F28"/>
-<rect x="1405.3" y="144.4" width="43.5" height="2.4" fill="#F3E2B8"/>
-</svg>
-  </div>
-  <!-- Dusty Sage & Clay: olive grove terraces with terracotta urns -->
-  <div class="treeline deco-dusty-sage" aria-hidden="true">
-    <svg viewBox="0 0 1440 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0,220 L0,178 C240,162 480,186 720,170 C960,154 1200,182 1440,168 L1440,220 Z" fill="#C9D6C0" fill-opacity="0.4"/>
-<path d="M0,220 L0,198 C300,182 620,204 940,188 C1160,178 1320,196 1440,190 L1440,220 Z" fill="#9CAF97" fill-opacity="0.5"/>
-<rect x="78.2" y="134.3" width="3.5" height="15.7" fill="#8A6F52"/>
-<ellipse cx="70.4" cy="127.1" rx="12.0" ry="9.4" fill="#A9BBA0" fill-opacity="0.5"/>
-<ellipse cx="80.0" cy="118.3" rx="13.6" ry="10.6" fill="#A9BBA0" fill-opacity="0.5"/>
-<ellipse cx="89.6" cy="127.1" rx="11.2" ry="8.7" fill="#A9BBA0" fill-opacity="0.5"/>
-<rect x="308.2" y="134.3" width="3.5" height="15.7" fill="#8A6F52"/>
-<ellipse cx="300.4" cy="127.1" rx="12.0" ry="9.4" fill="#A9BBA0" fill-opacity="0.5"/>
-<ellipse cx="310.0" cy="118.3" rx="13.6" ry="10.6" fill="#A9BBA0" fill-opacity="0.5"/>
-<ellipse cx="319.6" cy="127.1" rx="11.2" ry="8.7" fill="#A9BBA0" fill-opacity="0.5"/>
-<rect x="538.2" y="134.3" width="3.5" height="15.7" fill="#8A6F52"/>
-<ellipse cx="530.4" cy="127.1" rx="12.0" ry="9.4" fill="#A9BBA0" fill-opacity="0.5"/>
-<ellipse cx="540.0" cy="118.3" rx="13.6" ry="10.6" fill="#A9BBA0" fill-opacity="0.5"/>
-<ellipse cx="549.6" cy="127.1" rx="11.2" ry="8.7" fill="#A9BBA0" fill-opacity="0.5"/>
-<rect x="768.2" y="134.3" width="3.5" height="15.7" fill="#8A6F52"/>
-<ellipse cx="760.4" cy="127.1" rx="12.0" ry="9.4" fill="#A9BBA0" fill-opacity="0.5"/>
-<ellipse cx="770.0" cy="118.3" rx="13.6" ry="10.6" fill="#A9BBA0" fill-opacity="0.5"/>
-<ellipse cx="779.6" cy="127.1" rx="11.2" ry="8.7" fill="#A9BBA0" fill-opacity="0.5"/>
-<rect x="998.2" y="134.3" width="3.5" height="15.7" fill="#8A6F52"/>
-<ellipse cx="990.4" cy="127.1" rx="12.0" ry="9.4" fill="#A9BBA0" fill-opacity="0.5"/>
-<ellipse cx="1000.0" cy="118.3" rx="13.6" ry="10.6" fill="#A9BBA0" fill-opacity="0.5"/>
-<ellipse cx="1009.6" cy="127.1" rx="11.2" ry="8.7" fill="#A9BBA0" fill-opacity="0.5"/>
-<rect x="1228.2" y="134.3" width="3.5" height="15.7" fill="#8A6F52"/>
-<ellipse cx="1220.4" cy="127.1" rx="12.0" ry="9.4" fill="#A9BBA0" fill-opacity="0.5"/>
-<ellipse cx="1230.0" cy="118.3" rx="13.6" ry="10.6" fill="#A9BBA0" fill-opacity="0.5"/>
-<ellipse cx="1239.6" cy="127.1" rx="11.2" ry="8.7" fill="#A9BBA0" fill-opacity="0.5"/>
-<rect x="137.7" y="159.4" width="4.6" height="20.6" fill="#6E5A40"/>
-<ellipse cx="127.4" cy="150.0" rx="15.8" ry="12.3" fill="#7C8A5E" fill-opacity="0.8"/>
-<ellipse cx="140.0" cy="138.4" rx="17.9" ry="13.9" fill="#7C8A5E" fill-opacity="0.8"/>
-<ellipse cx="152.6" cy="150.0" rx="14.7" ry="11.5" fill="#7C8A5E" fill-opacity="0.8"/>
-<rect x="397.7" y="159.4" width="4.6" height="20.6" fill="#6E5A40"/>
-<ellipse cx="387.4" cy="150.0" rx="15.8" ry="12.3" fill="#7C8A5E" fill-opacity="0.8"/>
-<ellipse cx="400.0" cy="138.4" rx="17.9" ry="13.9" fill="#7C8A5E" fill-opacity="0.8"/>
-<ellipse cx="412.6" cy="150.0" rx="14.7" ry="11.5" fill="#7C8A5E" fill-opacity="0.8"/>
-<rect x="657.7" y="159.4" width="4.6" height="20.6" fill="#6E5A40"/>
-<ellipse cx="647.4" cy="150.0" rx="15.8" ry="12.3" fill="#7C8A5E" fill-opacity="0.8"/>
-<ellipse cx="660.0" cy="138.4" rx="17.9" ry="13.9" fill="#7C8A5E" fill-opacity="0.8"/>
-<ellipse cx="672.6" cy="150.0" rx="14.7" ry="11.5" fill="#7C8A5E" fill-opacity="0.8"/>
-<rect x="917.7" y="159.4" width="4.6" height="20.6" fill="#6E5A40"/>
-<ellipse cx="907.4" cy="150.0" rx="15.8" ry="12.3" fill="#7C8A5E" fill-opacity="0.8"/>
-<ellipse cx="920.0" cy="138.4" rx="17.9" ry="13.9" fill="#7C8A5E" fill-opacity="0.8"/>
-<ellipse cx="932.6" cy="150.0" rx="14.7" ry="11.5" fill="#7C8A5E" fill-opacity="0.8"/>
-<rect x="1177.7" y="159.4" width="4.6" height="20.6" fill="#6E5A40"/>
-<ellipse cx="1167.4" cy="150.0" rx="15.8" ry="12.3" fill="#7C8A5E" fill-opacity="0.8"/>
-<ellipse cx="1180.0" cy="138.4" rx="17.9" ry="13.9" fill="#7C8A5E" fill-opacity="0.8"/>
-<ellipse cx="1192.6" cy="150.0" rx="14.7" ry="11.5" fill="#7C8A5E" fill-opacity="0.8"/>
-<rect x="67.0" y="181.5" width="5.9" height="26.5" fill="#4A3D2C"/>
-<ellipse cx="53.8" cy="169.4" rx="20.2" ry="15.8" fill="#5A6B4A" fill-opacity="1.0"/>
-<ellipse cx="70.0" cy="154.5" rx="23.0" ry="17.9" fill="#5A6B4A" fill-opacity="1.0"/>
-<ellipse cx="86.2" cy="169.4" rx="18.9" ry="14.7" fill="#5A6B4A" fill-opacity="1.0"/>
-<path d="M 111,208 L 109,186 C 109,180 131,180 131,186 L 129,208 Z" fill="#C97C5D"/>
-<ellipse cx="120.0" cy="186.0" rx="11.0" ry="3.5" fill="#B56A4E"/>
-<rect x="387.0" y="181.5" width="5.9" height="26.5" fill="#4A3D2C"/>
-<ellipse cx="373.8" cy="169.4" rx="20.2" ry="15.8" fill="#5A6B4A" fill-opacity="1.0"/>
-<ellipse cx="390.0" cy="154.5" rx="23.0" ry="17.9" fill="#5A6B4A" fill-opacity="1.0"/>
-<ellipse cx="406.2" cy="169.4" rx="18.9" ry="14.7" fill="#5A6B4A" fill-opacity="1.0"/>
-<path d="M 431,208 L 429,186 C 429,180 451,180 451,186 L 449,208 Z" fill="#C97C5D"/>
-<ellipse cx="440.0" cy="186.0" rx="11.0" ry="3.5" fill="#B56A4E"/>
-<rect x="707.0" y="181.5" width="5.9" height="26.5" fill="#4A3D2C"/>
-<ellipse cx="693.8" cy="169.4" rx="20.2" ry="15.8" fill="#5A6B4A" fill-opacity="1.0"/>
-<ellipse cx="710.0" cy="154.5" rx="23.0" ry="17.9" fill="#5A6B4A" fill-opacity="1.0"/>
-<ellipse cx="726.2" cy="169.4" rx="18.9" ry="14.7" fill="#5A6B4A" fill-opacity="1.0"/>
-<path d="M 751,208 L 749,186 C 749,180 771,180 771,186 L 769,208 Z" fill="#C97C5D"/>
-<ellipse cx="760.0" cy="186.0" rx="11.0" ry="3.5" fill="#B56A4E"/>
-<rect x="1027.0" y="181.5" width="5.9" height="26.5" fill="#4A3D2C"/>
-<ellipse cx="1013.8" cy="169.4" rx="20.2" ry="15.8" fill="#5A6B4A" fill-opacity="1.0"/>
-<ellipse cx="1030.0" cy="154.5" rx="23.0" ry="17.9" fill="#5A6B4A" fill-opacity="1.0"/>
-<ellipse cx="1046.2" cy="169.4" rx="18.9" ry="14.7" fill="#5A6B4A" fill-opacity="1.0"/>
-<path d="M 1071,208 L 1069,186 C 1069,180 1091,180 1091,186 L 1089,208 Z" fill="#C97C5D"/>
-<ellipse cx="1080.0" cy="186.0" rx="11.0" ry="3.5" fill="#B56A4E"/>
-<rect x="1347.0" y="181.5" width="5.9" height="26.5" fill="#4A3D2C"/>
-<ellipse cx="1333.8" cy="169.4" rx="20.2" ry="15.8" fill="#5A6B4A" fill-opacity="1.0"/>
-<ellipse cx="1350.0" cy="154.5" rx="23.0" ry="17.9" fill="#5A6B4A" fill-opacity="1.0"/>
-<ellipse cx="1366.2" cy="169.4" rx="18.9" ry="14.7" fill="#5A6B4A" fill-opacity="1.0"/>
-<path d="M 1391,208 L 1389,186 C 1389,180 1411,180 1411,186 L 1409,208 Z" fill="#C97C5D"/>
-<ellipse cx="1400.0" cy="186.0" rx="11.0" ry="3.5" fill="#B56A4E"/>
-</svg>
-  </div>
-  <!-- Powder & Ink: soft cloud bands with a quill and ink drop -->
-  <div class="treeline deco-powder-ink" aria-hidden="true">
-    <svg viewBox="0 0 1440 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0,220 L0,150 C200,120 380,165 560,140 C760,112 960,158 1160,132 C1280,116 1360,140 1440,128 L1440,220 Z" fill="#E8D5CE" fill-opacity="0.4"/>
-<path d="M0,220 L0,175 C220,155 440,188 680,165 C900,144 1120,180 1320,160 L1440,158 L1440,220 Z" fill="#B8CFE0" fill-opacity="0.55"/>
-<path d="M0,220 L0,198 C260,186 520,206 800,192 C1040,180 1260,204 1440,196 L1440,220 Z" fill="#6B84A0" fill-opacity="0.85"/>
-<ellipse cx="52.8" cy="79.1" rx="14.1" ry="8.5" fill="#FFFFFF" fill-opacity="0.32"/>
-<ellipse cx="70.0" cy="69.7" rx="18.8" ry="11.3" fill="#FFFFFF" fill-opacity="0.32"/>
-<ellipse cx="87.2" cy="79.1" rx="14.1" ry="8.5" fill="#FFFFFF" fill-opacity="0.32"/>
-<ellipse cx="65.3" cy="81.5" rx="11.0" ry="6.6" fill="#FFFFFF" fill-opacity="0.32"/>
-<ellipse cx="243.7" cy="98.5" rx="13.3" ry="8.0" fill="#FFFFFF" fill-opacity="0.32"/>
-<ellipse cx="260.0" cy="89.6" rx="17.8" ry="10.7" fill="#FFFFFF" fill-opacity="0.32"/>
-<ellipse cx="276.3" cy="98.5" rx="13.3" ry="8.0" fill="#FFFFFF" fill-opacity="0.32"/>
-<ellipse cx="255.6" cy="100.7" rx="10.4" ry="6.2" fill="#FFFFFF" fill-opacity="0.32"/>
-<ellipse cx="430.2" cy="92.6" rx="16.2" ry="9.7" fill="#FFFFFF" fill-opacity="0.32"/>
-<ellipse cx="450.0" cy="81.7" rx="21.6" ry="13.0" fill="#FFFFFF" fill-opacity="0.32"/>
-<ellipse cx="469.8" cy="92.6" rx="16.2" ry="9.7" fill="#FFFFFF" fill-opacity="0.32"/>
-<ellipse cx="444.6" cy="95.3" rx="12.6" ry="7.6" fill="#FFFFFF" fill-opacity="0.32"/>
-<ellipse cx="618.5" cy="64.4" rx="17.6" ry="10.6" fill="#FFFFFF" fill-opacity="0.32"/>
-<ellipse cx="640.0" cy="52.6" rx="23.5" ry="14.1" fill="#FFFFFF" fill-opacity="0.32"/>
-<ellipse cx="661.5" cy="64.4" rx="17.6" ry="10.6" fill="#FFFFFF" fill-opacity="0.32"/>
-<ellipse cx="634.1" cy="67.3" rx="13.7" ry="8.2" fill="#FFFFFF" fill-opacity="0.32"/>
-<ellipse cx="809.4" cy="62.9" rx="16.9" ry="10.1" fill="#FFFFFF" fill-opacity="0.32"/>
-<ellipse cx="830.0" cy="51.6" rx="22.5" ry="13.5" fill="#FFFFFF" fill-opacity="0.32"/>
-<ellipse cx="850.6" cy="62.9" rx="16.9" ry="10.1" fill="#FFFFFF" fill-opacity="0.32"/>
-<ellipse cx="824.4" cy="65.7" rx="13.1" ry="7.9" fill="#FFFFFF" fill-opacity="0.32"/>
-<ellipse cx="1003.5" cy="63.7" rx="13.5" ry="8.1" fill="#FFFFFF" fill-opacity="0.32"/>
-<ellipse cx="1020.0" cy="54.7" rx="18.0" ry="10.8" fill="#FFFFFF" fill-opacity="0.32"/>
-<ellipse cx="1036.5" cy="63.7" rx="13.5" ry="8.1" fill="#FFFFFF" fill-opacity="0.32"/>
-<ellipse cx="1015.5" cy="65.9" rx="10.5" ry="6.3" fill="#FFFFFF" fill-opacity="0.32"/>
-<ellipse cx="1184.6" cy="87.4" rx="20.8" ry="12.5" fill="#FFFFFF" fill-opacity="0.32"/>
-<ellipse cx="1210.0" cy="73.5" rx="27.7" ry="16.6" fill="#FFFFFF" fill-opacity="0.32"/>
-<ellipse cx="1235.4" cy="87.4" rx="20.8" ry="12.5" fill="#FFFFFF" fill-opacity="0.32"/>
-<ellipse cx="1203.1" cy="90.9" rx="16.2" ry="9.7" fill="#FFFFFF" fill-opacity="0.32"/>
-<ellipse cx="1381.9" cy="67.4" rx="14.8" ry="8.9" fill="#FFFFFF" fill-opacity="0.32"/>
-<ellipse cx="1400.0" cy="57.5" rx="19.7" ry="11.8" fill="#FFFFFF" fill-opacity="0.32"/>
-<ellipse cx="1418.1" cy="67.4" rx="14.8" ry="8.9" fill="#FFFFFF" fill-opacity="0.32"/>
-<ellipse cx="1395.1" cy="69.8" rx="11.5" ry="6.9" fill="#FFFFFF" fill-opacity="0.32"/>
-<path d="M 716.0,210 C 690.0,195 674.0,150 700.0,108 C 712.0,88 730.0,72 750.0,60 C 736.0,86 722.0,112 718.0,150 C 715.0,175 718.0,195 716.0,210 Z" fill="#4A6C8C" fill-opacity="0.9"/>
-<ellipse cx="714.0" cy="214.0" rx="16.0" ry="6.0" fill="#233240" fill-opacity="0.5"/>
-<ellipse cx="690.0" cy="210.0" rx="5.0" ry="5.0" fill="#4A6C8C" fill-opacity="0.7"/>
-</svg>
-  </div>
-  <!-- Lavender Mist: rows of lavender in the mist -->
-  <div class="treeline deco-lavender-mist" aria-hidden="true">
-    <svg viewBox="0 0 1440 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0,220 L0,190 C300,178 600,196 900,184 C1100,176 1300,192 1440,186 L1440,220 Z" fill="#E8DCEE" fill-opacity="0.4"/>
-<rect x="22.1" y="132.8" width="1.6" height="25.2" fill="#8C9DB5"/>
-<ellipse cx="21.7" cy="147.9" rx="3.0" ry="2.5" fill="#C9B8DC" fill-opacity="0.4"/>
-<ellipse cx="24.1" cy="143.3" rx="2.8" ry="2.3" fill="#C9B8DC" fill-opacity="0.4"/>
-<ellipse cx="21.7" cy="138.7" rx="2.5" ry="2.0" fill="#C9B8DC" fill-opacity="0.4"/>
-<ellipse cx="24.1" cy="134.1" rx="2.2" ry="1.8" fill="#C9B8DC" fill-opacity="0.4"/>
-<rect x="115.7" y="132.8" width="1.6" height="25.2" fill="#8C9DB5"/>
-<ellipse cx="115.3" cy="147.9" rx="3.0" ry="2.5" fill="#C9B8DC" fill-opacity="0.4"/>
-<ellipse cx="117.7" cy="143.3" rx="2.8" ry="2.3" fill="#C9B8DC" fill-opacity="0.4"/>
-<ellipse cx="115.3" cy="138.7" rx="2.5" ry="2.0" fill="#C9B8DC" fill-opacity="0.4"/>
-<ellipse cx="117.7" cy="134.1" rx="2.2" ry="1.8" fill="#C9B8DC" fill-opacity="0.4"/>
-<rect x="211.6" y="132.8" width="1.6" height="25.2" fill="#8C9DB5"/>
-<ellipse cx="211.1" cy="147.9" rx="3.0" ry="2.5" fill="#C9B8DC" fill-opacity="0.4"/>
-<ellipse cx="213.5" cy="143.3" rx="2.8" ry="2.3" fill="#C9B8DC" fill-opacity="0.4"/>
-<ellipse cx="211.1" cy="138.7" rx="2.5" ry="2.0" fill="#C9B8DC" fill-opacity="0.4"/>
-<ellipse cx="213.5" cy="134.1" rx="2.2" ry="1.8" fill="#C9B8DC" fill-opacity="0.4"/>
-<rect x="295.3" y="132.8" width="1.6" height="25.2" fill="#8C9DB5"/>
-<ellipse cx="294.9" cy="147.9" rx="3.0" ry="2.5" fill="#C9B8DC" fill-opacity="0.4"/>
-<ellipse cx="297.3" cy="143.3" rx="2.8" ry="2.3" fill="#C9B8DC" fill-opacity="0.4"/>
-<ellipse cx="294.9" cy="138.7" rx="2.5" ry="2.0" fill="#C9B8DC" fill-opacity="0.4"/>
-<ellipse cx="297.3" cy="134.1" rx="2.2" ry="1.8" fill="#C9B8DC" fill-opacity="0.4"/>
-<rect x="387.9" y="132.8" width="1.6" height="25.2" fill="#8C9DB5"/>
-<ellipse cx="387.5" cy="147.9" rx="3.0" ry="2.5" fill="#C9B8DC" fill-opacity="0.4"/>
-<ellipse cx="389.9" cy="143.3" rx="2.8" ry="2.3" fill="#C9B8DC" fill-opacity="0.4"/>
-<ellipse cx="387.5" cy="138.7" rx="2.5" ry="2.0" fill="#C9B8DC" fill-opacity="0.4"/>
-<ellipse cx="389.9" cy="134.1" rx="2.2" ry="1.8" fill="#C9B8DC" fill-opacity="0.4"/>
-<rect x="477.6" y="132.8" width="1.6" height="25.2" fill="#8C9DB5"/>
-<ellipse cx="477.1" cy="147.9" rx="3.0" ry="2.5" fill="#C9B8DC" fill-opacity="0.4"/>
-<ellipse cx="479.5" cy="143.3" rx="2.8" ry="2.3" fill="#C9B8DC" fill-opacity="0.4"/>
-<ellipse cx="477.1" cy="138.7" rx="2.5" ry="2.0" fill="#C9B8DC" fill-opacity="0.4"/>
-<ellipse cx="479.5" cy="134.1" rx="2.2" ry="1.8" fill="#C9B8DC" fill-opacity="0.4"/>
-<rect x="570.6" y="132.8" width="1.6" height="25.2" fill="#8C9DB5"/>
-<ellipse cx="570.2" cy="147.9" rx="3.0" ry="2.5" fill="#C9B8DC" fill-opacity="0.4"/>
-<ellipse cx="572.6" cy="143.3" rx="2.8" ry="2.3" fill="#C9B8DC" fill-opacity="0.4"/>
-<ellipse cx="570.2" cy="138.7" rx="2.5" ry="2.0" fill="#C9B8DC" fill-opacity="0.4"/>
-<ellipse cx="572.6" cy="134.1" rx="2.2" ry="1.8" fill="#C9B8DC" fill-opacity="0.4"/>
-<rect x="661.3" y="132.8" width="1.6" height="25.2" fill="#8C9DB5"/>
-<ellipse cx="660.9" cy="147.9" rx="3.0" ry="2.5" fill="#C9B8DC" fill-opacity="0.4"/>
-<ellipse cx="663.3" cy="143.3" rx="2.8" ry="2.3" fill="#C9B8DC" fill-opacity="0.4"/>
-<ellipse cx="660.9" cy="138.7" rx="2.5" ry="2.0" fill="#C9B8DC" fill-opacity="0.4"/>
-<ellipse cx="663.3" cy="134.1" rx="2.2" ry="1.8" fill="#C9B8DC" fill-opacity="0.4"/>
-<rect x="755.1" y="132.8" width="1.6" height="25.2" fill="#8C9DB5"/>
-<ellipse cx="754.7" cy="147.9" rx="3.0" ry="2.5" fill="#C9B8DC" fill-opacity="0.4"/>
-<ellipse cx="757.1" cy="143.3" rx="2.8" ry="2.3" fill="#C9B8DC" fill-opacity="0.4"/>
-<ellipse cx="754.7" cy="138.7" rx="2.5" ry="2.0" fill="#C9B8DC" fill-opacity="0.4"/>
-<ellipse cx="757.1" cy="134.1" rx="2.2" ry="1.8" fill="#C9B8DC" fill-opacity="0.4"/>
-<rect x="851.4" y="132.8" width="1.6" height="25.2" fill="#8C9DB5"/>
-<ellipse cx="851.0" cy="147.9" rx="3.0" ry="2.5" fill="#C9B8DC" fill-opacity="0.4"/>
-<ellipse cx="853.4" cy="143.3" rx="2.8" ry="2.3" fill="#C9B8DC" fill-opacity="0.4"/>
-<ellipse cx="851.0" cy="138.7" rx="2.5" ry="2.0" fill="#C9B8DC" fill-opacity="0.4"/>
-<ellipse cx="853.4" cy="134.1" rx="2.2" ry="1.8" fill="#C9B8DC" fill-opacity="0.4"/>
-<rect x="949.1" y="132.8" width="1.6" height="25.2" fill="#8C9DB5"/>
-<ellipse cx="948.7" cy="147.9" rx="3.0" ry="2.5" fill="#C9B8DC" fill-opacity="0.4"/>
-<ellipse cx="951.1" cy="143.3" rx="2.8" ry="2.3" fill="#C9B8DC" fill-opacity="0.4"/>
-<ellipse cx="948.7" cy="138.7" rx="2.5" ry="2.0" fill="#C9B8DC" fill-opacity="0.4"/>
-<ellipse cx="951.1" cy="134.1" rx="2.2" ry="1.8" fill="#C9B8DC" fill-opacity="0.4"/>
-<rect x="1037.5" y="132.8" width="1.6" height="25.2" fill="#8C9DB5"/>
-<ellipse cx="1037.1" cy="147.9" rx="3.0" ry="2.5" fill="#C9B8DC" fill-opacity="0.4"/>
-<ellipse cx="1039.5" cy="143.3" rx="2.8" ry="2.3" fill="#C9B8DC" fill-opacity="0.4"/>
-<ellipse cx="1037.1" cy="138.7" rx="2.5" ry="2.0" fill="#C9B8DC" fill-opacity="0.4"/>
-<ellipse cx="1039.5" cy="134.1" rx="2.2" ry="1.8" fill="#C9B8DC" fill-opacity="0.4"/>
-<rect x="1125.8" y="132.8" width="1.6" height="25.2" fill="#8C9DB5"/>
-<ellipse cx="1125.3" cy="147.9" rx="3.0" ry="2.5" fill="#C9B8DC" fill-opacity="0.4"/>
-<ellipse cx="1127.7" cy="143.3" rx="2.8" ry="2.3" fill="#C9B8DC" fill-opacity="0.4"/>
-<ellipse cx="1125.3" cy="138.7" rx="2.5" ry="2.0" fill="#C9B8DC" fill-opacity="0.4"/>
-<ellipse cx="1127.7" cy="134.1" rx="2.2" ry="1.8" fill="#C9B8DC" fill-opacity="0.4"/>
-<rect x="1218.1" y="132.8" width="1.6" height="25.2" fill="#8C9DB5"/>
-<ellipse cx="1217.7" cy="147.9" rx="3.0" ry="2.5" fill="#C9B8DC" fill-opacity="0.4"/>
-<ellipse cx="1220.1" cy="143.3" rx="2.8" ry="2.3" fill="#C9B8DC" fill-opacity="0.4"/>
-<ellipse cx="1217.7" cy="138.7" rx="2.5" ry="2.0" fill="#C9B8DC" fill-opacity="0.4"/>
-<ellipse cx="1220.1" cy="134.1" rx="2.2" ry="1.8" fill="#C9B8DC" fill-opacity="0.4"/>
-<rect x="1313.5" y="132.8" width="1.6" height="25.2" fill="#8C9DB5"/>
-<ellipse cx="1313.1" cy="147.9" rx="3.0" ry="2.5" fill="#C9B8DC" fill-opacity="0.4"/>
-<ellipse cx="1315.5" cy="143.3" rx="2.8" ry="2.3" fill="#C9B8DC" fill-opacity="0.4"/>
-<ellipse cx="1313.1" cy="138.7" rx="2.5" ry="2.0" fill="#C9B8DC" fill-opacity="0.4"/>
-<ellipse cx="1315.5" cy="134.1" rx="2.2" ry="1.8" fill="#C9B8DC" fill-opacity="0.4"/>
-<rect x="1401.1" y="132.8" width="1.6" height="25.2" fill="#8C9DB5"/>
-<ellipse cx="1400.7" cy="147.9" rx="3.0" ry="2.5" fill="#C9B8DC" fill-opacity="0.4"/>
-<ellipse cx="1403.1" cy="143.3" rx="2.8" ry="2.3" fill="#C9B8DC" fill-opacity="0.4"/>
-<ellipse cx="1400.7" cy="138.7" rx="2.5" ry="2.0" fill="#C9B8DC" fill-opacity="0.4"/>
-<ellipse cx="1403.1" cy="134.1" rx="2.2" ry="1.8" fill="#C9B8DC" fill-opacity="0.4"/>
-<rect x="17.8" y="146.3" width="2.2" height="35.7" fill="#6E7A94"/>
-<ellipse cx="17.2" cy="167.7" rx="4.2" ry="3.5" fill="#A98AC4" fill-opacity="0.7"/>
-<ellipse cx="20.6" cy="161.2" rx="3.9" ry="3.2" fill="#A98AC4" fill-opacity="0.7"/>
-<ellipse cx="17.2" cy="154.6" rx="3.5" ry="2.9" fill="#A98AC4" fill-opacity="0.7"/>
-<ellipse cx="20.6" cy="148.1" rx="3.2" ry="2.6" fill="#A98AC4" fill-opacity="0.7"/>
-<rect x="139.0" y="146.3" width="2.2" height="35.7" fill="#6E7A94"/>
-<ellipse cx="138.4" cy="167.7" rx="4.2" ry="3.5" fill="#A98AC4" fill-opacity="0.7"/>
-<ellipse cx="141.8" cy="161.2" rx="3.9" ry="3.2" fill="#A98AC4" fill-opacity="0.7"/>
-<ellipse cx="138.4" cy="154.6" rx="3.5" ry="2.9" fill="#A98AC4" fill-opacity="0.7"/>
-<ellipse cx="141.8" cy="148.1" rx="3.2" ry="2.6" fill="#A98AC4" fill-opacity="0.7"/>
-<rect x="248.3" y="146.3" width="2.2" height="35.7" fill="#6E7A94"/>
-<ellipse cx="247.7" cy="167.7" rx="4.2" ry="3.5" fill="#A98AC4" fill-opacity="0.7"/>
-<ellipse cx="251.1" cy="161.2" rx="3.9" ry="3.2" fill="#A98AC4" fill-opacity="0.7"/>
-<ellipse cx="247.7" cy="154.6" rx="3.5" ry="2.9" fill="#A98AC4" fill-opacity="0.7"/>
-<ellipse cx="251.1" cy="148.1" rx="3.2" ry="2.6" fill="#A98AC4" fill-opacity="0.7"/>
-<rect x="354.2" y="146.3" width="2.2" height="35.7" fill="#6E7A94"/>
-<ellipse cx="353.6" cy="167.7" rx="4.2" ry="3.5" fill="#A98AC4" fill-opacity="0.7"/>
-<ellipse cx="357.0" cy="161.2" rx="3.9" ry="3.2" fill="#A98AC4" fill-opacity="0.7"/>
-<ellipse cx="353.6" cy="154.6" rx="3.5" ry="2.9" fill="#A98AC4" fill-opacity="0.7"/>
-<ellipse cx="357.0" cy="148.1" rx="3.2" ry="2.6" fill="#A98AC4" fill-opacity="0.7"/>
-<rect x="465.7" y="146.3" width="2.2" height="35.7" fill="#6E7A94"/>
-<ellipse cx="465.1" cy="167.7" rx="4.2" ry="3.5" fill="#A98AC4" fill-opacity="0.7"/>
-<ellipse cx="468.5" cy="161.2" rx="3.9" ry="3.2" fill="#A98AC4" fill-opacity="0.7"/>
-<ellipse cx="465.1" cy="154.6" rx="3.5" ry="2.9" fill="#A98AC4" fill-opacity="0.7"/>
-<ellipse cx="468.5" cy="148.1" rx="3.2" ry="2.6" fill="#A98AC4" fill-opacity="0.7"/>
-<rect x="578.0" y="146.3" width="2.2" height="35.7" fill="#6E7A94"/>
-<ellipse cx="577.4" cy="167.7" rx="4.2" ry="3.5" fill="#A98AC4" fill-opacity="0.7"/>
-<ellipse cx="580.8" cy="161.2" rx="3.9" ry="3.2" fill="#A98AC4" fill-opacity="0.7"/>
-<ellipse cx="577.4" cy="154.6" rx="3.5" ry="2.9" fill="#A98AC4" fill-opacity="0.7"/>
-<ellipse cx="580.8" cy="148.1" rx="3.2" ry="2.6" fill="#A98AC4" fill-opacity="0.7"/>
-<rect x="700.4" y="146.3" width="2.2" height="35.7" fill="#6E7A94"/>
-<ellipse cx="699.8" cy="167.7" rx="4.2" ry="3.5" fill="#A98AC4" fill-opacity="0.7"/>
-<ellipse cx="703.2" cy="161.2" rx="3.9" ry="3.2" fill="#A98AC4" fill-opacity="0.7"/>
-<ellipse cx="699.8" cy="154.6" rx="3.5" ry="2.9" fill="#A98AC4" fill-opacity="0.7"/>
-<ellipse cx="703.2" cy="148.1" rx="3.2" ry="2.6" fill="#A98AC4" fill-opacity="0.7"/>
-<rect x="802.2" y="146.3" width="2.2" height="35.7" fill="#6E7A94"/>
-<ellipse cx="801.6" cy="167.7" rx="4.2" ry="3.5" fill="#A98AC4" fill-opacity="0.7"/>
-<ellipse cx="805.0" cy="161.2" rx="3.9" ry="3.2" fill="#A98AC4" fill-opacity="0.7"/>
-<ellipse cx="801.6" cy="154.6" rx="3.5" ry="2.9" fill="#A98AC4" fill-opacity="0.7"/>
-<ellipse cx="805.0" cy="148.1" rx="3.2" ry="2.6" fill="#A98AC4" fill-opacity="0.7"/>
-<rect x="920.4" y="146.3" width="2.2" height="35.7" fill="#6E7A94"/>
-<ellipse cx="919.8" cy="167.7" rx="4.2" ry="3.5" fill="#A98AC4" fill-opacity="0.7"/>
-<ellipse cx="923.2" cy="161.2" rx="3.9" ry="3.2" fill="#A98AC4" fill-opacity="0.7"/>
-<ellipse cx="919.8" cy="154.6" rx="3.5" ry="2.9" fill="#A98AC4" fill-opacity="0.7"/>
-<ellipse cx="923.2" cy="148.1" rx="3.2" ry="2.6" fill="#A98AC4" fill-opacity="0.7"/>
-<rect x="1036.5" y="146.3" width="2.2" height="35.7" fill="#6E7A94"/>
-<ellipse cx="1035.9" cy="167.7" rx="4.2" ry="3.5" fill="#A98AC4" fill-opacity="0.7"/>
-<ellipse cx="1039.3" cy="161.2" rx="3.9" ry="3.2" fill="#A98AC4" fill-opacity="0.7"/>
-<ellipse cx="1035.9" cy="154.6" rx="3.5" ry="2.9" fill="#A98AC4" fill-opacity="0.7"/>
-<ellipse cx="1039.3" cy="148.1" rx="3.2" ry="2.6" fill="#A98AC4" fill-opacity="0.7"/>
-<rect x="1137.3" y="146.3" width="2.2" height="35.7" fill="#6E7A94"/>
-<ellipse cx="1136.7" cy="167.7" rx="4.2" ry="3.5" fill="#A98AC4" fill-opacity="0.7"/>
-<ellipse cx="1140.1" cy="161.2" rx="3.9" ry="3.2" fill="#A98AC4" fill-opacity="0.7"/>
-<ellipse cx="1136.7" cy="154.6" rx="3.5" ry="2.9" fill="#A98AC4" fill-opacity="0.7"/>
-<ellipse cx="1140.1" cy="148.1" rx="3.2" ry="2.6" fill="#A98AC4" fill-opacity="0.7"/>
-<rect x="1253.5" y="146.3" width="2.2" height="35.7" fill="#6E7A94"/>
-<ellipse cx="1252.9" cy="167.7" rx="4.2" ry="3.5" fill="#A98AC4" fill-opacity="0.7"/>
-<ellipse cx="1256.3" cy="161.2" rx="3.9" ry="3.2" fill="#A98AC4" fill-opacity="0.7"/>
-<ellipse cx="1252.9" cy="154.6" rx="3.5" ry="2.9" fill="#A98AC4" fill-opacity="0.7"/>
-<ellipse cx="1256.3" cy="148.1" rx="3.2" ry="2.6" fill="#A98AC4" fill-opacity="0.7"/>
-<rect x="1366.6" y="146.3" width="2.2" height="35.7" fill="#6E7A94"/>
-<ellipse cx="1366.0" cy="167.7" rx="4.2" ry="3.5" fill="#A98AC4" fill-opacity="0.7"/>
-<ellipse cx="1369.4" cy="161.2" rx="3.9" ry="3.2" fill="#A98AC4" fill-opacity="0.7"/>
-<ellipse cx="1366.0" cy="154.6" rx="3.5" ry="2.9" fill="#A98AC4" fill-opacity="0.7"/>
-<ellipse cx="1369.4" cy="148.1" rx="3.2" ry="2.6" fill="#A98AC4" fill-opacity="0.7"/>
-<rect x="27.5" y="159.7" width="3.0" height="48.3" fill="#4A3F52"/>
-<ellipse cx="26.7" cy="188.7" rx="5.8" ry="4.7" fill="#7A5F98" fill-opacity="1.0"/>
-<ellipse cx="31.3" cy="179.8" rx="5.3" ry="4.3" fill="#7A5F98" fill-opacity="1.0"/>
-<ellipse cx="26.7" cy="171.0" rx="4.8" ry="3.9" fill="#7A5F98" fill-opacity="1.0"/>
-<ellipse cx="31.3" cy="162.1" rx="4.3" ry="3.5" fill="#7A5F98" fill-opacity="1.0"/>
-<rect x="154.8" y="159.7" width="3.0" height="48.3" fill="#4A3F52"/>
-<ellipse cx="154.0" cy="188.7" rx="5.8" ry="4.7" fill="#7A5F98" fill-opacity="1.0"/>
-<ellipse cx="158.6" cy="179.8" rx="5.3" ry="4.3" fill="#7A5F98" fill-opacity="1.0"/>
-<ellipse cx="154.0" cy="171.0" rx="4.8" ry="3.9" fill="#7A5F98" fill-opacity="1.0"/>
-<ellipse cx="158.6" cy="162.1" rx="4.3" ry="3.5" fill="#7A5F98" fill-opacity="1.0"/>
-<rect x="291.6" y="159.7" width="3.0" height="48.3" fill="#4A3F52"/>
-<ellipse cx="290.8" cy="188.7" rx="5.8" ry="4.7" fill="#7A5F98" fill-opacity="1.0"/>
-<ellipse cx="295.4" cy="179.8" rx="5.3" ry="4.3" fill="#7A5F98" fill-opacity="1.0"/>
-<ellipse cx="290.8" cy="171.0" rx="4.8" ry="3.9" fill="#7A5F98" fill-opacity="1.0"/>
-<ellipse cx="295.4" cy="162.1" rx="4.3" ry="3.5" fill="#7A5F98" fill-opacity="1.0"/>
-<rect x="427.5" y="159.7" width="3.0" height="48.3" fill="#4A3F52"/>
-<ellipse cx="426.7" cy="188.7" rx="5.8" ry="4.7" fill="#7A5F98" fill-opacity="1.0"/>
-<ellipse cx="431.3" cy="179.8" rx="5.3" ry="4.3" fill="#7A5F98" fill-opacity="1.0"/>
-<ellipse cx="426.7" cy="171.0" rx="4.8" ry="3.9" fill="#7A5F98" fill-opacity="1.0"/>
-<ellipse cx="431.3" cy="162.1" rx="4.3" ry="3.5" fill="#7A5F98" fill-opacity="1.0"/>
-<rect x="561.1" y="159.7" width="3.0" height="48.3" fill="#4A3F52"/>
-<ellipse cx="560.3" cy="188.7" rx="5.8" ry="4.7" fill="#7A5F98" fill-opacity="1.0"/>
-<ellipse cx="564.9" cy="179.8" rx="5.3" ry="4.3" fill="#7A5F98" fill-opacity="1.0"/>
-<ellipse cx="560.3" cy="171.0" rx="4.8" ry="3.9" fill="#7A5F98" fill-opacity="1.0"/>
-<ellipse cx="564.9" cy="162.1" rx="4.3" ry="3.5" fill="#7A5F98" fill-opacity="1.0"/>
-<rect x="704.6" y="159.7" width="3.0" height="48.3" fill="#4A3F52"/>
-<ellipse cx="703.8" cy="188.7" rx="5.8" ry="4.7" fill="#7A5F98" fill-opacity="1.0"/>
-<ellipse cx="708.4" cy="179.8" rx="5.3" ry="4.3" fill="#7A5F98" fill-opacity="1.0"/>
-<ellipse cx="703.8" cy="171.0" rx="4.8" ry="3.9" fill="#7A5F98" fill-opacity="1.0"/>
-<ellipse cx="708.4" cy="162.1" rx="4.3" ry="3.5" fill="#7A5F98" fill-opacity="1.0"/>
-<rect x="842.3" y="159.7" width="3.0" height="48.3" fill="#4A3F52"/>
-<ellipse cx="841.5" cy="188.7" rx="5.8" ry="4.7" fill="#7A5F98" fill-opacity="1.0"/>
-<ellipse cx="846.1" cy="179.8" rx="5.3" ry="4.3" fill="#7A5F98" fill-opacity="1.0"/>
-<ellipse cx="841.5" cy="171.0" rx="4.8" ry="3.9" fill="#7A5F98" fill-opacity="1.0"/>
-<ellipse cx="846.1" cy="162.1" rx="4.3" ry="3.5" fill="#7A5F98" fill-opacity="1.0"/>
-<rect x="973.7" y="159.7" width="3.0" height="48.3" fill="#4A3F52"/>
-<ellipse cx="972.9" cy="188.7" rx="5.8" ry="4.7" fill="#7A5F98" fill-opacity="1.0"/>
-<ellipse cx="977.5" cy="179.8" rx="5.3" ry="4.3" fill="#7A5F98" fill-opacity="1.0"/>
-<ellipse cx="972.9" cy="171.0" rx="4.8" ry="3.9" fill="#7A5F98" fill-opacity="1.0"/>
-<ellipse cx="977.5" cy="162.1" rx="4.3" ry="3.5" fill="#7A5F98" fill-opacity="1.0"/>
-<rect x="1105.0" y="159.7" width="3.0" height="48.3" fill="#4A3F52"/>
-<ellipse cx="1104.2" cy="188.7" rx="5.8" ry="4.7" fill="#7A5F98" fill-opacity="1.0"/>
-<ellipse cx="1108.8" cy="179.8" rx="5.3" ry="4.3" fill="#7A5F98" fill-opacity="1.0"/>
-<ellipse cx="1104.2" cy="171.0" rx="4.8" ry="3.9" fill="#7A5F98" fill-opacity="1.0"/>
-<ellipse cx="1108.8" cy="162.1" rx="4.3" ry="3.5" fill="#7A5F98" fill-opacity="1.0"/>
-<rect x="1249.1" y="159.7" width="3.0" height="48.3" fill="#4A3F52"/>
-<ellipse cx="1248.3" cy="188.7" rx="5.8" ry="4.7" fill="#7A5F98" fill-opacity="1.0"/>
-<ellipse cx="1252.9" cy="179.8" rx="5.3" ry="4.3" fill="#7A5F98" fill-opacity="1.0"/>
-<ellipse cx="1248.3" cy="171.0" rx="4.8" ry="3.9" fill="#7A5F98" fill-opacity="1.0"/>
-<ellipse cx="1252.9" cy="162.1" rx="4.3" ry="3.5" fill="#7A5F98" fill-opacity="1.0"/>
-<rect x="1385.3" y="159.7" width="3.0" height="48.3" fill="#4A3F52"/>
-<ellipse cx="1384.5" cy="188.7" rx="5.8" ry="4.7" fill="#7A5F98" fill-opacity="1.0"/>
-<ellipse cx="1389.1" cy="179.8" rx="5.3" ry="4.3" fill="#7A5F98" fill-opacity="1.0"/>
-<ellipse cx="1384.5" cy="171.0" rx="4.8" ry="3.9" fill="#7A5F98" fill-opacity="1.0"/>
-<ellipse cx="1389.1" cy="162.1" rx="4.3" ry="3.5" fill="#7A5F98" fill-opacity="1.0"/>
-<path d="M0,175 C240,165 480,182 720,170 C960,158 1200,178 1440,168 L1440,150 C1200,158 960,140 720,150 C480,162 240,148 0,158 Z" fill="#F5F1F7" fill-opacity="0.3"/>
-</svg>
-  </div>
-  <!-- Sage & Honey: honeycomb hills with bees and sage sprigs -->
-  <div class="treeline deco-sage-honey" aria-hidden="true">
-    <svg viewBox="0 0 1440 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0,220 L0,182 C260,168 540,192 820,176 C1080,162 1280,184 1440,174 L1440,220 Z" fill="#DDEACF" fill-opacity="0.4"/>
-<polygon points="4.2,202.0 4.2,230.0 -20.0,244.0 -44.2,230.0 -44.2,202.0 -20.0,188.0" fill="#D9A94E" fill-opacity="1.0"/>
-<polygon points="52.7,202.0 52.7,230.0 28.4,244.0 4.2,230.0 4.2,202.0 28.4,188.0" fill="#D9A94E" fill-opacity="1.0"/>
-<polygon points="101.1,202.0 101.1,230.0 76.9,244.0 52.6,230.0 52.6,202.0 76.9,188.0" fill="#D9A94E" fill-opacity="1.0"/>
-<polygon points="149.6,202.0 149.6,230.0 125.3,244.0 101.1,230.0 101.1,202.0 125.3,188.0" fill="#D9A94E" fill-opacity="1.0"/>
-<polygon points="198.0,202.0 198.0,230.0 173.8,244.0 149.5,230.0 149.5,202.0 173.8,188.0" fill="#D9A94E" fill-opacity="1.0"/>
-<polygon points="246.4,202.0 246.4,230.0 222.2,244.0 198.0,230.0 198.0,202.0 222.2,188.0" fill="#D9A94E" fill-opacity="1.0"/>
-<polygon points="294.9,202.0 294.9,230.0 270.6,244.0 246.4,230.0 246.4,202.0 270.6,188.0" fill="#D9A94E" fill-opacity="1.0"/>
-<polygon points="343.3,202.0 343.3,230.0 319.1,244.0 294.8,230.0 294.8,202.0 319.1,188.0" fill="#D9A94E" fill-opacity="1.0"/>
-<polygon points="391.8,202.0 391.8,230.0 367.5,244.0 343.3,230.0 343.3,202.0 367.5,188.0" fill="#D9A94E" fill-opacity="1.0"/>
-<polygon points="440.2,202.0 440.2,230.0 416.0,244.0 391.7,230.0 391.7,202.0 416.0,188.0" fill="#D9A94E" fill-opacity="1.0"/>
-<polygon points="488.6,202.0 488.6,230.0 464.4,244.0 440.2,230.0 440.2,202.0 464.4,188.0" fill="#D9A94E" fill-opacity="1.0"/>
-<polygon points="537.1,202.0 537.1,230.0 512.8,244.0 488.6,230.0 488.6,202.0 512.8,188.0" fill="#D9A94E" fill-opacity="1.0"/>
-<polygon points="585.5,202.0 585.5,230.0 561.3,244.0 537.0,230.0 537.0,202.0 561.3,188.0" fill="#D9A94E" fill-opacity="1.0"/>
-<polygon points="634.0,202.0 634.0,230.0 609.7,244.0 585.5,230.0 585.5,202.0 609.7,188.0" fill="#D9A94E" fill-opacity="1.0"/>
-<polygon points="682.4,202.0 682.4,230.0 658.2,244.0 633.9,230.0 633.9,202.0 658.2,188.0" fill="#D9A94E" fill-opacity="1.0"/>
-<polygon points="730.8,202.0 730.8,230.0 706.6,244.0 682.4,230.0 682.4,202.0 706.6,188.0" fill="#D9A94E" fill-opacity="1.0"/>
-<polygon points="779.3,202.0 779.3,230.0 755.0,244.0 730.8,230.0 730.8,202.0 755.0,188.0" fill="#D9A94E" fill-opacity="1.0"/>
-<polygon points="827.7,202.0 827.7,230.0 803.5,244.0 779.2,230.0 779.2,202.0 803.5,188.0" fill="#D9A94E" fill-opacity="1.0"/>
-<polygon points="876.2,202.0 876.2,230.0 851.9,244.0 827.7,230.0 827.7,202.0 851.9,188.0" fill="#D9A94E" fill-opacity="1.0"/>
-<polygon points="924.6,202.0 924.6,230.0 900.4,244.0 876.1,230.0 876.1,202.0 900.4,188.0" fill="#D9A94E" fill-opacity="1.0"/>
-<polygon points="973.0,202.0 973.0,230.0 948.8,244.0 924.6,230.0 924.6,202.0 948.8,188.0" fill="#D9A94E" fill-opacity="1.0"/>
-<polygon points="1021.5,202.0 1021.5,230.0 997.2,244.0 973.0,230.0 973.0,202.0 997.2,188.0" fill="#D9A94E" fill-opacity="1.0"/>
-<polygon points="1069.9,202.0 1069.9,230.0 1045.7,244.0 1021.4,230.0 1021.4,202.0 1045.7,188.0" fill="#D9A94E" fill-opacity="1.0"/>
-<polygon points="1118.4,202.0 1118.4,230.0 1094.1,244.0 1069.9,230.0 1069.9,202.0 1094.1,188.0" fill="#D9A94E" fill-opacity="1.0"/>
-<polygon points="1166.8,202.0 1166.8,230.0 1142.6,244.0 1118.3,230.0 1118.3,202.0 1142.6,188.0" fill="#D9A94E" fill-opacity="1.0"/>
-<polygon points="1215.2,202.0 1215.2,230.0 1191.0,244.0 1166.8,230.0 1166.8,202.0 1191.0,188.0" fill="#D9A94E" fill-opacity="1.0"/>
-<polygon points="1263.7,202.0 1263.7,230.0 1239.4,244.0 1215.2,230.0 1215.2,202.0 1239.4,188.0" fill="#D9A94E" fill-opacity="1.0"/>
-<polygon points="1312.1,202.0 1312.1,230.0 1287.9,244.0 1263.6,230.0 1263.6,202.0 1287.9,188.0" fill="#D9A94E" fill-opacity="1.0"/>
-<polygon points="1360.6,202.0 1360.6,230.0 1336.3,244.0 1312.1,230.0 1312.1,202.0 1336.3,188.0" fill="#D9A94E" fill-opacity="1.0"/>
-<polygon points="1409.0,202.0 1409.0,230.0 1384.8,244.0 1360.5,230.0 1360.5,202.0 1384.8,188.0" fill="#D9A94E" fill-opacity="1.0"/>
-<polygon points="1457.4,202.0 1457.4,230.0 1433.2,244.0 1409.0,230.0 1409.0,202.0 1433.2,188.0" fill="#D9A94E" fill-opacity="1.0"/>
-<polygon points="28.5,160.0 28.5,188.0 4.2,202.0 -20.0,188.0 -20.0,160.0 4.2,146.0" fill="#C98F36" fill-opacity="0.58"/>
-<polygon points="76.9,160.0 76.9,188.0 52.7,202.0 28.4,188.0 28.4,160.0 52.7,146.0" fill="#C98F36" fill-opacity="0.58"/>
-<polygon points="125.3,160.0 125.3,188.0 101.1,202.0 76.9,188.0 76.9,160.0 101.1,146.0" fill="#C98F36" fill-opacity="0.58"/>
-<polygon points="173.8,160.0 173.8,188.0 149.5,202.0 125.3,188.0 125.3,160.0 149.5,146.0" fill="#C98F36" fill-opacity="0.58"/>
-<polygon points="222.2,160.0 222.2,188.0 198.0,202.0 173.7,188.0 173.7,160.0 198.0,146.0" fill="#C98F36" fill-opacity="0.58"/>
-<polygon points="270.7,160.0 270.7,188.0 246.4,202.0 222.2,188.0 222.2,160.0 246.4,146.0" fill="#C98F36" fill-opacity="0.58"/>
-<polygon points="319.1,160.0 319.1,188.0 294.9,202.0 270.6,188.0 270.6,160.0 294.9,146.0" fill="#C98F36" fill-opacity="0.58"/>
-<polygon points="367.5,160.0 367.5,188.0 343.3,202.0 319.1,188.0 319.1,160.0 343.3,146.0" fill="#C98F36" fill-opacity="0.58"/>
-<polygon points="416.0,160.0 416.0,188.0 391.7,202.0 367.5,188.0 367.5,160.0 391.7,146.0" fill="#C98F36" fill-opacity="0.58"/>
-<polygon points="464.4,160.0 464.4,188.0 440.2,202.0 415.9,188.0 415.9,160.0 440.2,146.0" fill="#C98F36" fill-opacity="0.58"/>
-<polygon points="512.9,160.0 512.9,188.0 488.6,202.0 464.4,188.0 464.4,160.0 488.6,146.0" fill="#C98F36" fill-opacity="0.58"/>
-<polygon points="561.3,160.0 561.3,188.0 537.1,202.0 512.8,188.0 512.8,160.0 537.1,146.0" fill="#C98F36" fill-opacity="0.58"/>
-<polygon points="609.7,160.0 609.7,188.0 585.5,202.0 561.3,188.0 561.3,160.0 585.5,146.0" fill="#C98F36" fill-opacity="0.58"/>
-<polygon points="658.2,160.0 658.2,188.0 633.9,202.0 609.7,188.0 609.7,160.0 633.9,146.0" fill="#C98F36" fill-opacity="0.58"/>
-<polygon points="706.6,160.0 706.6,188.0 682.4,202.0 658.1,188.0 658.1,160.0 682.4,146.0" fill="#C98F36" fill-opacity="0.58"/>
-<polygon points="755.1,160.0 755.1,188.0 730.8,202.0 706.6,188.0 706.6,160.0 730.8,146.0" fill="#C98F36" fill-opacity="0.58"/>
-<polygon points="803.5,160.0 803.5,188.0 779.3,202.0 755.0,188.0 755.0,160.0 779.3,146.0" fill="#C98F36" fill-opacity="0.58"/>
-<polygon points="851.9,160.0 851.9,188.0 827.7,202.0 803.5,188.0 803.5,160.0 827.7,146.0" fill="#C98F36" fill-opacity="0.58"/>
-<polygon points="900.4,160.0 900.4,188.0 876.1,202.0 851.9,188.0 851.9,160.0 876.1,146.0" fill="#C98F36" fill-opacity="0.58"/>
-<polygon points="948.8,160.0 948.8,188.0 924.6,202.0 900.3,188.0 900.3,160.0 924.6,146.0" fill="#C98F36" fill-opacity="0.58"/>
-<polygon points="997.3,160.0 997.3,188.0 973.0,202.0 948.8,188.0 948.8,160.0 973.0,146.0" fill="#C98F36" fill-opacity="0.58"/>
-<polygon points="1045.7,160.0 1045.7,188.0 1021.5,202.0 997.2,188.0 997.2,160.0 1021.5,146.0" fill="#C98F36" fill-opacity="0.58"/>
-<polygon points="1094.1,160.0 1094.1,188.0 1069.9,202.0 1045.7,188.0 1045.7,160.0 1069.9,146.0" fill="#C98F36" fill-opacity="0.58"/>
-<polygon points="1142.6,160.0 1142.6,188.0 1118.3,202.0 1094.1,188.0 1094.1,160.0 1118.3,146.0" fill="#C98F36" fill-opacity="0.58"/>
-<polygon points="1191.0,160.0 1191.0,188.0 1166.8,202.0 1142.5,188.0 1142.5,160.0 1166.8,146.0" fill="#C98F36" fill-opacity="0.58"/>
-<polygon points="1239.5,160.0 1239.5,188.0 1215.2,202.0 1191.0,188.0 1191.0,160.0 1215.2,146.0" fill="#C98F36" fill-opacity="0.58"/>
-<polygon points="1287.9,160.0 1287.9,188.0 1263.7,202.0 1239.4,188.0 1239.4,160.0 1263.7,146.0" fill="#C98F36" fill-opacity="0.58"/>
-<polygon points="1336.3,160.0 1336.3,188.0 1312.1,202.0 1287.9,188.0 1287.9,160.0 1312.1,146.0" fill="#C98F36" fill-opacity="0.58"/>
-<polygon points="1384.8,160.0 1384.8,188.0 1360.5,202.0 1336.3,188.0 1336.3,160.0 1360.5,146.0" fill="#C98F36" fill-opacity="0.58"/>
-<polygon points="1433.2,160.0 1433.2,188.0 1409.0,202.0 1384.7,188.0 1384.7,160.0 1409.0,146.0" fill="#C98F36" fill-opacity="0.58"/>
-<polygon points="1481.7,160.0 1481.7,188.0 1457.4,202.0 1433.2,188.0 1433.2,160.0 1457.4,146.0" fill="#C98F36" fill-opacity="0.58"/>
-<path d="M 60,218 C 56,197 58,176 66,163 C 74,176 76,197 72,218 Z" fill="#7C8F68"/>
-<rect x="65.0" y="206.0" width="2.0" height="13.0" fill="#5C6B4A"/>
-<path d="M 360,218 C 356,197 358,176 366,163 C 374,176 376,197 372,218 Z" fill="#7C8F68"/>
-<rect x="365.0" y="206.0" width="2.0" height="13.0" fill="#5C6B4A"/>
-<path d="M 660,218 C 656,197 658,176 666,163 C 674,176 676,197 672,218 Z" fill="#7C8F68"/>
-<rect x="665.0" y="206.0" width="2.0" height="13.0" fill="#5C6B4A"/>
-<path d="M 960,218 C 956,197 958,176 966,163 C 974,176 976,197 972,218 Z" fill="#7C8F68"/>
-<rect x="965.0" y="206.0" width="2.0" height="13.0" fill="#5C6B4A"/>
-<path d="M 1260,218 C 1256,197 1258,176 1266,163 C 1274,176 1276,197 1272,218 Z" fill="#7C8F68"/>
-<rect x="1265.0" y="206.0" width="2.0" height="13.0" fill="#5C6B4A"/>
-<ellipse cx="260.0" cy="105.0" rx="9.0" ry="6.0" fill="#2E3B2E" fill-opacity="0.9"/>
-<rect x="251.0" y="103.0" width="18.0" height="1.6" fill="#D9A94E"/>
-<ellipse cx="254.0" cy="99.0" rx="6.0" ry="4.0" fill="#F3E9D0" fill-opacity="0.7"/>
-<ellipse cx="266.0" cy="99.0" rx="6.0" ry="4.0" fill="#F3E9D0" fill-opacity="0.7"/>
-<ellipse cx="980.0" cy="88.0" rx="9.0" ry="6.0" fill="#2E3B2E" fill-opacity="0.9"/>
-<rect x="971.0" y="86.0" width="18.0" height="1.6" fill="#D9A94E"/>
-<ellipse cx="974.0" cy="82.0" rx="6.0" ry="4.0" fill="#F3E9D0" fill-opacity="0.7"/>
-<ellipse cx="986.0" cy="82.0" rx="6.0" ry="4.0" fill="#F3E9D0" fill-opacity="0.7"/>
-<ellipse cx="1220.0" cy="125.0" rx="9.0" ry="6.0" fill="#2E3B2E" fill-opacity="0.9"/>
-<rect x="1211.0" y="123.0" width="18.0" height="1.6" fill="#D9A94E"/>
-<ellipse cx="1214.0" cy="119.0" rx="6.0" ry="4.0" fill="#F3E9D0" fill-opacity="0.7"/>
-<ellipse cx="1226.0" cy="119.0" rx="6.0" ry="4.0" fill="#F3E9D0" fill-opacity="0.7"/>
-</svg>
-  </div>
-  <!-- Watercolor Morning: sunrise horizon with birds -->
-  <div class="treeline deco-watercolor-morning" aria-hidden="true">
-    <svg viewBox="0 0 1440 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-<circle cx="720.0" cy="150" r="120" fill="#F3D9A6" opacity="0.35"/>
-<circle cx="720.0" cy="150" r="70" fill="#E08A5B" opacity="0.4"/>
-<path d="M0,220 L0,168 C220,150 440,178 680,158 C920,138 1160,168 1440,150 L1440,220 Z" fill="#C7DDE8" fill-opacity="0.4"/>
-<path d="M0,220 L0,188 C260,174 540,196 820,182 C1080,168 1280,190 1440,180 L1440,220 Z" fill="#F3C9A6" fill-opacity="0.55"/>
-<path d="M0,220 L0,204 C300,196 600,212 900,202 C1120,196 1300,208 1440,202 L1440,220 Z" fill="#5B95B0" fill-opacity="0.8"/>
-<ellipse cx="128.6" cy="66.0" rx="9.3" ry="5.1" fill="#FFFFFF" fill-opacity="0.4"/>
-<ellipse cx="140.0" cy="60.3" rx="12.1" ry="6.7" fill="#FFFFFF" fill-opacity="0.4"/>
-<ellipse cx="151.4" cy="66.0" rx="9.3" ry="5.1" fill="#FFFFFF" fill-opacity="0.4"/>
-<ellipse cx="406.2" cy="50.4" rx="11.2" ry="6.1" fill="#FFFFFF" fill-opacity="0.4"/>
-<ellipse cx="420.0" cy="43.5" rx="14.6" ry="8.0" fill="#FFFFFF" fill-opacity="0.4"/>
-<ellipse cx="433.8" cy="50.4" rx="11.2" ry="6.1" fill="#FFFFFF" fill-opacity="0.4"/>
-<ellipse cx="1008.0" cy="43.3" rx="9.8" ry="5.4" fill="#FFFFFF" fill-opacity="0.4"/>
-<ellipse cx="1020.0" cy="37.3" rx="12.8" ry="7.0" fill="#FFFFFF" fill-opacity="0.4"/>
-<ellipse cx="1032.0" cy="43.3" rx="9.8" ry="5.4" fill="#FFFFFF" fill-opacity="0.4"/>
-<ellipse cx="1290.0" cy="87.4" rx="8.1" ry="4.5" fill="#FFFFFF" fill-opacity="0.4"/>
-<ellipse cx="1300.0" cy="82.4" rx="10.6" ry="5.8" fill="#FFFFFF" fill-opacity="0.4"/>
-<ellipse cx="1310.0" cy="87.4" rx="8.1" ry="4.5" fill="#FFFFFF" fill-opacity="0.4"/>
-<path d="M 170.8230830988162,54.27787762551348 Q 176.32923323952647,47.85403579468482 180,54.27787762551348 Q 183.67076676047353,47.85403579468482 189.1769169011838,54.27787762551348" stroke="#4A4038" stroke-width="1.4683067041894093" fill="none" stroke-linecap="round" opacity="0.7"/>
-<path d="M 330.5843198456152,62.197309992884755 Q 336.2337279382461,55.60633388481541 340,62.197309992884755 Q 343.7662720617539,55.60633388481541 349.4156801543848,62.197309992884755" stroke="#4A4038" stroke-width="1.5065088247015646" fill="none" stroke-linecap="round" opacity="0.7"/>
-<path d="M 512.7378845630408,77.54321824648324 Q 517.0951538252162,72.45973744061176 520,77.54321824648324 Q 522.9048461747838,72.45973744061176 527.2621154369592,77.54321824648324" stroke="#4A4038" stroke-width="1.1619384699134805" fill="none" stroke-linecap="round" opacity="0.7"/>
-<path d="M 969.6501236716142,40.790079493292446 Q 975.8600494686457,33.54516606342236 980,40.790079493292446 Q 984.1399505313543,33.54516606342236 990.3498763283858,40.790079493292446" stroke="#4A4038" stroke-width="1.6559802125417347" fill="none" stroke-linecap="round" opacity="0.7"/>
-<path d="M 1142.0626761558133,55.56124085968046 Q 1146.8250704623254,50.005114168749714 1150,55.56124085968046 Q 1153.1749295376746,50.005114168749714 1157.9373238441867,55.56124085968046" stroke="#4A4038" stroke-width="1.2699718150698858" fill="none" stroke-linecap="round" opacity="0.7"/>
-<path d="M 1311.11894596991,99.73869013062776 Q 1316.447578387964,93.52195230956491 1320,99.73869013062776 Q 1323.552421612036,93.52195230956491 1328.88105403009,99.73869013062776" stroke="#4A4038" stroke-width="1.4209686448143668" fill="none" stroke-linecap="round" opacity="0.7"/>
-</svg>
-  </div>
-  <div class="hero-content reveal">
-    <div class="avatar-wrap">
-      <div class="avatar-ring" aria-hidden="true"></div>
-      <div class="avatar-hat hat-woodsy" aria-hidden="true"><svg viewBox="0 0 110 66" width="110" height="66" xmlns="http://www.w3.org/2000/svg">
-<path d="M14,58 C10,30 30,10 55,10 C80,10 100,30 96,58 L92,50 C88,34 74,20 55,20 C36,20 22,34 18,50 Z" fill="#1E3A2C"></path>
-<rect x="10" y="52" width="90" height="14" rx="7" fill="#35573F"></rect>
-<circle cx="55" cy="10" r="9" fill="#FFC15E"></circle>
-<circle cx="55" cy="10" r="9" fill="none" stroke="#FF7A45" stroke-width="1.5" stroke-dasharray="2 2"></circle>
-</svg></div>
-      <div class="avatar-hat hat-roman" aria-hidden="true"><svg viewBox="0 0 110 66" width="110" height="66" xmlns="http://www.w3.org/2000/svg">
-<ellipse cx="55" cy="46" rx="46" ry="14" fill="none" stroke="#C9A227" stroke-width="3"></ellipse>
-<path d="M 15.8,40.1 q -9,-3 -10,-10 q 7,1 10,6 q 3,-5 10,-6 q -1,7 -10,10 Z" fill="#8A9A5B" transform="rotate(-63.0 15.8 40.1)"></path>
-<path d="M 22.7,37.2 q -9,-3 -10,-10 q 7,1 10,6 q 3,-5 10,-6 q -1,7 -10,10 Z" fill="#8A9A5B" transform="rotate(-47.2 22.7 37.2)"></path>
-<path d="M 32.0,34.9 q -9,-3 -10,-10 q 7,1 10,6 q 3,-5 10,-6 q -1,7 -10,10 Z" fill="#8A9A5B" transform="rotate(-31.5 32.0 34.9)"></path>
-<path d="M 43.1,33.5 q -9,-3 -10,-10 q 7,1 10,6 q 3,-5 10,-6 q -1,7 -10,10 Z" fill="#8A9A5B" transform="rotate(-15.8 43.1 33.5)"></path>
-<path d="M 55.0,33.0 q -9,-3 -10,-10 q 7,1 10,6 q 3,-5 10,-6 q -1,7 -10,10 Z" fill="#8A9A5B" transform="rotate(0.0 55.0 33.0)"></path>
-<path d="M 66.9,33.5 q -9,-3 -10,-10 q 7,1 10,6 q 3,-5 10,-6 q -1,7 -10,10 Z" fill="#8A9A5B" transform="rotate(15.8 66.9 33.5)"></path>
-<path d="M 78.0,34.9 q -9,-3 -10,-10 q 7,1 10,6 q 3,-5 10,-6 q -1,7 -10,10 Z" fill="#8A9A5B" transform="rotate(31.5 78.0 34.9)"></path>
-<path d="M 87.3,37.2 q -9,-3 -10,-10 q 7,1 10,6 q 3,-5 10,-6 q -1,7 -10,10 Z" fill="#8A9A5B" transform="rotate(47.2 87.3 37.2)"></path>
-<path d="M 94.2,40.1 q -9,-3 -10,-10 q 7,1 10,6 q 3,-5 10,-6 q -1,7 -10,10 Z" fill="#8A9A5B" transform="rotate(63.0 94.2 40.1)"></path>
-</svg></div>
-      <div class="avatar-hat hat-ivy" aria-hidden="true"><svg viewBox="0 0 110 66" width="110" height="66" xmlns="http://www.w3.org/2000/svg">
-<ellipse cx="55" cy="38" rx="30" ry="12" fill="#12233F"></ellipse>
-<polygon points="55,6 100,30 55,54 10,30" fill="#1F3A63"></polygon>
-<circle cx="55" cy="30" r="4" fill="#C9A227"></circle>
-<line x1="55" y1="30" x2="80" y2="52" stroke="#C9A227" stroke-width="2"></line>
-<circle cx="80" cy="55" r="4" fill="#8C1D2B"></circle>
-</svg></div>
-      <div class="avatar-hat hat-slate" aria-hidden="true"><svg viewBox="0 0 110 66" width="110" height="66" xmlns="http://www.w3.org/2000/svg">
-<ellipse cx="55" cy="46" rx="48" ry="10" fill="#1C1F26"></ellipse>
-<path d="M18,46 C18,24 34,14 58,15 C80,16 92,28 90,42 C70,36 40,36 18,46 Z" fill="#3A4048"></path>
-<ellipse cx="58" cy="18" rx="6" ry="4" fill="#E4572E"></ellipse>
-<path d="M88,40 C96,38 102,40 100,45 C96,44 90,44 86,45 Z" fill="#1C1F26"></path>
-</svg></div>
-      <div class="avatar-hat hat-light-academia" aria-hidden="true"><svg viewBox="0 0 110 66" width="110" height="66" xmlns="http://www.w3.org/2000/svg">
-<ellipse cx="52" cy="42" rx="40" ry="15" fill="#8A5A3B"></ellipse>
-<path d="M18,40 C14,18 34,4 58,6 C82,8 94,26 86,40 C70,26 34,26 18,40 Z" fill="#B08D57"></path>
-<circle cx="60" cy="8" r="4" fill="#4A3F35"></circle>
-</svg></div>
-      <div class="avatar-hat hat-dusty-sage" aria-hidden="true"><svg viewBox="0 0 110 66" width="110" height="66" xmlns="http://www.w3.org/2000/svg">
-<ellipse cx="55" cy="50" rx="50" ry="10" fill="#E3D2A8"></ellipse>
-<ellipse cx="55" cy="50" rx="50" ry="10" fill="none" stroke="#C9A96E" stroke-width="1.5"></ellipse>
-<path d="M28,50 C28,26 40,14 55,14 C70,14 82,26 82,50 Z" fill="#EFE1BE"></path>
-<rect x="28" y="42" width="54" height="8" fill="#C97C5D"></rect>
-</svg></div>
-      <div class="avatar-hat hat-powder-ink" aria-hidden="true"><svg viewBox="0 0 110 66" width="110" height="66" xmlns="http://www.w3.org/2000/svg">
-<polygon points="14,50 55,10 96,50" fill="#EEF2F5"></polygon>
-<polygon points="14,50 55,10 55,50" fill="#DCE6EC"></polygon>
-<rect x="10" y="48" width="90" height="8" fill="#6B84A0"></rect>
-<circle cx="68" cy="34" r="4" fill="#4A6C8C" opacity="0.6"></circle>
-<circle cx="78" cy="42" r="2.5" fill="#4A6C8C" opacity="0.5"></circle>
-</svg></div>
-      <div class="avatar-hat hat-lavender-mist" aria-hidden="true"><svg viewBox="0 0 110 66" width="110" height="66" xmlns="http://www.w3.org/2000/svg">
-<ellipse cx="52" cy="52" rx="42" ry="9" fill="#7A5F98"></ellipse>
-<path d="M40,52 C40,52 46,6 62,2 C64,14 60,40 66,50 Z" fill="#8C6FA8"></path>
-<circle cx="58" cy="20" r="2.4" fill="#F3E9F7"></circle>
-<circle cx="52" cy="34" r="1.8" fill="#F3E9F7"></circle>
-<circle cx="60" cy="42" r="1.6" fill="#F3E9F7"></circle>
-</svg></div>
-      <div class="avatar-hat hat-sage-honey" aria-hidden="true"><svg viewBox="0 0 110 66" width="110" height="66" xmlns="http://www.w3.org/2000/svg">
-<ellipse cx="55" cy="46" rx="48" ry="9" fill="#D9A94E" opacity="0.9"></ellipse>
-<ellipse cx="55" cy="30" rx="24" ry="16" fill="#F8F5EE" opacity="0.9"></ellipse>
-<ellipse cx="55" cy="30" rx="24" ry="16" fill="none" stroke="#2E3B2E" stroke-width="1" stroke-dasharray="2 3"></ellipse>
-<path d="M18,46 C28,58 82,58 92,46" fill="none" stroke="#2E3B2E" stroke-width="1" stroke-dasharray="1.5 3" opacity="0.6"></path>
-</svg></div>
-      <div class="avatar-hat hat-watercolor-morning" aria-hidden="true"><svg viewBox="0 0 110 66" width="110" height="66" xmlns="http://www.w3.org/2000/svg">
-<ellipse cx="55" cy="48" rx="44" ry="9" fill="#FFFFFF"></ellipse>
-<path d="M22,48 C22,28 36,16 55,16 C74,16 88,28 88,48 Z" fill="#FBF7F0"></path>
-<rect x="22" y="40" width="66" height="8" fill="#3E5A70"></rect>
-<circle cx="55" cy="44" r="3" fill="#F3D9A6"></circle>
-</svg></div>
-      <img src="images/Aahil-prom.jpeg" alt="Aahil Hasan" class="avatar-photo">
+  <section id="hero">
+    <div class="hero-content">
+      <p class="hero-eyebrow">Massachusetts Junior Classical League · 2025-2026</p>
+      <h1 class="hero-name">Aahil<br /><span>Hasan</span></h1>
+      <p class="hero-office">MassJCL President</p>
+      <p class="hero-tagline">"Thank you, MassJCL. It is the honor of my life to serve as your President. Let's get to work."</p>
+      <a href="#platform" class="hero-btn">See What's Ahead</a>
     </div>
-    <span class="hero-badge">Shrewsbury High School &middot; Class of 2027</span>
-    <p class="eyebrow">Welcome to my portfolio</p>
-    <h1>Hi, I'm <span class="highlight">Aahil Hasan</span></h1>
-    <p class="tagline">Latin scholar, team captain, and community builder connecting leadership across the classroom, the water, and the mat.</p>
-    <div class="hero-buttons">
-      <a href="#about" class="btn btn-primary">Learn more about me</a>
-      <a href="#contact" class="btn btn-outline">Get in touch</a>
+    <div class="hero-lounging">
+      <img src="Aahil-latingear-cropped.png" alt="Aahil in Roman attire" />
+    </div>
+    <div class="hero-scroll">Scroll</div>
+  </section>
+
+  <div class="laurel-banner">
+    ⸻ &nbsp; Gratias Vobis Ago · Thank You MassJCL &nbsp; ⸻
+  </div>
+
+  <!-- PHOTO GALLERY -->
+  <div class="gallery-strip">
+    <div class="gallery-item">
+      <img src="classics-day.jpg" alt="Aahil at Classics Day 2025" />
+      <span class="gallery-caption">Classics Day 2025</span>
+    </div>
+    <div class="gallery-item">
+      <img src="tshirts.jpg" alt="MassJCL Agora merchandise table" />
+      <span class="gallery-caption">Agora at Nationals</span>
+    </div>
+    <div class="gallery-item">
+      <img src="scrapbook.jpg" alt="Aahil with NJCL scrapbook" />
+      <span class="gallery-caption">NJCL Nationals</span>
+    </div>
+    <div class="gallery-item">
+      <img src="chipotle.jpg" alt="Chipotle Fundraiser Results" />
+      <span class="gallery-caption">Chipotle Fundraiser Win</span>
     </div>
   </div>
-</section>
 
-<main>
-
-  <section id="about" class="section reveal">
-    <div class="blob blob-a" aria-hidden="true"></div>
-    <div class="blob blob-b" aria-hidden="true"></div>
-    <p class="section-label">Who I Am</p>
-    <h2 class="section-title">About Me</h2>
-    <div class="about-grid">
-      <div class="about-text">
-        <p>Aahil Hasan is a senior at Shrewsbury High School (Class of 2027) and the recipient of the Harvard Book Award for the highest GPA in his class. He splits his time between the Latin classroom, the boathouse, the robotics shop, and the taekwondo dojang, and somehow finds time to run his own tutoring business on top of it all.</p>
-        <p>Whether he's leading 779 members as State President of the Massachusetts Junior Classical League, captaining Shrewsbury's Varsity Crew team, or mentoring middle schoolers through a speech and debate camp he helped found, Aahil is happiest when he's building something with other people and making sure everyone has a seat at the table. His 500+ volunteer hours have grown out of that same instinct, logged through National Honor Society service projects, free tutoring for classmates, Latin Honor Society outreach events, and community fundraisers run alongside Robotics and Speech & Debate.</p>
-      </div>
-      <div class="about-facts">
-        <div class="fact-card">
-          <span class="fact-number">5</span>
-          <span class="fact-label">Internships &amp; work experiences</span>
+  <section id="about">
+    <div class="container">
+      <p class="section-label">De Me</p>
+      <h2 class="section-title">Thank You, MassJCL.<br />Let's Build Something Great.</h2>
+      <div class="divider"><span class="divider-icon">✦</span></div>
+      <div class="about-grid">
+        <div class="about-portrait">
+          <div class="portrait-frame">
+            <img src="Aahil-prom.jpeg" alt="Aahil Hasan" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;" />
+          </div>
+          <div class="portrait-corner tl"></div>
+          <div class="portrait-corner tr"></div>
+          <div class="portrait-corner bl"></div>
+          <div class="portrait-corner br"></div>
         </div>
-        <div class="fact-card">
-          <span class="fact-number">11</span>
-          <span class="fact-label">Leadership roles &amp; activities</span>
-        </div>
-        <div class="fact-card">
-          <span class="fact-number">500+</span>
-          <span class="fact-label">Volunteer hours logged</span>
+        <div class="about-text">
+          <p>Salvete, MassJCL! I am <strong>Aahil Hasan</strong>, your newly elected President, and I am beyond grateful for the trust you have placed in me. This organization has been my home since 2023, and getting to serve it is a dream come true.</p>
+          <p>From the bottom of my heart, <strong>thank you</strong> to every member who voted, every advisor who believed in this campaign, and every JCLer who has been a part of my journey. You are why I ran, and you are why I will give this role everything I have.</p>
+          <p>The work begins now. Everything in the <strong>SALVE platform</strong> is ready to be put into action, from alumni outreach to reviving That's Entertainment to building stronger local chapters across Massachusetts.</p>
+          <p>MassJCL's best days are ahead. I am honored, humbled, and ready. <strong>Valete et valete bene!</strong></p>
         </div>
       </div>
     </div>
   </section>
 
-  <div class="section-divider">
-    <div class="deco-woodsy">
-      <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,28 C240,8 480,48 720,28 C960,8 1200,48 1440,28" fill="none" stroke="#7C9473" stroke-width="2"></path>
-        <circle cx="360" cy="18" r="5" fill="#35573F"></circle>
-        <circle cx="720" cy="28" r="6" fill="#FF7A45"></circle>
-        <circle cx="1080" cy="38" r="5" fill="#35573F"></circle>
-      </svg>
-    </div>
-    <div class="deco-roman">
-      <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <line x1="0" y1="28" x2="410" y2="28" stroke="#C9A227" stroke-width="1.5"></line>
-        <line x1="1030" y1="28" x2="1440" y2="28" stroke="#C9A227" stroke-width="1.5"></line>
-        <rect x="435" y="23" width="10" height="10" fill="#C1552C" transform="rotate(45 440 28)"></rect>
-        <rect x="505" y="23" width="10" height="10" fill="#7A3B2E" transform="rotate(45 510 28)"></rect>
-        <rect x="575" y="23" width="10" height="10" fill="#C1552C" transform="rotate(45 580 28)"></rect>
-        <rect x="645" y="23" width="10" height="10" fill="#7A3B2E" transform="rotate(45 650 28)"></rect>
-        <rect x="715" y="23" width="10" height="10" fill="#C1552C" transform="rotate(45 720 28)"></rect>
-        <rect x="785" y="23" width="10" height="10" fill="#7A3B2E" transform="rotate(45 790 28)"></rect>
-        <rect x="855" y="23" width="10" height="10" fill="#C1552C" transform="rotate(45 860 28)"></rect>
-        <rect x="925" y="23" width="10" height="10" fill="#7A3B2E" transform="rotate(45 930 28)"></rect>
-        <rect x="995" y="23" width="10" height="10" fill="#C1552C" transform="rotate(45 1000 28)"></rect>
-      </svg>
-    </div>
-    <div class="deco-ivy">
-      <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <line x1="0" y1="24" x2="1440" y2="24" stroke="#C9A227" stroke-width="1"></line>
-        <line x1="0" y1="32" x2="1440" y2="32" stroke="#C9A227" stroke-width="1"></line>
-        <line x1="60" y1="22" x2="60" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="120" y1="22" x2="120" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="180" y1="22" x2="180" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="240" y1="22" x2="240" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="300" y1="22" x2="300" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="360" y1="22" x2="360" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="420" y1="22" x2="420" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="480" y1="22" x2="480" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="540" y1="22" x2="540" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="600" y1="22" x2="600" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="840" y1="22" x2="840" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="900" y1="22" x2="900" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="960" y1="22" x2="960" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="1020" y1="22" x2="1020" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="1080" y1="22" x2="1080" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="1140" y1="22" x2="1140" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="1200" y1="22" x2="1200" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="1260" y1="22" x2="1260" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="1320" y1="22" x2="1320" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="1380" y1="22" x2="1380" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <polygon points="720,14 734,21 734,35 720,44 706,35 706,21" fill="#C9A227" stroke="#12233F" stroke-width="1"></polygon>
-      </svg>
-    </div>
-    <div class="deco-slate">
-      <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <polyline points="0,28 120,12 240,44 360,12 480,44 600,12 720,44 840,12 960,44 1080,12 1200,44 1320,12 1440,28" fill="none" stroke="#3A4048" stroke-width="2"></polyline>
-        <rect x="116" y="8" width="8" height="8" fill="#E4572E"></rect>
-        <rect x="356" y="8" width="8" height="8" fill="#E4572E"></rect>
-        <rect x="596" y="8" width="8" height="8" fill="#E4572E"></rect>
-        <rect x="836" y="8" width="8" height="8" fill="#E4572E"></rect>
-        <rect x="1076" y="8" width="8" height="8" fill="#E4572E"></rect>
-      </svg>
-    </div>
-    <div class="deco-light-academia">
-      <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0,28 C240,22 480,34 720,28 C960,22 1200,34 1440,28" fill="none" stroke="#B08D57" stroke-width="1.5"></path>
-<rect x="180" y="21.0" width="6" height="14" fill="#4A3F35"></rect>
-<rect x="360" y="18.0" width="6" height="20" fill="#8A5A3B"></rect>
-<rect x="540" y="21.0" width="6" height="14" fill="#8A5A3B"></rect>
-<rect x="720" y="18.0" width="6" height="20" fill="#4A3F35"></rect>
-<rect x="900" y="21.0" width="6" height="14" fill="#8A5A3B"></rect>
-<rect x="1080" y="18.0" width="6" height="20" fill="#8A5A3B"></rect>
-<rect x="1260" y="21.0" width="6" height="14" fill="#4A3F35"></rect>
-</svg>
-    </div>
-    <div class="deco-dusty-sage">
-      <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0,28 C240,20 480,36 720,28 C960,20 1200,36 1440,28" fill="none" stroke="#9CAF97" stroke-width="2"></path>
-<circle cx="300" cy="22" r="6" fill="#C97C5D"></circle>
-<circle cx="620" cy="34" r="6" fill="#7C8A5E"></circle>
-<circle cx="940" cy="22" r="6" fill="#C97C5D"></circle>
-<circle cx="1180" cy="34" r="6" fill="#7C8A5E"></circle>
-</svg>
-    </div>
-    <div class="deco-powder-ink">
-      <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0,28 C240,18 480,38 720,28 C960,18 1200,38 1440,28" fill="none" stroke="#6B84A0" stroke-width="1.5"></path>
-<circle cx="260" cy="28" r="4" fill="#4A6C8C" opacity="0.5"></circle>
-<circle cx="460" cy="28" r="6" fill="#4A6C8C" opacity="0.6"></circle>
-<circle cx="680" cy="28" r="8" fill="#4A6C8C" opacity="0.7"></circle>
-<circle cx="900" cy="28" r="4" fill="#4A6C8C" opacity="0.8"></circle>
-<circle cx="1120" cy="28" r="6" fill="#4A6C8C" opacity="0.9"></circle>
-</svg>
-    </div>
-    <div class="deco-lavender-mist">
-      <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0,28 C240,22 480,34 720,28 C960,22 1200,34 1440,28" fill="none" stroke="#8C9DB5" stroke-width="1.5"></path>
-<ellipse cx="120" cy="24" rx="5" ry="7" fill="#7A5F98" opacity="0.8"></ellipse>
-<line x1="120" y1="30" x2="120" y2="40" stroke="#8C9DB5" stroke-width="1.5"></line>
-<ellipse cx="250" cy="24" rx="5" ry="7" fill="#7A5F98" opacity="0.8"></ellipse>
-<line x1="250" y1="30" x2="250" y2="40" stroke="#8C9DB5" stroke-width="1.5"></line>
-<ellipse cx="380" cy="24" rx="5" ry="7" fill="#7A5F98" opacity="0.8"></ellipse>
-<line x1="380" y1="30" x2="380" y2="40" stroke="#8C9DB5" stroke-width="1.5"></line>
-<ellipse cx="510" cy="24" rx="5" ry="7" fill="#7A5F98" opacity="0.8"></ellipse>
-<line x1="510" y1="30" x2="510" y2="40" stroke="#8C9DB5" stroke-width="1.5"></line>
-<ellipse cx="640" cy="24" rx="5" ry="7" fill="#7A5F98" opacity="0.8"></ellipse>
-<line x1="640" y1="30" x2="640" y2="40" stroke="#8C9DB5" stroke-width="1.5"></line>
-<ellipse cx="770" cy="24" rx="5" ry="7" fill="#7A5F98" opacity="0.8"></ellipse>
-<line x1="770" y1="30" x2="770" y2="40" stroke="#8C9DB5" stroke-width="1.5"></line>
-<ellipse cx="900" cy="24" rx="5" ry="7" fill="#7A5F98" opacity="0.8"></ellipse>
-<line x1="900" y1="30" x2="900" y2="40" stroke="#8C9DB5" stroke-width="1.5"></line>
-<ellipse cx="1030" cy="24" rx="5" ry="7" fill="#7A5F98" opacity="0.8"></ellipse>
-<line x1="1030" y1="30" x2="1030" y2="40" stroke="#8C9DB5" stroke-width="1.5"></line>
-<ellipse cx="1160" cy="24" rx="5" ry="7" fill="#7A5F98" opacity="0.8"></ellipse>
-<line x1="1160" y1="30" x2="1160" y2="40" stroke="#8C9DB5" stroke-width="1.5"></line>
-<ellipse cx="1290" cy="24" rx="5" ry="7" fill="#7A5F98" opacity="0.8"></ellipse>
-<line x1="1290" y1="30" x2="1290" y2="40" stroke="#8C9DB5" stroke-width="1.5"></line>
-</svg>
-    </div>
-    <div class="deco-sage-honey">
-      <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-<line x1="0" y1="28" x2="500" y2="28" stroke="#D9A94E" stroke-width="1.5"></line>
-<line x1="940" y1="28" x2="1440" y2="28" stroke="#D9A94E" stroke-width="1.5"></line>
-<polygon points="680.8,20.5 680.8,35.5 667.8,43.0 654.8,35.5 654.8,20.5 667.8,13.0" fill="#D9A94E"></polygon>
-<polygon points="706.9,20.5 706.9,35.5 693.9,43.0 680.9,35.5 680.9,20.5 693.9,13.0" fill="#C98F36"></polygon>
-<polygon points="733.0,20.5 733.0,35.5 720.0,43.0 707.0,35.5 707.0,20.5 720.0,13.0" fill="#D9A94E"></polygon>
-<polygon points="759.1,20.5 759.1,35.5 746.1,43.0 733.1,35.5 733.1,20.5 746.1,13.0" fill="#C98F36"></polygon>
-<polygon points="785.2,20.5 785.2,35.5 772.2,43.0 759.2,35.5 759.2,20.5 772.2,13.0" fill="#D9A94E"></polygon>
-</svg>
-    </div>
-    <div class="deco-watercolor-morning">
-      <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0,28 C240,20 480,36 720,28 C960,20 1200,36 1440,28" fill="none" stroke="#5B95B0" stroke-width="1.5"></path>
-<circle cx="720" cy="28" r="9" fill="#E08A5B" opacity="0.85"></circle>
-<path d="M 272,22 Q 277,17 280,22 Q 283,17 288,22" stroke="#4A4038" stroke-width="1.4" fill="none" stroke-linecap="round" opacity="0.7"></path>
-<path d="M 1152,22 Q 1157,17 1160,22 Q 1163,17 1168,22" stroke="#4A4038" stroke-width="1.4" fill="none" stroke-linecap="round" opacity="0.7"></path>
-</svg>
-    </div>
-  </div>
+  <section id="platform">
+    <div class="container">
+      <p class="section-label">Propositum Meum</p>
+      <h2 class="section-title">Platform</h2>
+      <div class="divider"><span class="divider-icon">✦</span></div>
 
-  <section id="experience" class="section section-alt reveal">
-    <p class="section-label">Internships</p>
-    <h2 class="section-title">Experience</h2>
-    <div class="card-grid">
-      <div class="info-card accent-1">
-        <h3>Procellis</h3>
-        <p class="info-meta">Security Analyst Intern (WBLA Paid Internship) &middot; July&ndash;August 2024</p>
-        <ul class="bullet-list">
-          <li>Analyzed weak points of security in a private university and made suggestions for future steps based on a security brief</li>
-        </ul>
-      </div>
-      <div class="info-card accent-2">
-        <h3>Stempeers</h3>
-        <p class="info-meta">AI &amp; Data Intern (Unpaid) &middot; July 1 &ndash; August 30, 2025</p>
-        <ul class="bullet-list">
-          <li>Took lessons on AI models and Google Notebook coding</li>
-          <li>Completed a collaborative project predicting Titanic deaths based on collision factors</li>
-        </ul>
-      </div>
-      <div class="info-card accent-3">
-        <h3>Blue Economy Foundations</h3>
-        <p class="info-meta">Team Lead (WBLA Paid Internship) &middot; July&ndash;August 2026</p>
-        <ul class="bullet-list">
-          <li>Led a team of 7 to build a Claude-powered survey identifying which Cape Cod blue economy sectors most aligned with participants' interests</li>
-        </ul>
-      </div>
-      <div class="info-card">
-        <h3>Chemistry Honors Intern</h3>
-        <p class="info-meta">Shrewsbury High School &middot; Grade 11</p>
-        <ul class="bullet-list">
-          <li>Provided 1:1 tutoring opportunities for students</li>
-          <li>Created answer keys based on provided homework and exams</li>
-          <li>Maintained chemical safety standards and classroom cleanliness</li>
-        </ul>
-      </div>
-      <div class="info-card accent-1">
-        <h3>Latin IV Honors Intern</h3>
-        <p class="info-meta">Shrewsbury High School &middot; Grades 9&ndash;10</p>
-        <ul class="bullet-list">
-          <li>Provided 1:1 tutoring opportunities</li>
-          <li>Marked up exams</li>
-          <li>Conducted mini lessons with relatable analogies for students</li>
-        </ul>
+      <p style="text-align:center; font-family:'Playfair Display',serif; font-size:clamp(2.5rem,6vw,4.5rem); font-weight:900; color:var(--gold); letter-spacing:0.18em; margin-bottom:0.25rem;">SALVE</p>
+      <p style="text-align:center; font-family:'Cormorant Garamond',serif; font-style:italic; color:rgba(255,255,255,0.5); font-size:1rem; margin-bottom:3rem;">My platform, one letter at a time.</p>
+
+      <div class="platform-grid">
+        <div class="platform-card">
+          <span class="platform-letter">S</span>
+          <span class="platform-word">State &amp; Local Outreach</span>
+          <h3>Strengthening Connections Across the Circuit</h3>
+          <p>I want to start idea exchanges with local JCLs to share what works and build a stronger state network. I will create a resource timeline and peer-mentorship system so schools starting new chapters have real guidance. We (huge shoutout to Mrs. Sinacola!) grew Shrewsbury JCL from a solo certamen player to ten delegates at this year's state convention; We know how hard that climb is.</p>
+        </div>
+        <div class="platform-card">
+          <span class="platform-letter">A</span>
+          <span class="platform-word">Alumni Connections</span>
+          <h3>Anchoring Our Community to Its Roots</h3>
+          <p>I built a spreadsheet of MassJCL alumni and engaged them for Giving Tuesday and they gave generously. As president, I will launch exclusive alumni newsletters to keep former members informed, connected, and invested in the future of the organization they once called home.</p>
+        </div>
+        <div class="platform-card">
+          <span class="platform-letter">L</span>
+          <span class="platform-word">Listening to Ideas</span>
+          <h3>Leading with Open Ears</h3>
+          <p>I want every member to have a real way to share feedback, positive or constructive. I will add a standing feedback form to the president's email signature so anyone, from any chapter, can reach leadership easily. Your voice shapes this organization.</p>
+        </div>
+        <div class="platform-card">
+          <span class="platform-letter">V</span>
+          <span class="platform-word">Vision for Fundraising &amp; Service</span>
+          <h3>Vaulting MassJCL's Impact Forward</h3>
+          <p>As treasurer and fundraising coordinator, I launched Chipotle Dine-Ins, a Silent Auction, Giving Tuesday, and grocery gift card drives, raising over $5,000 in a year for scholarships and convention support. I will keep that momentum going, explore read-a-thons and walk-a-thons, and introduce accessible service projects like letter-writing campaigns for people in hospitals.</p>
+          <div style="margin-top:1rem; border-top:1px solid rgba(201,162,39,0.2); padding-top:0.75rem; overflow:hidden; border-radius:2px;">
+            <img src="tshirts.jpg" alt="MassJCL Agora merch table" style="width:100%;height:120px;object-fit:cover;object-position:center 30%;display:block;opacity:0.85;" />
+          </div>
+        </div>
+        <div class="platform-card">
+          <span class="platform-letter">E</span>
+          <span class="platform-word">Entertainment</span>
+          <h3>Energizing MassJCL with That's Entertainment</h3>
+          <p>Let's bring back the beloved That's Entertainment showcase, a night where students from across the state perform, laugh, and celebrate together. Having written every officer skit this year, from Nationals to Kickoff to Classics Day, I know how to craft moments that bring a room alive.</p>
+        </div>
+        <div class="platform-card">
+          <span class="platform-letter">+</span>
+          <span class="platform-word">Additional Priorities</span>
+          <h3>More on the Agenda</h3>
+          <p>Launch a Career Fair connecting classics to real-world paths. Publish "How to Run Your Chapter" guides for new and growing JCLs. Expand chapter enrollment by enlisting new schools. And always center the experience of every member, whether a seasoned Certamen veteran or first-time attendee.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <div class="section-divider">
-    <div class="deco-woodsy">
-      <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,28 C240,8 480,48 720,28 C960,8 1200,48 1440,28" fill="none" stroke="#7C9473" stroke-width="2"></path>
-        <circle cx="360" cy="18" r="5" fill="#35573F"></circle>
-        <circle cx="720" cy="28" r="6" fill="#FF7A45"></circle>
-        <circle cx="1080" cy="38" r="5" fill="#35573F"></circle>
-      </svg>
-    </div>
-    <div class="deco-roman">
-      <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <line x1="0" y1="28" x2="410" y2="28" stroke="#C9A227" stroke-width="1.5"></line>
-        <line x1="1030" y1="28" x2="1440" y2="28" stroke="#C9A227" stroke-width="1.5"></line>
-        <rect x="435" y="23" width="10" height="10" fill="#C1552C" transform="rotate(45 440 28)"></rect>
-        <rect x="505" y="23" width="10" height="10" fill="#7A3B2E" transform="rotate(45 510 28)"></rect>
-        <rect x="575" y="23" width="10" height="10" fill="#C1552C" transform="rotate(45 580 28)"></rect>
-        <rect x="645" y="23" width="10" height="10" fill="#7A3B2E" transform="rotate(45 650 28)"></rect>
-        <rect x="715" y="23" width="10" height="10" fill="#C1552C" transform="rotate(45 720 28)"></rect>
-        <rect x="785" y="23" width="10" height="10" fill="#7A3B2E" transform="rotate(45 790 28)"></rect>
-        <rect x="855" y="23" width="10" height="10" fill="#C1552C" transform="rotate(45 860 28)"></rect>
-        <rect x="925" y="23" width="10" height="10" fill="#7A3B2E" transform="rotate(45 930 28)"></rect>
-        <rect x="995" y="23" width="10" height="10" fill="#C1552C" transform="rotate(45 1000 28)"></rect>
-      </svg>
-    </div>
-    <div class="deco-ivy">
-      <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <line x1="0" y1="24" x2="1440" y2="24" stroke="#C9A227" stroke-width="1"></line>
-        <line x1="0" y1="32" x2="1440" y2="32" stroke="#C9A227" stroke-width="1"></line>
-        <line x1="60" y1="22" x2="60" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="120" y1="22" x2="120" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="180" y1="22" x2="180" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="240" y1="22" x2="240" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="300" y1="22" x2="300" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="360" y1="22" x2="360" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="420" y1="22" x2="420" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="480" y1="22" x2="480" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="540" y1="22" x2="540" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="600" y1="22" x2="600" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="840" y1="22" x2="840" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="900" y1="22" x2="900" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="960" y1="22" x2="960" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="1020" y1="22" x2="1020" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="1080" y1="22" x2="1080" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="1140" y1="22" x2="1140" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="1200" y1="22" x2="1200" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="1260" y1="22" x2="1260" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="1320" y1="22" x2="1320" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="1380" y1="22" x2="1380" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <polygon points="720,14 734,21 734,35 720,44 706,35 706,21" fill="#C9A227" stroke="#12233F" stroke-width="1"></polygon>
-      </svg>
-    </div>
-    <div class="deco-slate">
-      <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <polyline points="0,28 120,12 240,44 360,12 480,44 600,12 720,44 840,12 960,44 1080,12 1200,44 1320,12 1440,28" fill="none" stroke="#3A4048" stroke-width="2"></polyline>
-        <rect x="116" y="8" width="8" height="8" fill="#E4572E"></rect>
-        <rect x="356" y="8" width="8" height="8" fill="#E4572E"></rect>
-        <rect x="596" y="8" width="8" height="8" fill="#E4572E"></rect>
-        <rect x="836" y="8" width="8" height="8" fill="#E4572E"></rect>
-        <rect x="1076" y="8" width="8" height="8" fill="#E4572E"></rect>
-      </svg>
-    </div>
-    <div class="deco-light-academia">
-      <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0,28 C240,22 480,34 720,28 C960,22 1200,34 1440,28" fill="none" stroke="#B08D57" stroke-width="1.5"></path>
-<rect x="180" y="21.0" width="6" height="14" fill="#4A3F35"></rect>
-<rect x="360" y="18.0" width="6" height="20" fill="#8A5A3B"></rect>
-<rect x="540" y="21.0" width="6" height="14" fill="#8A5A3B"></rect>
-<rect x="720" y="18.0" width="6" height="20" fill="#4A3F35"></rect>
-<rect x="900" y="21.0" width="6" height="14" fill="#8A5A3B"></rect>
-<rect x="1080" y="18.0" width="6" height="20" fill="#8A5A3B"></rect>
-<rect x="1260" y="21.0" width="6" height="14" fill="#4A3F35"></rect>
-</svg>
-    </div>
-    <div class="deco-dusty-sage">
-      <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0,28 C240,20 480,36 720,28 C960,20 1200,36 1440,28" fill="none" stroke="#9CAF97" stroke-width="2"></path>
-<circle cx="300" cy="22" r="6" fill="#C97C5D"></circle>
-<circle cx="620" cy="34" r="6" fill="#7C8A5E"></circle>
-<circle cx="940" cy="22" r="6" fill="#C97C5D"></circle>
-<circle cx="1180" cy="34" r="6" fill="#7C8A5E"></circle>
-</svg>
-    </div>
-    <div class="deco-powder-ink">
-      <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0,28 C240,18 480,38 720,28 C960,18 1200,38 1440,28" fill="none" stroke="#6B84A0" stroke-width="1.5"></path>
-<circle cx="260" cy="28" r="4" fill="#4A6C8C" opacity="0.5"></circle>
-<circle cx="460" cy="28" r="6" fill="#4A6C8C" opacity="0.6"></circle>
-<circle cx="680" cy="28" r="8" fill="#4A6C8C" opacity="0.7"></circle>
-<circle cx="900" cy="28" r="4" fill="#4A6C8C" opacity="0.8"></circle>
-<circle cx="1120" cy="28" r="6" fill="#4A6C8C" opacity="0.9"></circle>
-</svg>
-    </div>
-    <div class="deco-lavender-mist">
-      <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0,28 C240,22 480,34 720,28 C960,22 1200,34 1440,28" fill="none" stroke="#8C9DB5" stroke-width="1.5"></path>
-<ellipse cx="120" cy="24" rx="5" ry="7" fill="#7A5F98" opacity="0.8"></ellipse>
-<line x1="120" y1="30" x2="120" y2="40" stroke="#8C9DB5" stroke-width="1.5"></line>
-<ellipse cx="250" cy="24" rx="5" ry="7" fill="#7A5F98" opacity="0.8"></ellipse>
-<line x1="250" y1="30" x2="250" y2="40" stroke="#8C9DB5" stroke-width="1.5"></line>
-<ellipse cx="380" cy="24" rx="5" ry="7" fill="#7A5F98" opacity="0.8"></ellipse>
-<line x1="380" y1="30" x2="380" y2="40" stroke="#8C9DB5" stroke-width="1.5"></line>
-<ellipse cx="510" cy="24" rx="5" ry="7" fill="#7A5F98" opacity="0.8"></ellipse>
-<line x1="510" y1="30" x2="510" y2="40" stroke="#8C9DB5" stroke-width="1.5"></line>
-<ellipse cx="640" cy="24" rx="5" ry="7" fill="#7A5F98" opacity="0.8"></ellipse>
-<line x1="640" y1="30" x2="640" y2="40" stroke="#8C9DB5" stroke-width="1.5"></line>
-<ellipse cx="770" cy="24" rx="5" ry="7" fill="#7A5F98" opacity="0.8"></ellipse>
-<line x1="770" y1="30" x2="770" y2="40" stroke="#8C9DB5" stroke-width="1.5"></line>
-<ellipse cx="900" cy="24" rx="5" ry="7" fill="#7A5F98" opacity="0.8"></ellipse>
-<line x1="900" y1="30" x2="900" y2="40" stroke="#8C9DB5" stroke-width="1.5"></line>
-<ellipse cx="1030" cy="24" rx="5" ry="7" fill="#7A5F98" opacity="0.8"></ellipse>
-<line x1="1030" y1="30" x2="1030" y2="40" stroke="#8C9DB5" stroke-width="1.5"></line>
-<ellipse cx="1160" cy="24" rx="5" ry="7" fill="#7A5F98" opacity="0.8"></ellipse>
-<line x1="1160" y1="30" x2="1160" y2="40" stroke="#8C9DB5" stroke-width="1.5"></line>
-<ellipse cx="1290" cy="24" rx="5" ry="7" fill="#7A5F98" opacity="0.8"></ellipse>
-<line x1="1290" y1="30" x2="1290" y2="40" stroke="#8C9DB5" stroke-width="1.5"></line>
-</svg>
-    </div>
-    <div class="deco-sage-honey">
-      <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-<line x1="0" y1="28" x2="500" y2="28" stroke="#D9A94E" stroke-width="1.5"></line>
-<line x1="940" y1="28" x2="1440" y2="28" stroke="#D9A94E" stroke-width="1.5"></line>
-<polygon points="680.8,20.5 680.8,35.5 667.8,43.0 654.8,35.5 654.8,20.5 667.8,13.0" fill="#D9A94E"></polygon>
-<polygon points="706.9,20.5 706.9,35.5 693.9,43.0 680.9,35.5 680.9,20.5 693.9,13.0" fill="#C98F36"></polygon>
-<polygon points="733.0,20.5 733.0,35.5 720.0,43.0 707.0,35.5 707.0,20.5 720.0,13.0" fill="#D9A94E"></polygon>
-<polygon points="759.1,20.5 759.1,35.5 746.1,43.0 733.1,35.5 733.1,20.5 746.1,13.0" fill="#C98F36"></polygon>
-<polygon points="785.2,20.5 785.2,35.5 772.2,43.0 759.2,35.5 759.2,20.5 772.2,13.0" fill="#D9A94E"></polygon>
-</svg>
-    </div>
-    <div class="deco-watercolor-morning">
-      <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0,28 C240,20 480,36 720,28 C960,20 1200,36 1440,28" fill="none" stroke="#5B95B0" stroke-width="1.5"></path>
-<circle cx="720" cy="28" r="9" fill="#E08A5B" opacity="0.85"></circle>
-<path d="M 272,22 Q 277,17 280,22 Q 283,17 288,22" stroke="#4A4038" stroke-width="1.4" fill="none" stroke-linecap="round" opacity="0.7"></path>
-<path d="M 1152,22 Q 1157,17 1160,22 Q 1163,17 1168,22" stroke="#4A4038" stroke-width="1.4" fill="none" stroke-linecap="round" opacity="0.7"></path>
-</svg>
-    </div>
-  </div>
-
-  <section id="activities" class="section reveal">
-    <div class="blob blob-c" aria-hidden="true"></div>
-    <div class="blob blob-d" aria-hidden="true"></div>
-    <p class="section-label">Involvement</p>
-    <h2 class="section-title">Leadership &amp; Activities</h2>
-    <div class="card-grid">
-      <div class="info-card accent-2">
-        <h3>Latin &amp; Classics</h3>
-        <ul class="bullet-list">
-          <li><span class="bullet-title">National Junior Classical League</span>Member since 8th grade; captained Varsity Intermediate &amp; Varsity Advanced teams for Massachusetts; led a 60-member team as President to the National Convention at Indiana University</li>
-          <li><span class="bullet-title">MA Junior Classical League</span>State President (2026&ndash;2027), Treasurer (2025&ndash;2026); led a 779-member board as primary institutional representative; managed $25,000+ in funds, introduced Zeffy, revived 501(c)(3) status, and launched fundraisers (Giving Tuesday, Silent Auction, Chipotle Dine-In, Agora) raising $5,000+ for scholarships</li>
-          <li><span class="bullet-title">Shrewsbury Junior Classical League</span>President 2022&ndash;2027; captained certamen team to several top-3 finishes at state and national competitions</li>
-          <li><span class="bullet-title">National Latin Honor Society</span>President 2025&ndash;2027; led 40 members, organized fundraisers and the language awards night, coordinated NLE exams, tutored Latin I&ndash;AP Latin; led team to 1st place at Holy Cross Classics Day two years running</li>
-          <li><span class="bullet-title">Latin League</span>Founder &amp; Captain 2024&ndash;2027; two-time Northeast Regional Champions</li>
-          <li><span class="bullet-title">Classics Club</span>Founder &amp; President 2026&ndash;2027; building certamen teams for state and national competition</li>
-        </ul>
+  <section id="why">
+    <div class="container">
+      <p class="section-label">Cur Ego</p>
+      <h2 class="section-title">Why Aahil?</h2>
+      <div class="divider"><span class="divider-icon">✦</span></div>
+      <div style="text-align:center; margin-bottom:2.5rem;">
+        <div class="latin-cameo" style="width:110px;height:110px;display:inline-block;">
+          <img src="Aahil-latingear-cropped.png" alt="Aahil in Roman attire" style="width:110px;height:130px;object-fit:cover;object-position:center top;" />
+        </div>
       </div>
-      <div class="info-card accent-1">
-        <h3>Speech &amp; Debate</h3>
-        <ul class="bullet-list">
-          <li><span class="bullet-title">Morale Officer (2025&ndash;2026)</span>Led warmups at the start of practices and competitions for ~100 students</li>
-          <li><span class="bullet-title">Tournament Director (2026&ndash;2027)</span>Organizing SHS-hosted tournaments (Mardi Gras, NCFL Qualifier) for 700&ndash;800 students, coaches, judges, and volunteers</li>
-          <li><span class="bullet-title">Camp Counselor</span>Founding member of the first-ever speech skills camp for middle schoolers (65+ attendees); helped write the original curriculum</li>
-          <li>Helped organize Chipotle fundraisers to raise money for the team</li>
-        </ul>
-      </div>
-      <div class="info-card accent-3">
-        <h3>Robotics</h3>
-        <ul class="bullet-list">
-          <li><span class="bullet-title">Shrewsbury HS Robotics (2023&ndash;2027)</span>Lead Impact Presenter and Lead Fundraiser across mechanical, machining, electrical, and outreach on a 70-person team; ran a certified bakery pie sale that raised $6,000+ and won the Pie Trophy three years running; started a community fridge drive freshman year</li>
-          <li><span class="bullet-title">First Lego League (2025&ndash;2027)</span>Coached students in project presentations and game strategy; judged and refereed at local and state competitions</li>
-        </ul>
-      </div>
-      <div class="info-card">
-        <h3>Crew</h3>
-        <ul class="bullet-list">
-          <li><span class="bullet-title">Shrewsbury HS Varsity Crew</span>Fall &amp; Spring Captain, senior year; organized captains' practice, built a team workout plan, hosted recruitment events, and mentored ~40 athletes</li>
-        </ul>
-      </div>
-      <div class="info-card accent-2">
-        <h3>Student Government &amp; Leadership</h3>
-        <ul class="bullet-list">
-          <li><span class="bullet-title">Student Advisory Committee</span>One of 5 students elected from the whole school (~2,000 students) to discuss district issues with the principal and school board at town hall; polled diverse student groups to ensure their voices were heard</li>
-          <li><span class="bullet-title">Language Advisory Committee</span>Reviewed standardized language test scores and enrollment data to help shape foreign language curriculum</li>
-          <li><span class="bullet-title">Student Council, Grade 9</span>Organized spirit days, pep rallies, and the class cup</li>
-          <li><span class="bullet-title">Wellness Advisory Committee, Grades 11&ndash;12</span></li>
-          <li><span class="bullet-title">Senior Leader</span>Helped develop action plans to build a stronger school culture</li>
-          <li><span class="bullet-title">Superintendent Interview Committee</span>Interviewed superintendent candidates and wrote evaluations</li>
-        </ul>
-      </div>
-      <div class="info-card accent-1">
-        <h3>Taekwondo</h3>
-        <p class="info-meta">2nd Degree Black Belt &middot; testing for 3rd</p>
-        <ul class="bullet-list">
-          <li><span class="bullet-title">Demonstration Team (since 7th grade)</span>Performed board breaking, traditional Korean forms, and modern tricking at exhibitions and competitions; ran summer camps introducing kids to the sport</li>
-          <li><span class="bullet-title">Instructor</span>Teaches children self-defense, control, and discipline; helps with board breaking days, referees sparring, and administers belt testing</li>
-        </ul>
-      </div>
-      <div class="info-card accent-3">
-        <h3>Honor Societies</h3>
-        <ul class="bullet-list">
-          <li><span class="bullet-title">National Honor Society</span>Tutored peers across subjects, took part in service projects, helped run coffee house setup</li>
-          <li><span class="bullet-title">Math National Honor Society</span>Tutored Math, AP Statistics, Honors Pre-Calculus, Algebra &amp; Geometry 2 Honors, and Advanced Math Honors</li>
-          <li><span class="bullet-title">National Forensic League Honor Society</span>Inducted for sustained achievement in speech and debate competition</li>
-        </ul>
-      </div>
-      <div class="info-card">
-        <h3>Winter Track</h3>
-        <p class="info-meta">55m Dash &middot; 55m Hurdles &middot; Shot Put</p>
-        <ul class="bullet-list">
-          <li>MVP, 2026&ndash;2027</li>
-          <li>Mentored freshman homeroom students adjusting to high school</li>
-        </ul>
-      </div>
-      <div class="info-card accent-2">
-        <h3>Tutoring Business</h3>
-        <p class="info-meta">Grades 10&ndash;12</p>
-        <ul class="bullet-list">
-          <li>Tutored Math, Latin, and Chemistry over Zoom and in person</li>
-          <li>Grew the business through Facebook outreach and word of mouth</li>
-        </ul>
-      </div>
-      <div class="info-card accent-1">
-        <h3>Music</h3>
-        <ul class="bullet-list">
-          <li><span class="bullet-title">Worcester Youth Wind Ensemble (2022&ndash;2024)</span>Percussionist</li>
-          <li><span class="bullet-title">SHS Band (2023&ndash;2024)</span>Percussionist</li>
-        </ul>
-      </div>
-      <div class="info-card accent-3">
-        <h3>Math Team</h3>
-        <p>Member since freshman year, 2023&ndash;2027</p>
+      <div class="why-columns">
+        <div class="why-item">
+          <span class="why-num">I</span>
+          <div>
+            <h4>Proven Fundraiser</h4>
+            <p>Managed over $25,000 in MassJCL funds as Treasurer, introduced Zeffy, revived our 501(c)(3) status, and personally launched fundraisers generating $5,000+ in a single year, all directed toward scholarships and reducing convention costs.</p>
+            <div class="why-item-photo">
+              <img src="chipotle.jpg" alt="Chipotle fundraiser results" />
+            </div>
+          </div>
+        </div>
+        <div class="why-item">
+          <span class="why-num">II</span>
+          <div>
+            <h4>Certamen Veteran &amp; Captain</h4>
+            <p>Competed on the National Certamen team three years in a row, serving as captain for two. Also captain of Shrewsbury's Certamen team since 8th grade, deeply rooted in the competitive heart of JCL.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <span class="why-num">III</span>
+          <div>
+            <h4>Chapter Builder</h4>
+            <p>Founded the Latin League chapter at Shrewsbury and now we are two-time Northeast Regional Champions. I know what it takes to build something from nothing.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <span class="why-num">IV</span>
+          <div>
+            <h4>Latin Honor Society Leader</h4>
+            <p>Served as Co-President of the Shrewsbury NJCL Latin Honor Society two years in a row, attending Classics Day at Boston University and Holy Cross to promote the classics across Massachusetts.</p>
+            <div class="why-item-photo">
+              <img src="holycross.jpg" alt="Aahil at Holy Cross Classics Day" style="object-position: center 20%;" />
+            </div>
+          </div>
+        </div>
+        <div class="why-item">
+          <span class="why-num">V</span>
+          <div>
+            <h4>Creative &amp; Energetic</h4>
+            <p>Wrote every MassJCL officer skit this year, from Nationals to Kickoff to Classics Day. I bring creativity and charisma to everything I do, and I'll bring that same energy to the presidency.</p>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:0.75rem;">
+              <div class="why-item-photo" style="margin-top:0;">
+                <img src="scrapbook.jpg" alt="Aahil with NJCL scrapbook at Nationals" style="object-position: center 15%;" />
+              </div>
+              <div class="why-item-photo" style="margin-top:0;">
+                <img src="classics-day.jpg" alt="Aahil at Classics Day 2025" style="object-position: center 20%;" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="why-item">
+          <span class="why-num">VI</span>
+          <div>
+            <h4>A Leader Across the Board</h4>
+            <p>Speech &amp; Debate officer, Student Council member, Student Wellness Board member, FRC Impact &amp; Judges Award winner, 2nd degree black belt in Taekwondo, and lead fundraiser in Robotics and Crew. I show up everywhere, and I will show up for you.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <div class="section-divider">
-    <div class="deco-woodsy">
-      <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,28 C240,8 480,48 720,28 C960,8 1200,48 1440,28" fill="none" stroke="#7C9473" stroke-width="2"></path>
-        <circle cx="360" cy="18" r="5" fill="#35573F"></circle>
-        <circle cx="720" cy="28" r="6" fill="#FF7A45"></circle>
-        <circle cx="1080" cy="38" r="5" fill="#35573F"></circle>
-      </svg>
+  <section id="quote">
+    <div class="pullquote">
+      <div style="display:flex;justify-content:center;margin-bottom:1.5rem;">
+        <div class="latin-cameo" style="width:90px;height:90px;">
+          <img src="Aahil-latingear-cropped.png" alt="Aahil Hasan" style="width:90px;height:110px;object-fit:cover;object-position:center top;" />
+        </div>
+      </div>
+      <span class="pullquote-mark">"</span>
+      <p>Thank you for believing in me. I will spend every day of this presidency making sure you never regret it.</p>
+      <cite>Aahil Hasan · MassJCL President 2025-2026 · Gratias vobis ago</cite>
     </div>
-    <div class="deco-roman">
-      <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <line x1="0" y1="28" x2="410" y2="28" stroke="#C9A227" stroke-width="1.5"></line>
-        <line x1="1030" y1="28" x2="1440" y2="28" stroke="#C9A227" stroke-width="1.5"></line>
-        <rect x="435" y="23" width="10" height="10" fill="#C1552C" transform="rotate(45 440 28)"></rect>
-        <rect x="505" y="23" width="10" height="10" fill="#7A3B2E" transform="rotate(45 510 28)"></rect>
-        <rect x="575" y="23" width="10" height="10" fill="#C1552C" transform="rotate(45 580 28)"></rect>
-        <rect x="645" y="23" width="10" height="10" fill="#7A3B2E" transform="rotate(45 650 28)"></rect>
-        <rect x="715" y="23" width="10" height="10" fill="#C1552C" transform="rotate(45 720 28)"></rect>
-        <rect x="785" y="23" width="10" height="10" fill="#7A3B2E" transform="rotate(45 790 28)"></rect>
-        <rect x="855" y="23" width="10" height="10" fill="#C1552C" transform="rotate(45 860 28)"></rect>
-        <rect x="925" y="23" width="10" height="10" fill="#7A3B2E" transform="rotate(45 930 28)"></rect>
-        <rect x="995" y="23" width="10" height="10" fill="#C1552C" transform="rotate(45 1000 28)"></rect>
-      </svg>
-    </div>
-    <div class="deco-ivy">
-      <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <line x1="0" y1="24" x2="1440" y2="24" stroke="#C9A227" stroke-width="1"></line>
-        <line x1="0" y1="32" x2="1440" y2="32" stroke="#C9A227" stroke-width="1"></line>
-        <line x1="60" y1="22" x2="60" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="120" y1="22" x2="120" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="180" y1="22" x2="180" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="240" y1="22" x2="240" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="300" y1="22" x2="300" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="360" y1="22" x2="360" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="420" y1="22" x2="420" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="480" y1="22" x2="480" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="540" y1="22" x2="540" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="600" y1="22" x2="600" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="840" y1="22" x2="840" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="900" y1="22" x2="900" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="960" y1="22" x2="960" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="1020" y1="22" x2="1020" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="1080" y1="22" x2="1080" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="1140" y1="22" x2="1140" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="1200" y1="22" x2="1200" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="1260" y1="22" x2="1260" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="1320" y1="22" x2="1320" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="1380" y1="22" x2="1380" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <polygon points="720,14 734,21 734,35 720,44 706,35 706,21" fill="#C9A227" stroke="#12233F" stroke-width="1"></polygon>
-      </svg>
-    </div>
-    <div class="deco-slate">
-      <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <polyline points="0,28 120,12 240,44 360,12 480,44 600,12 720,44 840,12 960,44 1080,12 1200,44 1320,12 1440,28" fill="none" stroke="#3A4048" stroke-width="2"></polyline>
-        <rect x="116" y="8" width="8" height="8" fill="#E4572E"></rect>
-        <rect x="356" y="8" width="8" height="8" fill="#E4572E"></rect>
-        <rect x="596" y="8" width="8" height="8" fill="#E4572E"></rect>
-        <rect x="836" y="8" width="8" height="8" fill="#E4572E"></rect>
-        <rect x="1076" y="8" width="8" height="8" fill="#E4572E"></rect>
-      </svg>
-    </div>
-    <div class="deco-light-academia">
-      <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0,28 C240,22 480,34 720,28 C960,22 1200,34 1440,28" fill="none" stroke="#B08D57" stroke-width="1.5"></path>
-<rect x="180" y="21.0" width="6" height="14" fill="#4A3F35"></rect>
-<rect x="360" y="18.0" width="6" height="20" fill="#8A5A3B"></rect>
-<rect x="540" y="21.0" width="6" height="14" fill="#8A5A3B"></rect>
-<rect x="720" y="18.0" width="6" height="20" fill="#4A3F35"></rect>
-<rect x="900" y="21.0" width="6" height="14" fill="#8A5A3B"></rect>
-<rect x="1080" y="18.0" width="6" height="20" fill="#8A5A3B"></rect>
-<rect x="1260" y="21.0" width="6" height="14" fill="#4A3F35"></rect>
-</svg>
-    </div>
-    <div class="deco-dusty-sage">
-      <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0,28 C240,20 480,36 720,28 C960,20 1200,36 1440,28" fill="none" stroke="#9CAF97" stroke-width="2"></path>
-<circle cx="300" cy="22" r="6" fill="#C97C5D"></circle>
-<circle cx="620" cy="34" r="6" fill="#7C8A5E"></circle>
-<circle cx="940" cy="22" r="6" fill="#C97C5D"></circle>
-<circle cx="1180" cy="34" r="6" fill="#7C8A5E"></circle>
-</svg>
-    </div>
-    <div class="deco-powder-ink">
-      <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0,28 C240,18 480,38 720,28 C960,18 1200,38 1440,28" fill="none" stroke="#6B84A0" stroke-width="1.5"></path>
-<circle cx="260" cy="28" r="4" fill="#4A6C8C" opacity="0.5"></circle>
-<circle cx="460" cy="28" r="6" fill="#4A6C8C" opacity="0.6"></circle>
-<circle cx="680" cy="28" r="8" fill="#4A6C8C" opacity="0.7"></circle>
-<circle cx="900" cy="28" r="4" fill="#4A6C8C" opacity="0.8"></circle>
-<circle cx="1120" cy="28" r="6" fill="#4A6C8C" opacity="0.9"></circle>
-</svg>
-    </div>
-    <div class="deco-lavender-mist">
-      <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0,28 C240,22 480,34 720,28 C960,22 1200,34 1440,28" fill="none" stroke="#8C9DB5" stroke-width="1.5"></path>
-<ellipse cx="120" cy="24" rx="5" ry="7" fill="#7A5F98" opacity="0.8"></ellipse>
-<line x1="120" y1="30" x2="120" y2="40" stroke="#8C9DB5" stroke-width="1.5"></line>
-<ellipse cx="250" cy="24" rx="5" ry="7" fill="#7A5F98" opacity="0.8"></ellipse>
-<line x1="250" y1="30" x2="250" y2="40" stroke="#8C9DB5" stroke-width="1.5"></line>
-<ellipse cx="380" cy="24" rx="5" ry="7" fill="#7A5F98" opacity="0.8"></ellipse>
-<line x1="380" y1="30" x2="380" y2="40" stroke="#8C9DB5" stroke-width="1.5"></line>
-<ellipse cx="510" cy="24" rx="5" ry="7" fill="#7A5F98" opacity="0.8"></ellipse>
-<line x1="510" y1="30" x2="510" y2="40" stroke="#8C9DB5" stroke-width="1.5"></line>
-<ellipse cx="640" cy="24" rx="5" ry="7" fill="#7A5F98" opacity="0.8"></ellipse>
-<line x1="640" y1="30" x2="640" y2="40" stroke="#8C9DB5" stroke-width="1.5"></line>
-<ellipse cx="770" cy="24" rx="5" ry="7" fill="#7A5F98" opacity="0.8"></ellipse>
-<line x1="770" y1="30" x2="770" y2="40" stroke="#8C9DB5" stroke-width="1.5"></line>
-<ellipse cx="900" cy="24" rx="5" ry="7" fill="#7A5F98" opacity="0.8"></ellipse>
-<line x1="900" y1="30" x2="900" y2="40" stroke="#8C9DB5" stroke-width="1.5"></line>
-<ellipse cx="1030" cy="24" rx="5" ry="7" fill="#7A5F98" opacity="0.8"></ellipse>
-<line x1="1030" y1="30" x2="1030" y2="40" stroke="#8C9DB5" stroke-width="1.5"></line>
-<ellipse cx="1160" cy="24" rx="5" ry="7" fill="#7A5F98" opacity="0.8"></ellipse>
-<line x1="1160" y1="30" x2="1160" y2="40" stroke="#8C9DB5" stroke-width="1.5"></line>
-<ellipse cx="1290" cy="24" rx="5" ry="7" fill="#7A5F98" opacity="0.8"></ellipse>
-<line x1="1290" y1="30" x2="1290" y2="40" stroke="#8C9DB5" stroke-width="1.5"></line>
-</svg>
-    </div>
-    <div class="deco-sage-honey">
-      <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-<line x1="0" y1="28" x2="500" y2="28" stroke="#D9A94E" stroke-width="1.5"></line>
-<line x1="940" y1="28" x2="1440" y2="28" stroke="#D9A94E" stroke-width="1.5"></line>
-<polygon points="680.8,20.5 680.8,35.5 667.8,43.0 654.8,35.5 654.8,20.5 667.8,13.0" fill="#D9A94E"></polygon>
-<polygon points="706.9,20.5 706.9,35.5 693.9,43.0 680.9,35.5 680.9,20.5 693.9,13.0" fill="#C98F36"></polygon>
-<polygon points="733.0,20.5 733.0,35.5 720.0,43.0 707.0,35.5 707.0,20.5 720.0,13.0" fill="#D9A94E"></polygon>
-<polygon points="759.1,20.5 759.1,35.5 746.1,43.0 733.1,35.5 733.1,20.5 746.1,13.0" fill="#C98F36"></polygon>
-<polygon points="785.2,20.5 785.2,35.5 772.2,43.0 759.2,35.5 759.2,20.5 772.2,13.0" fill="#D9A94E"></polygon>
-</svg>
-    </div>
-    <div class="deco-watercolor-morning">
-      <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0,28 C240,20 480,36 720,28 C960,20 1200,36 1440,28" fill="none" stroke="#5B95B0" stroke-width="1.5"></path>
-<circle cx="720" cy="28" r="9" fill="#E08A5B" opacity="0.85"></circle>
-<path d="M 272,22 Q 277,17 280,22 Q 283,17 288,22" stroke="#4A4038" stroke-width="1.4" fill="none" stroke-linecap="round" opacity="0.7"></path>
-<path d="M 1152,22 Q 1157,17 1160,22 Q 1163,17 1168,22" stroke="#4A4038" stroke-width="1.4" fill="none" stroke-linecap="round" opacity="0.7"></path>
-</svg>
-    </div>
-  </div>
+  </section>
 
-  <section id="awards" class="section section-alt reveal">
-    <p class="section-label">Recognition</p>
-    <h2 class="section-title">Awards &amp; Honors</h2>
-    <div class="card-grid">
-      <div class="info-card accent-1">
-        <h3>School</h3>
-        <ul class="bullet-list">
-          <li><strong>Harvard Book Award</strong> (2026): Highest GPA in the Class of 2027</li>
-          <li><strong>Service Learning Award</strong> (2023&ndash;24, 2024&ndash;25, 2025&ndash;26): for 100+ volunteer hours each year</li>
-        </ul>
-      </div>
-      <div class="info-card accent-2">
-        <h3>Latin &amp; Classics: National</h3>
-        <ul class="bullet-list">
-          <li><strong>2022&ndash;2023</strong> (8th grade Latin/Latin 1): National Latin Exam, Gold Medal</li>
-          <li><strong>July 2023, NJCL National Convention:</strong> 1st place, Sight Latin, among other medals</li>
-          <li><strong>2024, NJCL National Convention:</strong> Creative Arts, 1st Dramatic Interpretation, 1st Sight Latin, 2nd English Oratory, 4th Latin Oratory, 10th Essay, 1st Overall Creative Arts; Olympika, 3rd Discus, 3rd Shot Put</li>
-          <li><strong>2024&ndash;2025:</strong> NLE (Advanced Reading Comprehension), Gold Medal; NCEE, Silver Medal; NRCE, Gold Medal; NLVE, Gold Medal</li>
-          <li><strong>2025, NJCL National Convention:</strong> Scrapbook, 1st place; Sight Latin, 2nd place; Dramatic Interpretation, 2nd place; English Oratory, 3rd place; Latin Oratory, 1st place; Essay, 6th place; Costume, 7th place; Slogan, 9th place</li>
-          <li><strong>2025&ndash;2026:</strong> NCEE, Gold Medal; NRCE, Gold Medal; NLVE, Gold Medal</li>
-          <li><strong>2026, NJCL National Convention:</strong> Creative Arts, Overall Creative Arts 2nd place, Sight Latin (Prose) 1st place, English Oratory Upper 2nd place, Slogan Upper 2nd place, Costume (Senior) 6th place, Dramatic Interpretation (Advanced/Poetry) 9th place, Latin Oratory (Advanced) 9th place</li>
-        </ul>
-      </div>
-      <div class="info-card accent-3">
-        <h3>Latin &amp; Classics: State &amp; Local</h3>
-        <ul class="bullet-list">
-          <li><strong>2023&ndash;2024</strong> (Latin 2): SCRIBO Writing Contest, 2nd place</li>
-          <li><strong>April 2024, MassJCL State Convention:</strong> Academics, 2nd Greek Civilization &amp; Roman History, 3rd Grammar, 5th Roman Life/Pentathlon/Vocabulary/Literature; Creative, 1st English Oratory, 1st Dramatic Interpretation, 1st Sight Latin; Athletics, 2nd Long Jump; Certamen Intermediate, 2nd place; Worm Race, 2nd place; Overall Creative Arts, 4th place</li>
-          <li><strong>2024, Holy Cross Certamen:</strong> 2nd place</li>
-          <li><strong>2025, MassJCL State Convention:</strong> Overall Creative Arts, 4th place</li>
-          <li><strong>2025, Holy Cross Certamen:</strong> 1st place</li>
-          <li><strong>2026, Holy Cross Certamen:</strong> 1st place, two years in a row</li>
-          <li><strong>2026, MassJCL Certamen:</strong> 2nd place</li>
-          <li><strong>2025 and 2026, Latin League:</strong> 1st place, Northeast Regional, two years in a row</li>
-        </ul>
-      </div>
-      <div class="info-card">
-        <h3>Speech &amp; Debate</h3>
-        <ul class="bullet-list">
-          <li><strong>October 2023, Novice Speech Tournament:</strong> 2nd place, Dramatic Performance</li>
-          <li><strong>March 2024, Needham Tournament:</strong> 5th place, Dramatic Performance</li>
-          <li><strong>2025:</strong> Qualified for state and national tournaments; represented Shrewsbury High School at the NSDA National Tournament in Iowa</li>
-          <li><strong>2026:</strong> Placed 7th, 1st, 4th, and 2nd at different tournaments, plus a state tournament bid</li>
-        </ul>
-      </div>
-      <div class="info-card accent-1">
-        <h3>Rowing &amp; Crew</h3>
-        <ul class="bullet-list">
-          <li><strong>Fall 2026:</strong> US Rowing First Team Honor Roll Award (4.0 GPA) and a Regatta Award win</li>
-          <li><strong>October 2023, New England Championship:</strong> 3rd place, Boys Novice 8</li>
-          <li><strong>October 2023, MPSRA Fall Championship:</strong> 1st place (Gold), Boys Novice 2 4+</li>
-          <li><strong>Spring 2025, Mass Pubs:</strong> Varsity Silver Medal</li>
-          <li><strong>Fall 2025, Mass Pubs:</strong> Varsity Silver Medal; Boys 4+ Boat Trophy</li>
-          <li><strong>2026, Mass Pubs:</strong> Varsity 3 Silver Medal</li>
-        </ul>
-      </div>
-      <div class="info-card accent-2">
-        <h3>Robotics</h3>
-        <ul class="bullet-list">
-          <li><strong>2023&ndash;2026:</strong> Pie Trophy for top fundraiser, 3 years running (raised over $6,000)</li>
-          <li><strong>2024, District Championship (NERD):</strong> 1st place</li>
-          <li><strong>2025:</strong> Reached District Championship (DCMP) and World Championship; won the Impact Award</li>
-          <li><strong>2026:</strong> Judges Award, Regional Qualifier</li>
-        </ul>
+  <section id="riddles">
+    <div class="container">
+      <p class="section-label">Aenigmata Romana</p>
+      <h2 class="section-title">The MassJCL Riddle Challenge</h2>
+      <div class="divider"><span class="divider-icon">✦</span></div>
+      <div class="riddle-container">
+        <div class="riddle-progress" id="riddle-pips"></div>
+        <div class="riddle-card" id="riddle-main">
+          <div class="riddle-num" id="riddle-num">Riddle I of V</div>
+          <div class="riddle-q" id="riddle-q">Loading riddle...</div>
+          <div class="riddle-input-row">
+            <input type="text" id="riddle-input" class="riddle-input" placeholder="Your answer..." />
+            <button class="riddle-submit" id="riddle-submit" onclick="checkRiddle()">Submit</button>
+          </div>
+          <button class="riddle-hint-btn" id="riddle-hint-btn" onclick="showHint()">Need a Hint?</button>
+          <div class="riddle-hint" id="riddle-hint"></div>
+          <div class="riddle-feedback" id="riddle-feedback"></div>
+          <button class="riddle-next" id="riddle-next" onclick="nextRiddle()">Next Riddle &rarr;</button>
+        </div>
+        <div class="riddle-finale" id="riddle-finale">
+          <div class="finale-score" id="finale-score">5<span>/5</span></div>
+          <div class="finale-title" id="finale-title">Imperator</div>
+          <div class="finale-msg" id="finale-msg">Extraordinary! You think like a Roman.</div>
+          <button class="finale-restart" onclick="restartRiddles()">Try Again</button>
+        </div>
       </div>
     </div>
   </section>
 
-  <div class="section-divider">
-    <div class="deco-woodsy">
-      <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,28 C240,8 480,48 720,28 C960,8 1200,48 1440,28" fill="none" stroke="#7C9473" stroke-width="2"></path>
-        <circle cx="360" cy="18" r="5" fill="#35573F"></circle>
-        <circle cx="720" cy="28" r="6" fill="#FF7A45"></circle>
-        <circle cx="1080" cy="38" r="5" fill="#35573F"></circle>
-      </svg>
-    </div>
-    <div class="deco-roman">
-      <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <line x1="0" y1="28" x2="410" y2="28" stroke="#C9A227" stroke-width="1.5"></line>
-        <line x1="1030" y1="28" x2="1440" y2="28" stroke="#C9A227" stroke-width="1.5"></line>
-        <rect x="435" y="23" width="10" height="10" fill="#C1552C" transform="rotate(45 440 28)"></rect>
-        <rect x="505" y="23" width="10" height="10" fill="#7A3B2E" transform="rotate(45 510 28)"></rect>
-        <rect x="575" y="23" width="10" height="10" fill="#C1552C" transform="rotate(45 580 28)"></rect>
-        <rect x="645" y="23" width="10" height="10" fill="#7A3B2E" transform="rotate(45 650 28)"></rect>
-        <rect x="715" y="23" width="10" height="10" fill="#C1552C" transform="rotate(45 720 28)"></rect>
-        <rect x="785" y="23" width="10" height="10" fill="#7A3B2E" transform="rotate(45 790 28)"></rect>
-        <rect x="855" y="23" width="10" height="10" fill="#C1552C" transform="rotate(45 860 28)"></rect>
-        <rect x="925" y="23" width="10" height="10" fill="#7A3B2E" transform="rotate(45 930 28)"></rect>
-        <rect x="995" y="23" width="10" height="10" fill="#C1552C" transform="rotate(45 1000 28)"></rect>
-      </svg>
-    </div>
-    <div class="deco-ivy">
-      <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <line x1="0" y1="24" x2="1440" y2="24" stroke="#C9A227" stroke-width="1"></line>
-        <line x1="0" y1="32" x2="1440" y2="32" stroke="#C9A227" stroke-width="1"></line>
-        <line x1="60" y1="22" x2="60" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="120" y1="22" x2="120" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="180" y1="22" x2="180" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="240" y1="22" x2="240" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="300" y1="22" x2="300" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="360" y1="22" x2="360" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="420" y1="22" x2="420" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="480" y1="22" x2="480" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="540" y1="22" x2="540" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="600" y1="22" x2="600" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="840" y1="22" x2="840" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="900" y1="22" x2="900" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="960" y1="22" x2="960" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="1020" y1="22" x2="1020" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="1080" y1="22" x2="1080" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="1140" y1="22" x2="1140" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="1200" y1="22" x2="1200" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="1260" y1="22" x2="1260" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="1320" y1="22" x2="1320" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <line x1="1380" y1="22" x2="1380" y2="34" stroke="#12233F" stroke-width="1"></line>
-        <polygon points="720,14 734,21 734,35 720,44 706,35 706,21" fill="#C9A227" stroke="#12233F" stroke-width="1"></polygon>
-      </svg>
-    </div>
-    <div class="deco-slate">
-      <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <polyline points="0,28 120,12 240,44 360,12 480,44 600,12 720,44 840,12 960,44 1080,12 1200,44 1320,12 1440,28" fill="none" stroke="#3A4048" stroke-width="2"></polyline>
-        <rect x="116" y="8" width="8" height="8" fill="#E4572E"></rect>
-        <rect x="356" y="8" width="8" height="8" fill="#E4572E"></rect>
-        <rect x="596" y="8" width="8" height="8" fill="#E4572E"></rect>
-        <rect x="836" y="8" width="8" height="8" fill="#E4572E"></rect>
-        <rect x="1076" y="8" width="8" height="8" fill="#E4572E"></rect>
-      </svg>
-    </div>
-    <div class="deco-light-academia">
-      <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0,28 C240,22 480,34 720,28 C960,22 1200,34 1440,28" fill="none" stroke="#B08D57" stroke-width="1.5"></path>
-<rect x="180" y="21.0" width="6" height="14" fill="#4A3F35"></rect>
-<rect x="360" y="18.0" width="6" height="20" fill="#8A5A3B"></rect>
-<rect x="540" y="21.0" width="6" height="14" fill="#8A5A3B"></rect>
-<rect x="720" y="18.0" width="6" height="20" fill="#4A3F35"></rect>
-<rect x="900" y="21.0" width="6" height="14" fill="#8A5A3B"></rect>
-<rect x="1080" y="18.0" width="6" height="20" fill="#8A5A3B"></rect>
-<rect x="1260" y="21.0" width="6" height="14" fill="#4A3F35"></rect>
-</svg>
-    </div>
-    <div class="deco-dusty-sage">
-      <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0,28 C240,20 480,36 720,28 C960,20 1200,36 1440,28" fill="none" stroke="#9CAF97" stroke-width="2"></path>
-<circle cx="300" cy="22" r="6" fill="#C97C5D"></circle>
-<circle cx="620" cy="34" r="6" fill="#7C8A5E"></circle>
-<circle cx="940" cy="22" r="6" fill="#C97C5D"></circle>
-<circle cx="1180" cy="34" r="6" fill="#7C8A5E"></circle>
-</svg>
-    </div>
-    <div class="deco-powder-ink">
-      <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0,28 C240,18 480,38 720,28 C960,18 1200,38 1440,28" fill="none" stroke="#6B84A0" stroke-width="1.5"></path>
-<circle cx="260" cy="28" r="4" fill="#4A6C8C" opacity="0.5"></circle>
-<circle cx="460" cy="28" r="6" fill="#4A6C8C" opacity="0.6"></circle>
-<circle cx="680" cy="28" r="8" fill="#4A6C8C" opacity="0.7"></circle>
-<circle cx="900" cy="28" r="4" fill="#4A6C8C" opacity="0.8"></circle>
-<circle cx="1120" cy="28" r="6" fill="#4A6C8C" opacity="0.9"></circle>
-</svg>
-    </div>
-    <div class="deco-lavender-mist">
-      <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0,28 C240,22 480,34 720,28 C960,22 1200,34 1440,28" fill="none" stroke="#8C9DB5" stroke-width="1.5"></path>
-<ellipse cx="120" cy="24" rx="5" ry="7" fill="#7A5F98" opacity="0.8"></ellipse>
-<line x1="120" y1="30" x2="120" y2="40" stroke="#8C9DB5" stroke-width="1.5"></line>
-<ellipse cx="250" cy="24" rx="5" ry="7" fill="#7A5F98" opacity="0.8"></ellipse>
-<line x1="250" y1="30" x2="250" y2="40" stroke="#8C9DB5" stroke-width="1.5"></line>
-<ellipse cx="380" cy="24" rx="5" ry="7" fill="#7A5F98" opacity="0.8"></ellipse>
-<line x1="380" y1="30" x2="380" y2="40" stroke="#8C9DB5" stroke-width="1.5"></line>
-<ellipse cx="510" cy="24" rx="5" ry="7" fill="#7A5F98" opacity="0.8"></ellipse>
-<line x1="510" y1="30" x2="510" y2="40" stroke="#8C9DB5" stroke-width="1.5"></line>
-<ellipse cx="640" cy="24" rx="5" ry="7" fill="#7A5F98" opacity="0.8"></ellipse>
-<line x1="640" y1="30" x2="640" y2="40" stroke="#8C9DB5" stroke-width="1.5"></line>
-<ellipse cx="770" cy="24" rx="5" ry="7" fill="#7A5F98" opacity="0.8"></ellipse>
-<line x1="770" y1="30" x2="770" y2="40" stroke="#8C9DB5" stroke-width="1.5"></line>
-<ellipse cx="900" cy="24" rx="5" ry="7" fill="#7A5F98" opacity="0.8"></ellipse>
-<line x1="900" y1="30" x2="900" y2="40" stroke="#8C9DB5" stroke-width="1.5"></line>
-<ellipse cx="1030" cy="24" rx="5" ry="7" fill="#7A5F98" opacity="0.8"></ellipse>
-<line x1="1030" y1="30" x2="1030" y2="40" stroke="#8C9DB5" stroke-width="1.5"></line>
-<ellipse cx="1160" cy="24" rx="5" ry="7" fill="#7A5F98" opacity="0.8"></ellipse>
-<line x1="1160" y1="30" x2="1160" y2="40" stroke="#8C9DB5" stroke-width="1.5"></line>
-<ellipse cx="1290" cy="24" rx="5" ry="7" fill="#7A5F98" opacity="0.8"></ellipse>
-<line x1="1290" y1="30" x2="1290" y2="40" stroke="#8C9DB5" stroke-width="1.5"></line>
-</svg>
-    </div>
-    <div class="deco-sage-honey">
-      <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-<line x1="0" y1="28" x2="500" y2="28" stroke="#D9A94E" stroke-width="1.5"></line>
-<line x1="940" y1="28" x2="1440" y2="28" stroke="#D9A94E" stroke-width="1.5"></line>
-<polygon points="680.8,20.5 680.8,35.5 667.8,43.0 654.8,35.5 654.8,20.5 667.8,13.0" fill="#D9A94E"></polygon>
-<polygon points="706.9,20.5 706.9,35.5 693.9,43.0 680.9,35.5 680.9,20.5 693.9,13.0" fill="#C98F36"></polygon>
-<polygon points="733.0,20.5 733.0,35.5 720.0,43.0 707.0,35.5 707.0,20.5 720.0,13.0" fill="#D9A94E"></polygon>
-<polygon points="759.1,20.5 759.1,35.5 746.1,43.0 733.1,35.5 733.1,20.5 746.1,13.0" fill="#C98F36"></polygon>
-<polygon points="785.2,20.5 785.2,35.5 772.2,43.0 759.2,35.5 759.2,20.5 772.2,13.0" fill="#D9A94E"></polygon>
-</svg>
-    </div>
-    <div class="deco-watercolor-morning">
-      <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0,28 C240,20 480,36 720,28 C960,20 1200,36 1440,28" fill="none" stroke="#5B95B0" stroke-width="1.5"></path>
-<circle cx="720" cy="28" r="9" fill="#E08A5B" opacity="0.85"></circle>
-<path d="M 272,22 Q 277,17 280,22 Q 283,17 288,22" stroke="#4A4038" stroke-width="1.4" fill="none" stroke-linecap="round" opacity="0.7"></path>
-<path d="M 1152,22 Q 1157,17 1160,22 Q 1163,17 1168,22" stroke="#4A4038" stroke-width="1.4" fill="none" stroke-linecap="round" opacity="0.7"></path>
-</svg>
-    </div>
-  </div>
-
-  <section id="contact" class="section section-cta reveal">
-    <h2 class="section-title">Let's Connect</h2>
-    <p>Have a project, question, or just want to connect? I'd love to hear from you.</p>
-    <div class="contact-links">
-      <a href="mailto:hasanaahil12@gmail.com" class="btn btn-primary">Email Me</a>
-      <a href="https://www.linkedin.com/in/aahil-hasan-03697a25a" class="btn btn-outline" target="_blank" rel="noopener">LinkedIn</a>
+  <section id="contact">
+    <div class="container">
+      <div class="contact-inner">
+        <p class="section-label">Colloquamur</p>
+        <h2 class="section-title">Get in Touch</h2>
+        <div class="divider"><span class="divider-icon">✦</span></div>
+        <p>Have an idea, a question, or just want to say hello? I want to hear from every corner of MassJCL. Every message matters.</p>
+        <div class="contact-box">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" placeholder="Nomen tuum..." />
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="epistula@example.com" />
+          <label for="school">School / Chapter</label>
+          <input type="text" id="school" placeholder="Your JCL chapter..." />
+          <label for="message">Message</label>
+          <textarea id="message" placeholder="Scribe hic..."></textarea>
+          <button class="submit-btn" id="submit-btn" onclick="handleSubmit()">Send Message &rarr;</button>
+          <p id="form-msg" style="margin-top:1rem; font-family:'Cormorant Garamond',serif; font-size:1rem; color:var(--purple); display:none;"></p>
+        </div>
+      </div>
     </div>
   </section>
 
-</main>
+  <footer>
+    <div class="footer-name">Aahil Hasan · MassJCL President 2025-2026</div>
+    <div class="footer-divider"></div>
+    <div class="footer-sub">Massachusetts Junior Classical League</div>
+  </footer>
 
-<footer class="site-footer">
-  <p>&copy; <span id="year"></span> Aahil Hasan. Built with care.</p>
-</footer>
+  <script>
+    const RIDDLES = [
+      {
+        q: "I am the month named for the god of war, the month that once began the Roman year. Soldiers march in my cold winds. What month am I?",
+        answers: ["march", "martius"],
+        hint: "Think of the Roman god Mars.",
+        explanation: "March (Martius) was named for Mars, god of war."
+      },
+      {
+        q: "I have cities but no houses, mountains but no trees, water but no fish, and roads but no cars. What am I?",
+        answers: ["map", "a map"],
+        hint: "Roman generals relied on me.",
+        explanation: "A map."
+      },
+      {
+        q: "I am spoken every time you say the days of the week. I have seven brothers, each a heavenly body. The Romans named us all. What am I?",
+        answers: ["planet", "sun", "moon", "star"],
+        hint: "Think celestial.",
+        explanation: "The days of the week are named after celestial bodies."
+      },
+      {
+        q: "I am the structure that brought water to Roman cities across mountains and valleys. What am I?",
+        answers: ["aqueduct", "aquaeductus", "an aqueduct"],
+        hint: "Aqua means water.",
+        explanation: "An aqueduct."
+      },
+      {
+        q: "I am what every JCL member fears in competition and craves in victory. I am asked in Latin, answered in knowledge, and won in speed. What am I?",
+        answers: ["certamen"],
+        hint: "Aahil captains this.",
+        explanation: "Certamen!"
+      }
+    ];
 
-<a href="#top" class="back-to-top" id="backToTop" aria-label="Back to top">&uarr;</a>
+    let current = 0;
+    let score = 0;
+    let answered = false;
 
-<script src="js/script.js?v=8"></script>
+    function buildPips() {
+      const pips = document.getElementById('riddle-pips');
+      if (!pips) return;
+      pips.innerHTML = '';
+      RIDDLES.forEach((_, i) => {
+        const pip = document.createElement('div');
+        pip.className = 'riddle-pip' + (i === current ? ' active' : (i < current ? ' done' : ''));
+        pips.appendChild(pip);
+      });
+    }
+
+    function loadRiddle() {
+      answered = false;
+      const r = RIDDLES[current];
+      document.getElementById('riddle-num').textContent = 'Riddle ' + toRoman(current + 1) + ' of V';
+      document.getElementById('riddle-q').textContent = r.q;
+      document.getElementById('riddle-input').value = '';
+      document.getElementById('riddle-input').disabled = false;
+      document.getElementById('riddle-submit').disabled = false;
+      document.getElementById('riddle-feedback').textContent = '';
+      document.getElementById('riddle-feedback').className = 'riddle-feedback';
+      document.getElementById('riddle-hint').textContent = '';
+      document.getElementById('riddle-hint').className = 'riddle-hint';
+      document.getElementById('riddle-next').style.display = 'none';
+      document.getElementById('riddle-hint-btn').style.display = 'inline';
+      buildPips();
+    }
+
+    function toRoman(n) {
+      return ['I','II','III','IV','V'][n - 1];
+    }
+
+    function showHint() {
+      const hint = document.getElementById('riddle-hint');
+      hint.textContent = RIDDLES[current].hint;
+      hint.classList.add('show');
+      document.getElementById('riddle-hint-btn').style.display = 'none';
+    }
+
+    function checkRiddle() {
+      if (answered) return;
+      const input = document.getElementById('riddle-input').value.trim().toLowerCase();
+      if (!input) return;
+      answered = true;
+      const r = RIDDLES[current];
+      const correct = r.answers.some(a => input === a.toLowerCase() || input.includes(a.toLowerCase()));
+      const fb = document.getElementById('riddle-feedback');
+      if (correct) {
+        score++;
+        fb.textContent = 'Optime! Correct! ' + r.explanation;
+        fb.className = 'riddle-feedback correct';
+      } else {
+        fb.textContent = 'Non ita. The answer was: ' + r.answers[0] + '. ' + r.explanation;
+        fb.className = 'riddle-feedback wrong';
+      }
+      document.getElementById('riddle-input').disabled = true;
+      document.getElementById('riddle-submit').disabled = true;
+      document.getElementById('riddle-hint-btn').style.display = 'none';
+      if (current < RIDDLES.length - 1) {
+        document.getElementById('riddle-next').style.display = 'inline-block';
+      } else {
+        setTimeout(showFinale, 1400);
+      }
+    }
+
+    function nextRiddle() {
+      current++;
+      loadRiddle();
+    }
+
+    function showFinale() {
+      document.getElementById('riddle-main').style.display = 'none';
+      const finale = document.getElementById('riddle-finale');
+      finale.style.display = 'flex';
+      document.getElementById('finale-score').innerHTML = score + '<span>/5</span>';
+      const titles = ['Discipulus','Scholaris','Civis Romanus','Senator','Imperator'];
+      const msgs = [
+        'Keep studying. Rome was not built in a day.',
+        'A promising start!',
+        'Well done, citizen!',
+        'Impressive!',
+        'Extraordinary! You think like a Roman.'
+      ];
+      document.getElementById('finale-title').textContent = score === 0 ? 'Tiro' : titles[score - 1];
+      document.getElementById('finale-msg').textContent = score === 0 ? 'Every great Roman started somewhere. Try again!' : msgs[score - 1];
+      document.querySelectorAll('.riddle-pip').forEach(p => { p.classList.remove('active'); p.classList.add('done'); });
+    }
+
+    function restartRiddles() {
+      current = 0;
+      score = 0;
+      document.getElementById('riddle-main').style.display = 'block';
+      document.getElementById('riddle-finale').style.display = 'none';
+      loadRiddle();
+    }
+
+    async function handleSubmit() {
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const school = document.getElementById('school').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const btn = document.getElementById('submit-btn');
+      const msg = document.getElementById('form-msg');
+      if (!name || !email || !message) {
+        msg.style.display = 'block';
+        msg.style.color = '#a32d2d';
+        msg.textContent = 'Please fill in your name, email, and message before sending.';
+        return;
+      }
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+      try {
+        const res = await fetch('https://formspree.io/f/mpqbkakn', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, school, message })
+        });
+        if (res.ok) {
+          msg.style.display = 'block';
+          msg.style.color = 'var(--purple)';
+          msg.textContent = 'Thank you, ' + name + '! Your message has been received. Vale!';
+          document.getElementById('name').value = '';
+          document.getElementById('email').value = '';
+          document.getElementById('school').value = '';
+          document.getElementById('message').value = '';
+          btn.textContent = 'Sent!';
+        } else { throw new Error('error'); }
+      } catch (e) {
+        msg.style.display = 'block';
+        msg.style.color = '#a32d2d';
+        msg.textContent = 'Something went wrong. Please try again or email directly.';
+        btn.textContent = 'Send Message';
+        btn.disabled = false;
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      loadRiddle();
+      document.getElementById('riddle-input').addEventListener('keydown', e => {
+        if (e.key === 'Enter') { e.preventDefault(); checkRiddle(); }
+      });
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.style.opacity = '1';
+            e.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.platform-card, .why-item, .about-text p').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+      });
+    });
+  </script>
 </body>
 </html>
